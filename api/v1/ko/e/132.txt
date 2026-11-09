@@ -1,0 +1,32 @@
+// Motion Prompt #132 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#132
+//
+// 가변 폰트 애니메이션 / Variable font animation
+// 팩: motion2 (모션 그래픽 연출 2탄) · element 12 · 카테고리: 텍스트·도형 연출
+// 무엇이 일어나는가: 같은 단어의 굵기가 가늘게→아주 굵게→가늘게 부드럽게 바뀌고, 아래 슬라이더가 굵기를 보여 준다.
+// 동작 사양:
+//   - "MOTION"(112px, system-ui, 자간 2px). 굵기를 4.7초에 2왕복: v = 0.5 − 0.5·cos(2π × 2 × 시간 ÷ 4.7)(cos라서 양 끝에서 부드럽게 멈춘다).
+//   - 굵기 = round(100 + 800v)(100–900)를 그대로 폰트 굵기에 넣는다.
+//   - 아래에 슬라이더(x = 112→427, y = 180). 왼쪽에 '가늘게', 오른쪽에 '굵게'. 손잡이(노랑, 반지름 14)가 v에 맞춰 움직이고, 위에 현재 굵기 숫자를 띄운다.
+// 쓰임새: 제목, 로고, 강조할 한 단어에. 글자 모양 자체를 움직여 소리나 감정의 세기를 보여 주고 싶을 때.
+// 태그: variable-font, font-weight, typography, text, weight, kinetic-type
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#132
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 12
+// 12 可変フォントアニメーション（同じ単語の太さが、細→極太→細となめらかに変わる）
+CELLS[11] = (k, w, h, u) => {
+  stage(k);
+  const v = 0.5 - 0.5 * Math.cos(2 * Math.PI * 2 * u / CYC), wt = Math.round(100 + 800 * v);
+  txt(k, 'MOTION', w / 2, 80, `${wt} 112px system-ui`, '#fff', 'center', 'middle', '2px');
+  const x0 = 112, x1 = w - 112, y = 180, kx = x0 + (x1 - x0) * v;
+  txt(k, '細', x0 - 34, y + 1, `300 30px ${JP}`, C.dim, 'center', 'middle');
+  txt(k, '太', x1 + 34, y + 1, `900 30px ${JP}`, C.dim, 'center', 'middle');
+  k.fillStyle = C.navy3; rr(k, x0, y - 5, x1 - x0, 10, 5); k.fill();
+  k.fillStyle = C.blue; rr(k, x0, y - 5, Math.max(10, kx - x0), 10, 5); k.fill();
+  k.fillStyle = C.yel; k.beginPath(); k.arc(kx, y, 14, 0, 7); k.fill();
+  txt(k, String(wt), kx, y - 30, `800 24px ${DISP}`, C.yel, 'center', 'middle');
+};

@@ -1,0 +1,37 @@
+// Motion Prompt #019 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#019
+//
+// 리퀴드 트랜지션 / Liquid transition
+// 팩: motion (모션 그래픽 동작) · element 19 · 카테고리: 전환·강조 연출
+// 무엇이 일어나는가: 페인트 같은 액체가 위에서 흘러내려 화면을 채우고 다음 장면이 된다.
+// 동작 사양:
+//   - 낮 → 밤 → 낮, 각 2.35초. 액체는 2겹이며 둘 다 위에서 아래로, 2차 easeInOut.
+//   - 1겹(단색. 낮→밤은 파랑, 밤→낮은 코랄): 0.35–1.5초. 2겹(다음 장면 자체를 액체 모양으로 클리핑): 0.7–1.8초.
+//   - 액체의 앞면은 y = −110에서 화면 아래 끝 130px 아래까지 내려간다. 가장자리는 사인파 2개(진폭 13px, 8px)로 물결치며, 중간에 가장 세다.
+//   - 방울 7개(폭 30–54px, 둥근 끝)가 앞면에서 늘어진다. 길이 = 기준 30–110px × (0.25 + 0.9 × 물결 세기), 중간에 가장 길다.
+//   - 합쳐지는 질감: 형태를 흰색으로 그린다 → 7px 블러 → 알파를 임계값으로 자른다 → 색(또는 다음 장면)을 채운다.
+// 쓰임새: 부드럽고 유기적으로 장면을 바꿀 때. 음식, 뷰티, 크리에이티브 영상 등에.
+// 태그: liquid, transition, drip, paint, goo, fluid, wipe, scene-change
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#019
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 19
+// 19 リキッドトランジション（ペンキのような液体が上から垂れて流れ込み、次の画面になる）
+const DRIPS = [0, 1].map(s => { const R = rand(190 + s * 7), a = []; for (let i = 0; i < 7; i++) a.push({ x: 36 + i * 78 + (R() - 0.5) * 30, len: 30 + R() * 80, wd: 15 + R() * 12, ph: R() * 6 }); return a; });
+function liquidShape(g, w, h, p, set, u) {
+  const base = lerp(-110, h + 130, p), amp = Math.sin(Math.PI * clamp(p * 1.1));
+  g.beginPath(); g.moveTo(-20, -40);
+  for (let x = -20; x <= w + 20; x += 10) g.lineTo(x, base + amp * (13 * Math.sin(x * 0.021 + u * 3 + set) + 8 * Math.sin(x * 0.05 + u * 4.3)));
+  g.lineTo(w + 20, -40); g.closePath(); g.fill();
+  for (const d of DRIPS[set]) { const L = d.len * (0.25 + amp * 0.9), y0 = base - 20; g.beginPath(); g.roundRect(d.x - d.wd, y0, d.wd * 2, L + 20, d.wd); g.fill(); g.beginPath(); g.arc(d.x, y0 + L + 18, d.wd * 1.25, 0, 7); g.fill(); }
+}
+CELLS[18] = abCell((k, w, h, u, a, b) => {
+  const p1 = eIOs(P(u, TA - 0.15, TB)), p2 = eIOs(P(u, TA + 0.2, TB + 0.3));
+  SCR[a](k, w, h);
+  if (p1 > 0 && p2 < 1) k.drawImage(goo(g => liquidShape(g, w, h, p1, 0, u), 7, g => { g.fillStyle = a === 0 ? C.blue : C.coral; g.fillRect(0, 0, w, h); }), 0, 0);
+  if (p2 >= 1) SCR[b](k, w, h);
+  else if (p2 > 0) k.drawImage(goo(g => liquidShape(g, w, h, p2, 1, u + 1), 7, g => SCR[b](g, w, h)), 0, 0);
+});

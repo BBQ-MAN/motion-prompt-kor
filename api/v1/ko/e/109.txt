@@ -1,0 +1,43 @@
+// Motion Prompt #109 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#109
+//
+// 렌즈 플레어 / Lens flare
+// 팩: photo (사진 표현·빛과 스타일) · element 13 · 카테고리: 렌즈·카메라 효과
+// 무엇이 일어나는가: 해가 건물 뒤에서 하늘로 나오면 해 주위에 빛줄기가 생기고, 해에서 화면 중심을 지나 반대편까지 빛망울·육각형·고리가 일렬로 늘어선다.
+// 동작 사양:
+//   - 장면 2: 길모퉁이. 안쪽에 건물 줄·나무·가로등(x 114, 292, 494), 도로는 y 132~162, 인물은 왼쪽 앞(발 위치 x 176, y 200, 키 124px).
+//   - 해: 반지름 13px, 건물 뒤(x 428, y 74) → 하늘(x 474, y 30)
+//   - 빛줄기: 8개, 해 중심에서 17px 떨어진 곳부터 26px 또는 44px까지 번갈아(길이 9px·27px, 앰버, 1.6px, 75%)
+//   - 플레어: 해에서 중심을 지나는 선 위 t = 0.45, 0.8, 1.15, 1.45, 1.75, 2.0 위치(t = 1이 화면 중심)에 7px 원, 13px 육각형, 5px 원, 22px 육각형, 9px 원, 30px 고리(선 폭 3px)
+//   - 색은 앰버 #FFC75A와 #FFE3A3, 불투명도 40~70% × 효과량
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 눈부심이나 여름 햇살, 영화 같은 빛의 느낌을 더할 때.
+// 태그: lens flare, flare, ghosting, sun flare, starburst, cinematic
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#109
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 13
+// レンズフレア: 建物の陰から太陽が出ると、画面の中心をはさんで反対側へ光の玉が並ぶ
+CELLS[12] = cell((k, u) => {
+  const a = env(u), sx = lerp(428, 474, a), sy = lerp(74, 30, a);
+  stageStreet(k, BASE, { sun: [sx, sy, 13, 1] });
+  const cx = CW / 2, cy = CH / 2, dx = cx - sx, dy = cy - sy;
+  k.save();
+  // 太陽の光の筋
+  k.globalAlpha = 0.75 * a; k.strokeStyle = BASE.lit; k.lineWidth = 1.6; k.lineCap = 'round';
+  for (let i = 0; i < 8; i++) { const t = i / 8 * TAU + 0.2, L = i % 2 ? 26 : 44; k.beginPath(); k.moveTo(sx + Math.cos(t) * 17, sy + Math.sin(t) * 17); k.lineTo(sx + Math.cos(t) * L, sy + Math.sin(t) * L); k.stroke(); }
+  // 光の玉: 太陽から中心を通る線の上（t = 0.45〜2.0）
+  const G = [[0.45, 7, 'c', 0.6], [0.8, 13, 'h', 0.55], [1.15, 5, 'c', 0.7], [1.45, 22, 'h', 0.4], [1.75, 9, 'c', 0.55], [2.0, 30, 'r', 0.55]];
+  for (const [t, r, kind, al] of G) {
+    const x = sx + dx * t, y = sy + dy * t;
+    k.globalAlpha = al * a;
+    if (kind === 'r') { k.strokeStyle = BASE.lit; k.lineWidth = 3; k.beginPath(); k.arc(x, y, r, 0, TAU); k.stroke(); continue; }
+    k.fillStyle = kind === 'h' ? BASE.glow : BASE.lit; k.beginPath();
+    if (kind === 'h') for (let i = 0; i < 6; i++) { const t2 = i / 6 * TAU; k.lineTo(x + Math.cos(t2) * r, y + Math.sin(t2) * r); } else k.arc(x, y, r, 0, TAU);
+    k.closePath(); k.fill();
+  }
+  k.restore();
+});

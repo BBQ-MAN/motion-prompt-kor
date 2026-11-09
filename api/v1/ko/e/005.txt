@@ -1,0 +1,38 @@
+// Motion Prompt #005 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#005
+//
+// 마스크 리빌 / Mask reveal
+// 팩: motion (모션 그래픽 동작) · element 05 · 카테고리: 등장·텍스트 연출
+// 무엇이 일어나는가: 선 하나를 경계로, 보이지 않는 틀 너머에서 제목이 밀려 올라온다.
+// 동작 사양:
+//   - 2.35초에 1회. 경계선(코랄, 380 × 6, y = 124): 0.1–0.5초에 가운데에서 좌우로 늘어나고(3차 easeInOut), 2.05–2.3초에 줄어들며 사라진다.
+//   - 위 텍스트(굵게 98px, 흰색): 선 위 영역(y 8–119)으로 클리핑. 0.35–1.0초에 120px 아래에서 제자리로 올라온다. 5차 easeOut.
+//   - 아래 텍스트(32px, 노랑): 선 아래 영역(y 129–181)으로 클리핑. 0.55–1.15초에 60px 위에서 제자리로 내려온다. 5차 easeOut.
+//   - 퇴장: 위 텍스트는 1.7–2.05초에 위로 150px(backIn, s = 1.2, 먼저 살짝 내려간다). 아래 텍스트는 1.75–2.05초에 아래로 70px(3차 easeIn).
+//   - 불투명도는 바꾸지 않는다. 클리핑 영역을 벗어나야만 가려진다.
+// 쓰임새: 타이틀이나 제목을 차분하고 깔끔하게 보여 줄 때.
+// 태그: mask, reveal, clip, wipe, title, text, slide-up, headline
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#005
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 05
+// 05 マスクリビール（見えない枠＝線の向こうから、見出しがせり上がる）
+CELLS[4] = (k, w, h, u) => {
+  stage(k);
+  const T = CYC / 2, lu = mod(u, T), X = w / 2, LY = 124;
+  const lg = eIO(P(lu, 0.1, 0.5)) * (1 - eIO(P(lu, 2.05, 2.3)));
+  // 上の段：線の下から上へ
+  const up = (1 - eOut5(P(lu, 0.35, 1.0))) * 120 + backIn(P(lu, 1.7, 2.05), 1.2) * -150;
+  k.save(); k.beginPath(); k.rect(0, 8, w, LY - 8 - 5); k.clip();
+  txt(k, 'Hello!', X, LY - 14 + up, `800 98px ${DISP}`, '#fff', 'center', 'alphabetic', '1px');
+  k.restore();
+  // 下の段：線の上から下へ
+  const dn = (1 - eOut5(P(lu, 0.55, 1.15))) * -60 + eIn(P(lu, 1.75, 2.05)) * 70;
+  k.save(); k.beginPath(); k.rect(0, LY + 5, w, 52); k.clip();
+  txt(k, 'はじめまして', X, LY + 44 + dn, `700 32px ${JP}`, C.yel, 'center', 'alphabetic', '6px');
+  k.restore();
+  if (lg > 0.005) { k.fillStyle = C.coral; rr(k, X - 190 * lg, LY - 3, 380 * lg, 6, 3); k.fill(); }
+};

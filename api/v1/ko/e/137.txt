@@ -1,0 +1,31 @@
+// Motion Prompt #137 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#137
+//
+// 푸시 트랜지션 / Push transition
+// 팩: motion2 (모션 그래픽 연출 2탄) · element 17 · 카테고리: 화면 전환·강조 연출
+// 무엇이 일어나는가: 다음 화면이 옆에서 들어오며 이전 화면을 함께 밀어낸다.
+// 동작 사양:
+//   - 바다 화면 → 산 화면 → 바다 화면을 2.35초씩. 각 구간의 0.45–1.6초(1.15초)에 전환, 3차 ease-in-out.
+//   - 두 화면을 붙인 채 함께 화면 폭(539px)만큼 이동한다. 겹치거나 흐리게 하지 않는다.
+//   - 방향: 바다→산은 왼쪽으로(다음 화면은 오른쪽에서), 산→바다는 오른쪽으로.
+//   - 두 화면의 경계에 남색 선(폭 6).
+// 쓰임새: 슬라이드, 사진, 단계를 차례로 넘길 때. 이어지는 느낌, 앞으로 나아가는 느낌을 주고 싶을 때.
+// 태그: push, push-transition, slide, transition, scene-change, carousel
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#137
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 17
+// 17 プッシュ（次の画面が横から入ってきて、前の画面を一緒に押し出す）
+const SC17 = [scSea, scMtn];
+CELLS[16] = abCell((k, w, h, u, a, b) => {
+  const p = eIO(P(u, TA - 0.05, TB + 0.1)), dir = a === 0 ? -1 : 1;
+  if (p <= 0) return SC17[a](k, w, h);
+  if (p >= 1) return SC17[b](k, w, h);
+  k.save(); k.translate(dir * p * w, 0); SC17[a](k, w, h); k.restore();
+  k.save(); k.translate(dir * (p - 1) * w, 0); SC17[b](k, w, h); k.restore();
+  const ex = dir < 0 ? w * (1 - p) : w * p;
+  k.fillStyle = C.navy; k.fillRect(ex - 3, 0, 6, h);
+});

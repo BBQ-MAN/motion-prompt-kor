@@ -1,0 +1,28 @@
+// Motion Prompt #187 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#187
+//
+// 페이드 아웃 / Fade to black
+// 팩: camera2 (카메라 워크와 화면 전환 2) · element 19 · 카테고리: 화면 전환·편집
+// 무엇이 일어나는가: 화면 전체가 검게 가라앉고, 다음 장면이 검은 화면에서 밝아진다.
+// 동작 사양:
+//   - 페이드 아웃: 1.4초부터 2.6초까지(1.2초) 나가는 화면 위에 검정(rgb(20,20,24))을 불투명도 0 → 100%로 덮는다. 2차 ease-in-out(cubic-bezier(0.45,0,0.55,1)에 가까움)
+//   - 검정: 2.6초부터 3.1초까지 완전한 검정. 2.9초에 들어오는 화면을 스트레이트 컷으로 보이지 않게 바꿔 넣는다
+//   - 페이드 인: 3.1초부터 4.3초까지(1.2초) 검정이 100% → 0으로, 같은 이징
+//   - 카메라: 두 화면 모두 고정(A는 높이 1.4m, B는 높이 1.6m, 피치 +0.1rad). 피사체도 움직이지 않는다
+//   - 4.7초마다 A→B, B→A를 번갈아 반복(왕복 9.4초). 오른쪽 위에 "FADE OUT" / "FADE IN" 표시. 뷰파인더 표시는 검정 위에 남는다
+// 쓰임새: 챕터 구분, 긴 시간 경과, 이야기의 끝에.
+// 태그: fade to black, fade out, fade in, black, ending, transition
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#187
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 19
+// 19 フェードアウト: 画面全体が黒へ沈んで終わり、黒から次の場面が明けてくる
+CELLS[18] = shot(abCell((k, w, h, u, A, B) => {
+  const out = eIOs(P(u, 1.4, 2.6)), inn = eIOs(P(u, 3.1, 4.3));
+  if (u < 2.9) A(k, w, h); else B(k, w, h);
+  const a = u < 2.9 ? out : 1 - inn;
+  if (a > 0) { k.fillStyle = `rgba(20,20,24,${a.toFixed(3)})`; k.fillRect(0, 0, w, h); }
+}, u => u < 2.9 ? 'FADE OUT' : 'FADE IN'));

@@ -1,0 +1,38 @@
+// Motion Prompt #181 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#181
+//
+// 버즈 아이 뷰 / Bird's-eye view
+// 팩: camera2 (카메라 워크와 화면 전환 2) · element 13 · 카테고리: 앵글·구도
+// 무엇이 일어나는가: 머리 위에서 수직으로 내려다본다. 도로, 사람, 차, 나무가 위에서 본 형태로 보이고, 카메라가 올라갈수록 보이는 범위가 넓어진다.
+// 동작 사양:
+//   - 카메라: 바로 아래를 향하고(피치 -π/2 = -90°) 원점 바로 위에서 9m → 15m로 올라간다
+//   - 타이밍: 0.5초부터 3.4초까지 2.9초. 3차 ease-in-out(cubic-bezier(0.65,0,0.35,1)에 가까움)
+//   - 지면: 2m 격자와 폭 3.2m 도로(흰 점선 중앙선)를 한 평면으로 그린다. 나무 6그루는 원, 건물 3동은 사각형으로 위에서 본 모습
+//   - 피사체: 인물(머리 원과 어깨 타원)이 도로 오른쪽을 따라 위로 5.2m 걷고, 차(1.8×4m)가 왼쪽을 따라 아래로 6.8m 달린다. 둘 다 진행도 p에 비례해 움직인다
+//   - 카메라가 올라갈수록 모든 것이 작아지고 지면이 더 넓게 보인다(10 하이 앵글은 비스듬히 내려다본다)
+//   - 복귀: 3.4~4.2초 정지 후 마지막 0.5초 동안 시작 상태로 크로스페이드. 오른쪽 위에 "↓ 90° · 9m → 15m" 표시
+// 쓰임새: 배치나 동선을 도식처럼 보여 줄 때, 신의 시점으로 전체를 조망할 때.
+// 태그: bird's-eye, birds eye, top-down, overhead, straight down, aerial, angle
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#181
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 13
+// 13 バーズアイ: 真上（ピッチ -90°）から真下を見る。道・人・車・木がすべて上から見た形になる（10 ハイアングルは斜めから）
+CELLS[12] = shot(camCell((k, w, h, p) => {
+  const c = cam({ y: lerp(9, 15, p), pitch: -Math.PI / 2 });
+  const ex = [[0, 0, 0, (kk, s) => {   // 地面（格子と道）を1枚のスプライトとして描く
+    kk.fillStyle = C.g1; kk.fillRect(-1.6, -16, 3.2, 32);
+    kk.strokeStyle = C.grid; kk.lineWidth = 1.3 / s; kk.beginPath();
+    for (let i = -16; i <= 16; i += 2) { kk.moveTo(i, -16); kk.lineTo(i, 16); kk.moveTo(-16, i); kk.lineTo(16, i); }
+    kk.stroke();
+    kk.strokeStyle = '#fff'; kk.lineWidth = 2 / s; kk.setLineDash([0.6, 0.6]); kk.beginPath(); kk.moveTo(0, -16); kk.lineTo(0, 16); kk.stroke(); kk.setLineDash([]);
+  }]];
+  [[-4.5, -2.5, 1.0], [-5.5, 1.8, 1.2], [4.6, -0.6, 1.1], [5.2, 3.2, 0.9], [-4.2, 5.5, 1.0], [4.9, -4.4, 1.0]].forEach(([x, z, r]) => ex.push([x, 0, z, (kk) => { kk.fillStyle = C.g2; kk.beginPath(); kk.arc(0, 0, r, 0, 7); kk.fill(); kk.fillStyle = C.g3; kk.beginPath(); kk.arc(0, 0, 0.12, 0, 7); kk.fill(); }]));
+  [[-8.5, -3, 3, 2.4], [8.6, 1, 3.4, 2.8], [-8.3, 2.5, 2.6, 2]].forEach(([x, z, bw, bd]) => ex.push([x, 0, z, (kk, s) => { kk.fillStyle = C.g1; kk.fillRect(-bw / 2, -bd / 2, bw, bd); kk.strokeStyle = C.g3; kk.lineWidth = 1.4 / s; kk.strokeRect(-bw / 2, -bd / 2, bw, bd); }]));
+  ex.push([-0.8, 0, lerp(3.4, -3.4, p), (kk) => { kk.fillStyle = C.blue; rr(kk, -0.9, -2, 1.8, 4, 0.4); kk.fill(); kk.fillStyle = '#fff'; kk.fillRect(-0.7, 0.3, 1.4, 0.8); kk.fillRect(-0.7, -1.2, 1.4, 0.6); }]);
+  ex.push([0.9, 0, lerp(-2.6, 2.6, p), (kk) => { kk.fillStyle = C.blue; kk.beginPath(); kk.ellipse(0, 0, 0.24, 0.12, 0, 0, 7); kk.fill(); kk.beginPath(); kk.arc(0, 0, 0.16, 0, 7); kk.fill(); }]);
+  world(k, w, h, c, { grid: false, mountains: false, buildings: false, trees: false, sun: null, extra: ex });
+}, p => `↓ 90° · ${lerp(9, 15, p).toFixed(0)}m`));

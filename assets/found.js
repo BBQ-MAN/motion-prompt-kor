@@ -76,6 +76,39 @@
       removeP1: 'To ask for a removal or a correction, use the ', removeLink: 'issue form on GitHub', removeP2: '. We act on it once the request is confirmed.',
       thanks1: 'The format — moving samples with a prompt you can copy — was inspired by', thanks2: '. Thank you.',
     },
+    ko: {
+      title: '발견한 사례 — Motion Prompt',
+      skip: '사례 목록으로 이동', navLabel: '사이트 내', navGallery: '견본', navFound: '사례', langLabel: '언어',
+      themeToDark: '다크 모드로 전환', themeToLight: '라이트 모드로 전환',
+      eyebrow: '발견한 사례',
+      h1: '이름과 견본으로 공통 언어를 만드는 사람들',
+      lead: 'AI에게 요청할 때 쓰는 이름을 움직이는 견본이나 치트 시트와 함께 정리해 공개한 사람들의 게시물입니다. 분야도 언어도 모습도 저마다 다릅니다. 게시자가 직접 만든 견본이 있는 게시물을 골랐으며, 게시물의 내용과 권리는 각 게시자에게 있습니다.',
+      leadNote: '여기서 소개한다고 해서 게시자가 이 사이트를 지지한다는 뜻은 아닙니다. 소개 글은 이 사이트가 작성했습니다.',
+      noteH: '임베드에 대해',
+      noteP: '이 페이지는 각 게시물을 X(구 Twitter) 임베드로 보여 줍니다. 페이지를 열면 X 서버에서 불러오며 X의 쿠키가 사용됩니다. X는 이 열람을 기록해 광고에 쓸 수 있습니다. 불러올 때는 개인화에 쓰지 않도록 요청하는 설정(dnt)을 붙입니다.',
+      notePrivacy: 'X 개인정보처리방침', noteCookies: 'X의 쿠키 사용',
+      listH: '사례 목록', loadListFailed: '목록을 불러오지 못했습니다.',
+      count: '{n}건',
+      postLang: { ja: '일본어', en: '영어', ko: '한국어' },
+      postLangLabel: '게시물 언어: {l}',
+      viewOnX: 'X에서 보기',
+      viewOnXLabel: '{a}의 게시물을 X에서 보기',
+      loading: '불러오는 중…',
+      gone: '이 게시물은 표시할 수 없습니다(삭제되었을 수 있습니다).',
+      failed: 'X에서 불러오지 못했습니다. 광고 차단기 등에 막혔을 수 있습니다. 「X에서 보기」로 열 수 있습니다.',
+      shown: '{a}의 게시물을 표시했습니다',
+      moreH: '사례를 알려 주세요',
+      recH: '게시물 추천하기 (자기 추천도 환영)',
+      recP: '이름에 견본을 붙여 공개한 게시물을 발견하면 GitHub Issue로 알려 주세요. 본인 게시물이어도 괜찮습니다. 싣는 것은 임베드와 링크뿐이며, 이미지나 영상을 이 사이트로 옮기지 않습니다.',
+      recLink: '사례 추천하기 (GitHub Issue)',
+      rmH: '내려 주길 원할 때',
+      rmP: '본인 게시물을 내리고 싶거나 소개 글이 정확하지 않다면 Issue 양식으로 요청해 주세요. 확인되면 신속히 내립니다.',
+      rmLink: '삭제·정정 요청하기 (GitHub Issue)',
+      author: '만든 사람', authorName: '大滝昇平 (Shohei Ohtaki)',
+      whyLink: '만든 이유', makeLink: '내 분야·내 언어로 만들기', addLink: '내 분야의 이름 추가하기', listLink: '이름 목록 (GitHub)',
+      removeP1: '게재 삭제·정정은 ', removeLink: 'GitHub Issue 양식', removeP2: '으로 요청할 수 있습니다. 확인 후 신속히 처리합니다.',
+      thanks1: '움직이는 견본을 나열하고 프롬프트를 복사해 쓰는 형식은', thanks2: '에서 착안했습니다. 감사합니다.',
+    },
   };
 
   var store = {
@@ -84,7 +117,7 @@
     del: function (k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } },
   };
   var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
-  var state = { lang: root.lang === 'en' ? 'en' : 'ja', data: null };
+  var state = { lang: root.lang === 'en' || root.lang === 'ko' ? root.lang : 'ja', data: null };
   var cards = [];   // { item, el, box, status, shown, token }
 
   function t(key, vars) {

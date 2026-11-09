@@ -1,0 +1,39 @@
+// Motion Prompt #015 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#015
+//
+// 파티클 / Particles
+// 팩: motion (모션 그래픽 동작) · element 15 · 카테고리: 움직임 디테일
+// 무엇이 일어나는가: 아래쪽 발생원에서 입자가 계속 솟아올라 퍼지고 떨어진다.
+// 동작 사양:
+//   - 입자 84개. 아래 중앙(가로 중앙, 아래 끝에서 20px 위)에서 방출.
+//   - 초속: 가로 ±190px/s, 위로 250–400px/s. 중력 470px/s²(포물선).
+//   - 각 입자는 2.35초 또는 약 1.57초 주기로 반복하며, 시작 시점은 난수로 어긋난다(시드 고정이라 매번 같은 화면).
+//   - 수명 최대 1.5초. 처음 0.06초에 페이드인, 마지막 30%에 페이드아웃. 스케일 1.15→0.7.
+//   - 모양은 원, 사각형, 삼각형(크기 5–11px), 색은 파랑, 코랄, 노랑, 민트. 최대 ±4.5rad/s로 회전.
+// 쓰임새: 축하나 달성 장면에 활기를 더할 때. 컨페티나 불꽃 대신.
+// 태그: particles, confetti, emitter, fountain, gravity, celebration, sparks
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#015
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 15
+// 15 パーティクル（粒が次々と噴き出して、飛び散って落ちる）
+const PARTS = (() => { const R = rand(15), a = []; for (let i = 0; i < 84; i++) { const n = R() < 0.5 ? 2 : 3; a.push({ T: CYC / n, ph: R() * CYC, vx: (R() - 0.5) * 2 * 190, vy: -(250 + R() * 150), sz: 5 + R() * 6, col: PAL[i % 4], kind: i % 3, spin: (R() - 0.5) * 9 }); } return a; })();
+CELLS[14] = (k, w, h, u) => {
+  stage(k);
+  const X = w / 2, Y = h - 20, G = 470;
+  for (const p of PARTS) {
+    const t = mod(u + p.ph, p.T), life = Math.min(p.T, 1.5); if (t > life) continue;
+    const x = X + p.vx * t, y = Y + p.vy * t + 0.5 * G * t * t, a = Math.min(1, t / 0.06) * (1 - smooth(P(t, life * 0.7, life))), sc = lerp(1.15, 0.7, t / life);
+    k.globalAlpha = a; k.fillStyle = p.col; k.save(); k.translate(x, y); k.rotate(t * p.spin); k.scale(sc, sc);
+    if (p.kind === 0) { k.beginPath(); k.arc(0, 0, p.sz, 0, 7); k.fill(); }
+    else if (p.kind === 1) { k.fillRect(-p.sz, -p.sz, p.sz * 2, p.sz * 2); }
+    else { k.beginPath(); k.moveTo(0, -p.sz * 1.3); k.lineTo(p.sz * 1.2, p.sz); k.lineTo(-p.sz * 1.2, p.sz); k.closePath(); k.fill(); }
+    k.restore();
+  }
+  k.globalAlpha = 1;
+  k.fillStyle = C.navy3; rr(k, X - 70, h - 12, 140, 30, 10); k.fill();
+  k.fillStyle = '#fff'; rr(k, X - 30, h - 22, 60, 30, 10); k.fill();
+};

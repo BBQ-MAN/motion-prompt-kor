@@ -1,0 +1,49 @@
+// Motion Prompt #162 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#162
+//
+// 라이트박스 / Lightbox
+// 팩: lp2 (랜딩 페이지·웹사이트 연출 2탄) · element 18 · 카테고리: 시선을 끄는 연출
+// 무엇이 일어나는가: 갤러리 썸네일을 누르면 페이지가 어두워지고 그 사진이 가운데에 크게 뜬다. ×를 누르면 원래 썸네일로 줄어든다.
+// 동작 사양:
+//   - 511 × 168 뷰포트, 썸네일 4장(108 × 72, radius 6). 0.75초에 세 번째가 클릭되고, 3.0초에 오른쪽 위 ×가 클릭된다. 1회 4.7초(팩 주기 9.4초에 2회).
+//   - 열기: 0.85–1.3초(0.45초, cubic ease-out)에 어두운 오버레이(rgb(14,18,28), opacity 0 → 0.82)가 페이지를 덮고, 클릭한 썸네일이 가운데에서 261 × 128로 커진다.
+//   - 열기의 후반 동안 사진 아래에 "3 / 4", 양옆에 이전/다음 화살표, 오른쪽 위에 ×가 나타난다.
+//   - 닫기: 3.05–3.4초(0.35초, cubic ease-in-out)에 같은 움직임이 거꾸로 진행되어 사진이 썸네일로 돌아간다.
+// 쓰임새: 시공 사례, 포트폴리오, 상품 사진을 페이지 이동 없이 크게 보여 줄 때.
+// 태그: lightbox, modal, gallery, image, overlay, zoom
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#162
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 18
+// 18 ライトボックス（サムネを押すと周りが暗くなり、その上に写真が大きく表示される）
+CELLS[17] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const e = u < 2.0 ? eOut(P(u, 0.85, 1.3)) : 1 - eIO(P(u, 3.05, 3.4));
+  const TX = [24, 142, 260, 378], TY = 72, TW = 108, THt = 72, PV = [2, 0, 1, 0];
+  const B = { x: 125, y: 12, w: 261, h: 128 };
+  const cur = t => path([[0, 430, 205], [0.5, 318, 110], [0.95, 318, 110], [1.6, 445, 120], [2.5, 445, 120], [2.85, 487, 19], [3.15, 487, 19], [3.8, 430, 205], [4.7, 430, 205]], t);
+  const [cx, cy] = cur(u);
+  view(k, () => {
+    header(k, 0);
+    txt(k, 'ギャラリー', 24, 60, `800 15px ${JP}`, C.ink);
+    for (let i = 0; i < 4; i++) pic(k, TX[i], TY, TW, THt, PV[i], 6);
+    bars(k, 24, 154, 300, 1, C.faint, 6);
+    if (e > 0) {
+      k.fillStyle = `rgba(14,18,28,${0.82 * e})`; k.fillRect(0, 0, VW, VH);
+      const x = lerp(TX[2], B.x, e), y = lerp(TY, B.y, e), ww = lerp(TW, B.w, e), hh = lerp(THt, B.h, e);
+      pic(k, x, y, ww, hh, 1, 6);
+      k.save(); k.globalAlpha = clamp((e - 0.5) / 0.5);
+      txt(k, '3 / 4', VW / 2, 156, `700 12px ${EN}`, 'rgba(255,255,255,.85)', 'center', 'middle', '1px');
+      k.strokeStyle = '#fff'; k.lineWidth = 2.4; k.lineCap = 'round'; k.lineJoin = 'round';
+      k.beginPath(); k.moveTo(481, 13); k.lineTo(493, 25); k.moveTo(493, 13); k.lineTo(481, 25); k.stroke();
+      k.beginPath(); k.moveTo(98, 66); k.lineTo(90, 76); k.lineTo(98, 86); k.stroke();
+      k.beginPath(); k.moveTo(413, 66); k.lineTo(421, 76); k.lineTo(413, 86); k.stroke();
+      k.restore();
+    }
+    click(k, cx, cy, u, [0.75, 3.0]);
+  });
+};

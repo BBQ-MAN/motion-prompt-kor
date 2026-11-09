@@ -1,0 +1,56 @@
+// Motion Prompt #155 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#155
+//
+// 호버 이미지 전환 / Image swap on hover
+// 팩: lp2 (랜딩 페이지·웹사이트 연출 2탄) · element 11 · 카테고리: 마우스·입력 반응
+// 무엇이 일어나는가: 상품 카드에 커서를 올리면 티셔츠 앞면 사진이 뒷면 사진으로 크로스페이드되고, 커서가 벗어나면 앞면으로 돌아온다.
+// 동작 사양:
+//   - 511 × 168 뷰포트, 상품 카드 2장(사진 프레임 196 × 112, radius 8, 아래에 상품명과 가격). 커서가 왼쪽 카드, 오른쪽 카드에 각각 약 1.3초씩 머문다. 1회 4.7초(팩 주기 9.4초에 2회).
+//   - 호버하면 0.3초 동안(quadratic ease-in-out) 앞면 사진(가슴에 작은 점)이 뒷면 사진(등에 큰 별)으로 크로스페이드된다. 벗어나면 같은 0.3초 동안 되돌아간다.
+//   - 사진 아래 점 2개(반지름 3)가 어느 사진이 보이는지 표시한다(진한 점이 현재 사진).
+//   - 호버 영역은 상품명까지 포함한 카드 전체. 프레임, 상품명, 가격은 움직이지 않는다.
+// 쓰임새: 쇼핑몰 상품 목록에서 목록을 벗어나지 않고 다른 각도나 착용 컷을 보여 줄 때.
+// 태그: image-swap, hover, crossfade, product-card, ecommerce, thumbnail
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#155
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 11
+// 11 ホバーで画像切り替え（商品カードにカーソルを乗せると、写真が別の角度＝後ろ姿に切り替わる）
+function tee(k, x, y, s, col, back) {
+  k.save(); k.translate(x, y); k.scale(s, s);
+  k.fillStyle = col; k.beginPath();
+  k.moveTo(-0.36, -0.5); k.quadraticCurveTo(0, back ? -0.44 : -0.3, 0.36, -0.5);
+  [[0.66, -0.3], [0.52, -0.08], [0.38, -0.18], [0.38, 0.56], [-0.38, 0.56], [-0.38, -0.18], [-0.52, -0.08], [-0.66, -0.3]].forEach(([a, b]) => k.lineTo(a, b));
+  k.closePath(); k.fill();
+  k.strokeStyle = 'rgba(28,35,51,.18)'; k.lineWidth = 0.025; k.beginPath(); k.moveTo(-0.36, -0.5); k.quadraticCurveTo(0, back ? -0.44 : -0.3, 0.36, -0.5); k.stroke();
+  k.restore();
+}
+CELLS[10] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const CX = [44, 271], CY = 10, CWD = 196, IH = 112;
+  const PRODS = [['Tシャツ', '¥3,980', '#FFFFFF', C.blueL, C.blue], ['ロゴTシャツ', '¥4,280', C.acc, C.accL, '#fff']];
+  const cur = t => path([[0, 60, 200], [0.4, 150, 70], [1.6, 160, 80], [2.0, 370, 70], [3.3, 380, 82], [3.8, 470, 200], [4.7, 60, 200]], t);
+  view(k, () => {
+    for (let i = 0; i < 2; i++) {
+      const [nm, pr, col, bg, mark] = PRODS[i], x = CX[i];
+      const inside = t => { const [a, b] = cur(t); return a > x && a < x + CWD && b > CY && b < CY + IH + 40; };
+      const q = trans(inside, u, 0.3, eIOs);
+      k.save(); rr(k, x, CY, CWD, IH, 8); k.clip(); k.fillStyle = bg; k.fillRect(x, CY, CWD, IH);
+      // 正面（胸に小さな丸い印）→ 後ろ姿（背中に大きな星の柄）
+      k.globalAlpha = 1 - q; tee(k, x + CWD / 2, CY + IH / 2 + 4, 108, col, false);
+      k.fillStyle = mark; k.beginPath(); k.arc(x + CWD / 2 + 18, CY + IH / 2 - 16, 7, 0, 7); k.fill();
+      k.globalAlpha = q; tee(k, x + CWD / 2, CY + IH / 2 + 4, 108, col, true);
+      { const sx = x + CWD / 2, sy = CY + IH / 2 + 12; k.fillStyle = mark; k.beginPath(); for (let j = 0; j < 10; j++) { const r = j % 2 ? 8 : 19, a = -Math.PI / 2 + j * Math.PI / 5; j ? k.lineTo(sx + Math.cos(a) * r, sy + Math.sin(a) * r) : k.moveTo(sx + Math.cos(a) * r, sy + Math.sin(a) * r); } k.closePath(); k.fill(); }
+      k.globalAlpha = 1; k.restore();
+      for (let j = 0; j < 2; j++) { k.fillStyle = (j ? q : 1 - q) > 0.5 ? C.ink : C.faint; k.beginPath(); k.arc(x + CWD / 2 - 6 + j * 12, CY + IH - 10, 3, 0, 7); k.fill(); }
+      txt(k, nm, x + 4, CY + IH + 22, `800 14px ${JP}`, C.ink);
+      txt(k, pr, x + CWD - 4, CY + IH + 22, `800 14px ${EN}`, C.ink, 'right');
+      bars(k, x + 4, CY + IH + 32, 90, 1, C.faint, 5);
+    }
+    const [cx, cy] = cur(u); cursor(k, cx, cy);
+  });
+};

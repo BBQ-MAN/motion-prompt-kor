@@ -1,0 +1,44 @@
+// Motion Prompt #074 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#074
+//
+// 스크롤 페이드인 / Fade-in on scroll
+// 팩: lp (랜딩 페이지·웹사이트 연출) · element 02 · 카테고리: 스크롤 연출
+// 무엇이 일어나는가: 스크롤로 화면에 들어온 제목, 카드, 본문이 각각 아래에서 떠오르며 나타난다.
+// 동작 사양:
+//   - 스크롤 양: 0.35~1.0초에 0→95px, 1.5~2.1초에 95→200px, 3.2~4.4초에 200→0(모두 easeInOut 3차)
+//   - 판정선은 뷰포트 높이의 85%(위에서 143px). 요소의 위쪽 끝이 이 선보다 위로 올라온 시점에 발동(Intersection Observer 방식)
+//   - 발동 후 0.7초 동안 불투명도 0→1, 아래 28px → 0으로 이동(easeOut 3차)
+//   - 요소는 제목(페이지상 172px), 카드 3장 한 줄(206px), 본문(334px) 세 가지. 처음에는 모두 화면 아래에 숨어 있다. 한 줄의 카드는 동시에 나타난다
+//   - 다시 위로 스크롤해 화면 아래로 벗어난 요소는 보이지 않는 곳에서 초기 상태로 돌아가고, 다음에 들어오면 다시 재생된다
+// 쓰임새: 세로로 긴 랜딩 페이지에서 읽어 내려갈 때마다 내용을 하나씩 보여 주고 싶을 때.
+// 태그: fade-in, scroll-reveal, reveal-on-scroll, intersection-observer, aos, entrance, scroll
+// 크기: 539x208 px · 1주기: 4.8 s
+// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#074
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 02
+// 02 スクロールでフェードイン（画面に入った要素が、下から浮かび上がって現れる）
+CELLS[1] = (k, w, h, u) => {
+  frame(k);
+  const SY = t => steps([[0.35, 0], [1.0, 95], [1.5, 95], [2.1, 200], [3.2, 200], [4.4, 0]], t), y = SY(u);
+  const LINE = VH * 0.85, DUR = 0.7, RISE = 28;
+  view(k, () => {
+    k.save(); k.translate(0, -y);
+    txt(k, '暮らしを、軽く。', 34, 52, `800 24px ${JP}`, C.ink); bars(k, 34, 68, 190, 3); btn(k, 34, 108, 96, 26, '詳しく見る');
+    pic(k, 286, 18, 196, 110, 0, 8);
+    const items = [
+      [172, () => txt(k, '選ばれる3つの理由', VW / 2, 172 + 20, `800 18px ${JP}`, C.ink, 'center')],
+      [206, () => { for (let i = 0; i < 3; i++) { const x = 34 + i * 152; k.fillStyle = C.soft; rr(k, x, 206, 136, 106, 8); k.fill(); pic(k, x + 8, 214, 120, 56, i, 5); bars(k, x + 10, 280, 112, 2, '#CBD2DE'); } }],
+      [334, () => bars(k, 110, 334, 290, 3, C.faint, 7, 13)]
+    ];
+    for (const [top, draw] of items) {
+      const t0 = enteredAt(SY, top, LINE, u); if (t0 === null) continue;
+      const q = eOut(P(u, t0, t0 + DUR));
+      k.save(); k.globalAlpha = q; k.translate(0, RISE * (1 - q)); draw(); k.restore();
+    }
+    k.restore();
+    sbar(k, y / 200, 0.5);
+  });
+};

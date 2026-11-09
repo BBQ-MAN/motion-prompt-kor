@@ -1,21 +1,22 @@
 {
   "pack": "motion2",
   "order": 6,
-  "title": { "ja": "モーショングラフィックスの演出 第2弾", "en": "Motion graphics moves, part 2", "es": "Movimientos de motion graphics, parte 2", "zh-Hans": "动态图形（第 2 弹）", "zh-Hant": "Motion Graphics 動態手法 第 2 彈" },
+  "title": { "ja": "モーショングラフィックスの演出 第2弾", "en": "Motion graphics moves, part 2", "es": "Movimientos de motion graphics, parte 2", "zh-Hans": "动态图形（第 2 弹）", "zh-Hant": "Motion Graphics 動態手法 第 2 彈", "ko": "모션 그래픽 연출 2탄" },
   "categories": [
-    { "slug": "techniques", "ja": "動きのテクニック", "en": "Motion techniques", "es": "Técnicas de movimiento", "zh-Hans": "动效技巧", "zh-Hant": "動態技巧" },
-    { "slug": "text-shapes", "ja": "文字・図形の演出", "en": "Text & shapes", "es": "Texto y formas", "zh-Hans": "文字与图形", "zh-Hant": "文字與圖形動態" },
-    { "slug": "transitions-highlights", "ja": "切り替え・見せ場", "en": "Transitions & highlights", "es": "Transiciones y realces", "zh-Hans": "转场与强调", "zh-Hant": "轉場與吸睛效果" }
+    { "slug": "techniques", "ja": "動きのテクニック", "en": "Motion techniques", "es": "Técnicas de movimiento", "zh-Hans": "动效技巧", "zh-Hant": "動態技巧", "ko": "모션 테크닉" },
+    { "slug": "text-shapes", "ja": "文字・図形の演出", "en": "Text & shapes", "es": "Texto y formas", "zh-Hans": "文字与图形", "zh-Hant": "文字與圖形動態", "ko": "텍스트·도형 연출" },
+    { "slug": "transitions-highlights", "ja": "切り替え・見せ場", "en": "Transitions & highlights", "es": "Transiciones y realces", "zh-Hans": "转场与强调", "zh-Hant": "轉場與吸睛效果", "ko": "화면 전환·강조 연출" }
   ],
   "elements": [
     {
       "no": "01", "slug": "anticipation", "category": "techniques",
-      "name": { "ja": "アンティシペーション", "en": "Anticipation", "es": "Anticipación (anticipation)", "zh-Hans": "预备动作", "zh-Hant": "預備動作" },
-      "meaning": { "ja": "動く前に逆へ少し溜める", "en": "Pulls back briefly before moving forward", "es": "Se echa un poco hacia atrás antes de avanzar", "zh-Hans": "运动前先向反方向稍稍蓄力", "zh-Hant": "移動前先往反方向稍微蓄力" },
-      "ask": { "ja": "ボタンが右へ飛び出す前にアンティシペーションを入れて。0.3秒かけて逆へ少し引き、つぶれてから出す。", "en": "Add anticipation before the button shoots off to the right: pull back slightly for 0.3 s, squash, then go.", "es": "Agrega anticipación antes de que el botón salga disparado a la derecha: que retroceda un poco durante 0,3 s, se aplaste y luego arranque.", "zh-Hans": "按钮向右飞出前加上预备动作：先用 0.3 s 向反方向稍稍后拉并压扁，再飞出去。", "zh-Hant": "按鈕往右飛出去之前，請加上預備動作：花 0.3 秒往反方向稍微拉回、壓扁，再衝出去。" },
+      "name": { "ja": "アンティシペーション", "en": "Anticipation", "es": "Anticipación (anticipation)", "zh-Hans": "预备动作", "zh-Hant": "預備動作", "ko": "예비 동작" },
+      "meaning": { "ja": "動く前に逆へ少し溜める", "en": "Pulls back briefly before moving forward", "es": "Se echa un poco hacia atrás antes de avanzar", "zh-Hans": "运动前先向反方向稍稍蓄力", "zh-Hant": "移動前先往反方向稍微蓄力", "ko": "움직이기 전에 반대로 살짝 힘을 모은다" },
+      "ask": { "ja": "ボタンが右へ飛び出す前にアンティシペーションを入れて。0.3秒かけて逆へ少し引き、つぶれてから出す。", "en": "Add anticipation before the button shoots off to the right: pull back slightly for 0.3 s, squash, then go.", "es": "Agrega anticipación antes de que el botón salga disparado a la derecha: que retroceda un poco durante 0,3 s, se aplaste y luego arranque.", "zh-Hans": "按钮向右飞出前加上预备动作：先用 0.3 s 向反方向稍稍后拉并压扁，再飞出去。", "zh-Hant": "按鈕往右飛出去之前，請加上預備動作：花 0.3 秒往反方向稍微拉回、壓扁，再衝出去。", "ko": "버튼이 오른쪽으로 튀어 나가기 전에 예비 동작을 넣어 줘. 0.3초 동안 반대쪽으로 살짝 당겼다가 찌그러진 뒤 출발하게." },
       "summary": {
         "ja": "四角いキャラクターが進む向きと逆へ少し引き、つぶれて溜めてから勢いよく飛び出す。",
-        "en": "A square character pulls back against its direction of travel, squashes to wind up, then shoots forward."
+        "en": "A square character pulls back against its direction of travel, squashes to wind up, then shoots forward.",
+        "ko": "네모난 캐릭터가 진행 방향과 반대로 살짝 물러나며 찌그러져 힘을 모은 뒤 힘차게 튀어 나간다."
       },
       "spec": {
         "ja": [
@@ -31,22 +32,31 @@
           "Launch: 0.95–1.38 s (0.43 s). From the backed-off position to the far end with backOut (s = 1.1), a slight overshoot. In the first 60% of the move it stretches up to 1.55 wide × 0.72 tall (half sine) and leans forward 0.08 rad.",
           "Landing: from 1.38 s, width and height wobble in opposite directions by 0.13·e^(−7t)·sin(17t).",
           "At launch, three dust puffs at the start point (gone within the first 70% of the move) and three yellow speed lines (width 8) behind it."
+        ],
+        "ko": [
+          "2.35초에 1회(4.7초에 2회. 1회째는 왼쪽→오른쪽, 2회째는 오른쪽→왼쪽). 코럴색 둥근 사각형(86px, 모서리 반경 24)에 흰 화살표. 출발점은 가장자리에서 108px, 바닥은 y = 178.",
+          "예비 동작: 0.2–0.95초, 2차 ease-in-out. 진행 방향과 반대로 44px 물러나며 가로 1.22 × 세로 0.76으로 찌그러지고 뒤로 0.18rad 기운다.",
+          "튀어 나가기: 0.95–1.38초(0.43초). 물러난 위치에서 반대쪽 끝까지 backOut(s = 1.1)으로 이동하며 살짝 오버슈트한다. 이동의 처음 60% 동안 최대 가로 1.55 × 세로 0.72로 늘어나고(사인 반주기) 앞으로 0.08rad 기운다.",
+          "착지: 1.38초부터 가로와 세로가 0.13·e^(−7t)·sin(17t)만큼 서로 반대로 흔들리며 멈춘다.",
+          "튀어 나가는 순간 출발점에 흙먼지 원 3개(이동의 처음 70% 안에 사라짐), 뒤쪽에 노란 속도선 3개(선 두께 8)."
         ]
       },
       "use": {
         "ja": "ジャンプ・ダッシュ・ボタンの発射など、勢いのある動きの直前に。動きに「ため」と重さを出したいとき。",
-        "en": "Use it just before a jump, dash or launch to give the move build-up and weight."
+        "en": "Use it just before a jump, dash or launch to give the move build-up and weight.",
+        "ko": "점프, 대시, 버튼 발사처럼 힘 있는 동작 직전에. 움직임에 반동과 무게감을 주고 싶을 때."
       },
       "tags": ["anticipation", "wind-up", "squash", "character", "jump", "dash", "animation-principle"]
     },
     {
       "no": "02", "slug": "follow-through", "category": "techniques",
-      "name": { "ja": "フォロースルー", "en": "Follow-through", "es": "Follow-through (acción continuada)", "zh-Hans": "跟随动作", "zh-Hant": "跟隨動作" },
-      "meaning": { "ja": "止まった後も一部が遅れて揺れる", "en": "Parts keep swinging after the body stops", "es": "Algunas partes siguen balanceándose cuando el cuerpo ya se detuvo", "zh-Hans": "主体停下后，局部仍延迟摆动", "zh-Hant": "主體停下後，部分仍慢一拍擺動" },
-      "ask": { "ja": "キャラが止まったあと、髪と旗にフォロースルーを入れて。0.5秒くらい遅れて揺れて収まるように。", "en": "Give the hair and the flag follow-through after the character stops: they keep swinging for about 0.5 s, then settle.", "es": "Ponle follow-through al pelo y a la bandera cuando el personaje se detiene: que sigan balanceándose unos 0,5 s y luego se acomoden.", "zh-Hans": "角色停下后，给头发和旗子加上跟随动作：延迟约 0.5 s 继续摆动，然后停稳。", "zh-Hant": "角色停下來之後，請讓頭髮和旗子加上跟隨動作，晚約 0.5 秒擺動，然後慢慢靜止。" },
+      "name": { "ja": "フォロースルー", "en": "Follow-through", "es": "Follow-through (acción continuada)", "zh-Hans": "跟随动作", "zh-Hant": "跟隨動作", "ko": "팔로 스루" },
+      "meaning": { "ja": "止まった後も一部が遅れて揺れる", "en": "Parts keep swinging after the body stops", "es": "Algunas partes siguen balanceándose cuando el cuerpo ya se detuvo", "zh-Hans": "主体停下后，局部仍延迟摆动", "zh-Hant": "主體停下後，部分仍慢一拍擺動", "ko": "몸이 멈춘 뒤에도 일부가 늦게 흔들린다" },
+      "ask": { "ja": "キャラが止まったあと、髪と旗にフォロースルーを入れて。0.5秒くらい遅れて揺れて収まるように。", "en": "Give the hair and the flag follow-through after the character stops: they keep swinging for about 0.5 s, then settle.", "es": "Ponle follow-through al pelo y a la bandera cuando el personaje se detiene: que sigan balanceándose unos 0,5 s y luego se acomoden.", "zh-Hans": "角色停下后，给头发和旗子加上跟随动作：延迟约 0.5 s 继续摆动，然后停稳。", "zh-Hant": "角色停下來之後，請讓頭髮和旗子加上跟隨動作，晚約 0.5 秒擺動，然後慢慢靜止。", "ko": "캐릭터가 멈춘 뒤 머리카락과 깃발에 팔로 스루를 넣어 줘. 0.5초 정도 늦게 흔들리다가 멈추게." },
       "summary": {
         "ja": "滑ってきた丸いキャラクターが急に止まり、頭の旗としっぽだけが遅れて揺れて収まる。",
-        "en": "A round character slides in and stops suddenly; only the flag on its head and its tail keep swinging, then settle."
+        "en": "A round character slides in and stops suddenly; only the flag on its head and its tail keep swinging, then settle.",
+        "ko": "미끄러져 온 동그란 캐릭터가 갑자기 멈추고, 머리 위 깃발과 꼬리만 늦게 흔들리다 멈춘다."
       },
       "spec": {
         "ja": [
@@ -62,22 +72,31 @@
           "Tail: seven 14 px segments (coral, width 14→6) on a slower spring, b″ = −56b − 2.8b′ − 0.012 × acceleration. Segment j uses the value from j × 22/600 s (about 0.037 s) earlier, scaled by (0.55 + 0.16j).",
           "Both springs are precomputed in 1/600 s steps; drawing only looks values up.",
           "In the last 0.3 s of each move the swing is faded to 0 with smoothstep, so the loop has no seam."
+        ],
+        "ko": [
+          "2.35초에 1회(4.7초에 2회, 방향을 번갈아). 몸은 민트색 원(반지름 38). 0.15–0.85초에 303px 이동한다. 처음 30% 동안 가속하고, 이후 일정한 속도를 유지하다가 0.85초에 급정지한다.",
+          "깃발(흰 막대 58px + 노란 깃발): 각도를 몸의 가속도에 밀리는 스프링으로 계산한다. a″ = −121a − 5.5a′ − 0.0175 × 가속도(고유 진동수 11rad/s). 깃발 천은 막대 각도의 0.6배만큼 더 휜다.",
+          "꼬리: 14px 마디 7개(코럴, 선 두께 14→6). 더 느린 스프링 b″ = −56b − 2.8b′ − 0.012 × 가속도. 마디 j는 j × 22/600초(약 0.037초) 전의 값을 쓰고, 흔들림 폭에 (0.55 + 0.16j)를 곱한다.",
+          "두 스프링 모두 1/600초 간격으로 미리 계산해 표로 만들어 두고, 그릴 때는 표에서 값만 찾는다.",
+          "매 회 마지막 0.3초에 깃발과 꼬리의 흔들림을 smoothstep으로 0까지 줄인다(루프 이음매가 보이지 않게)."
         ]
       },
       "use": {
         "ja": "キャラクターの髪・服・アクセサリー、ロゴの飾りなど、本体に付いている部分に自然な重さを出したいとき。",
-        "en": "Use it on hair, clothes, accessories or the trim of a logo, so that the parts attached to the main body feel weighted."
+        "en": "Use it on hair, clothes, accessories or the trim of a logo, so that the parts attached to the main body feel weighted.",
+        "ko": "캐릭터의 머리카락, 옷, 액세서리나 로고 장식처럼 본체에 달린 부분에 자연스러운 무게감을 주고 싶을 때."
       },
       "tags": ["follow-through", "overlapping-action", "secondary-motion", "spring", "drag", "character", "animation-principle"]
     },
     {
       "no": "03", "slug": "bounce", "category": "techniques",
-      "name": { "ja": "バウンス", "en": "Bounce", "es": "Rebote (bounce)", "zh-Hans": "弹跳", "zh-Hant": "彈跳效果" },
-      "meaning": { "ja": "落ちて弾みながら止まる", "en": "Falls and bounces lower until it stops", "es": "Cae y rebota cada vez más bajo hasta detenerse", "zh-Hans": "落下后越弹越低直至停下", "zh-Hant": "落下後一路彈跳到停住" },
-      "ask": { "ja": "ボールを上から落としてバウンスさせて。3回弾んで、だんだん低く。", "en": "Drop the ball from the top with a bounce: three bounces, each lower than the last.", "es": "Deja caer la pelota desde arriba con un rebote: tres botes, cada uno más bajo que el anterior.", "zh-Hans": "让球从上方落下并弹跳：弹 3 次，一次比一次低。", "zh-Hant": "請讓球從上方落下並加上彈跳效果：彈 3 次，一次比一次低。" },
+      "name": { "ja": "バウンス", "en": "Bounce", "es": "Rebote (bounce)", "zh-Hans": "弹跳", "zh-Hant": "彈跳效果", "ko": "바운스" },
+      "meaning": { "ja": "落ちて弾みながら止まる", "en": "Falls and bounces lower until it stops", "es": "Cae y rebota cada vez más bajo hasta detenerse", "zh-Hans": "落下后越弹越低直至停下", "zh-Hant": "落下後一路彈跳到停住", "ko": "떨어져서 점점 낮게 튀다가 멈춘다" },
+      "ask": { "ja": "ボールを上から落としてバウンスさせて。3回弾んで、だんだん低く。", "en": "Drop the ball from the top with a bounce: three bounces, each lower than the last.", "es": "Deja caer la pelota desde arriba con un rebote: tres botes, cada uno más bajo que el anterior.", "zh-Hans": "让球从上方落下并弹跳：弹 3 次，一次比一次低。", "zh-Hant": "請讓球從上方落下並加上彈跳效果：彈 3 次，一次比一次低。", "ko": "공을 위에서 떨어뜨려 바운스시켜 줘. 3번 튀고, 갈수록 낮게." },
       "summary": {
         "ja": "ボールが落ちて、だんだん低く弾みながら止まる。",
-        "en": "A ball drops and bounces lower each time until it comes to rest."
+        "en": "A ball drops and bounces lower each time until it comes to rest.",
+        "ko": "공이 떨어져 점점 낮게 튀다가 멈춘다."
       },
       "spec": {
         "ja": [
@@ -93,22 +112,31 @@
           "Sideways it moves x = 150→390 over 0.1–1.8 s with cubic ease-out.",
           "Squash for 0.045 s either side of each impact: width 1 + sq, height 1 − sq, with sq up to 0.4 × min(1, impact speed ÷ 850). Impacts faster than 200 px/s flick short white lines left and right for 0.3 s.",
           "The shadow gets smaller with height. Exit: 1.95–2.25 s, scale multiplied by (1 − backIn, s = 2)."
+        ],
+        "ko": [
+          "2.35초에 1회(4.7초에 2회. 1회째는 노랑, 2회째는 코럴). 반지름 26의 공.",
+          "0.1초부터 바닥 위 190px에서 떨어진다. 중력 1900px/s², 튈 때마다 속도의 56%를 유지(반발 계수 0.56)하고, 튀어 오르는 속도가 35px/s 미만이면 멈춘다.",
+          "가로로는 x = 150→390을 0.1–1.8초에 3차 ease-out으로 이동한다.",
+          "착지 전후 0.045초만 찌그러뜨린다: 가로 1 + sq, 세로 1 − sq, sq는 최대 0.4 × min(1, 착지 속도 ÷ 850). 200px/s보다 빠른 착지에서는 좌우로 짧은 흰 선을 0.3초 동안 튀긴다.",
+          "그림자는 높을수록 작고 옅어진다. 퇴장: 1.95–2.25초에 크기에 (1 − backIn(s = 2))를 곱해 사라지게 한다."
         ]
       },
       "use": {
         "ja": "物が落ちて着地するところ。アイコン・文字・商品を、重さと弾力を感じさせて置きたいとき。",
-        "en": "Use it whenever something drops and lands: an icon, a word or a product that should feel heavy and springy."
+        "en": "Use it whenever something drops and lands: an icon, a word or a product that should feel heavy and springy.",
+        "ko": "물건이 떨어져 착지하는 장면에. 아이콘, 글자, 상품을 무게감과 탄력이 느껴지게 놓고 싶을 때."
       },
       "tags": ["bounce", "drop", "gravity", "ball", "physics", "landing", "easing"]
     },
     {
       "no": "04", "slug": "wiggle", "category": "techniques",
-      "name": { "ja": "ウィグル", "en": "Wiggle", "es": "Wiggle", "zh-Hans": "随机抖动", "zh-Hant": "Wiggle" },
-      "meaning": { "ja": "小刻みにランダムに揺れる", "en": "Shakes in small, random, continuous jitters", "es": "Tiembla con sacudidas pequeñas, aleatorias y continuas", "zh-Hans": "小幅、随机地持续晃动", "zh-Hant": "細微、隨機地持續抖動" },
-      "ask": { "ja": "通知のベルに弱めのウィグルを付けて。角度は最大10°くらいで、鳴っている間ずっと。", "en": "Add a subtle wiggle to the notification bell, up to about 10°, for as long as it rings.", "es": "Agrega un wiggle sutil a la campana de notificaciones, de hasta unos 10°, mientras suene.", "zh-Hans": "给通知铃铛加上轻微的随机抖动，角度最大约 10°，响铃期间一直持续。", "zh-Hant": "請幫通知鈴鐺加上輕微的 Wiggle，角度最多約 10 度，鈴響期間持續抖動。" },
+      "name": { "ja": "ウィグル", "en": "Wiggle", "es": "Wiggle", "zh-Hans": "随机抖动", "zh-Hant": "Wiggle", "ko": "위글" },
+      "meaning": { "ja": "小刻みにランダムに揺れる", "en": "Shakes in small, random, continuous jitters", "es": "Tiembla con sacudidas pequeñas, aleatorias y continuas", "zh-Hans": "小幅、随机地持续晃动", "zh-Hant": "細微、隨機地持續抖動", "ko": "잘게, 불규칙하게 계속 흔들린다" },
+      "ask": { "ja": "通知のベルに弱めのウィグルを付けて。角度は最大10°くらいで、鳴っている間ずっと。", "en": "Add a subtle wiggle to the notification bell, up to about 10°, for as long as it rings.", "es": "Agrega un wiggle sutil a la campana de notificaciones, de hasta unos 10°, mientras suene.", "zh-Hans": "给通知铃铛加上轻微的随机抖动，角度最大约 10°，响铃期间一直持续。", "zh-Hant": "請幫通知鈴鐺加上輕微的 Wiggle，角度最多約 10 度，鈴響期間持續抖動。", "ko": "알림 벨에 약한 위글을 넣어 줘. 각도는 최대 10° 정도로, 울리는 동안 계속." },
       "summary": {
         "ja": "ベルが小刻みに不規則に揺れ続ける。1回の衝撃ではなく、ずっと続く細かい揺れ。",
-        "en": "A bell keeps jittering irregularly: not one hit, but a small shake that never stops."
+        "en": "A bell keeps jittering irregularly: not one hit, but a small shake that never stops.",
+        "ko": "벨이 잘게 불규칙하게 계속 흔들린다. 한 번의 충격이 아니라 멈추지 않는 작은 흔들림이다."
       },
       "spec": {
         "ja": [
@@ -124,22 +152,31 @@
           "Position also jitters: x with 29, 47 and 61 cycles (4, 3, 2 px), y with 37 and 53 cycles (2.4, 1.8 px).",
           "Every frequency is a whole number of cycles per 4.7 s, so the loop joins up; the counts share no common factor, so it does not look regular.",
           "The clapper (coral, radius 13) swings the other way (angle × 70 px). White vibration arcs (radius 86 and 110, width 6) flicker on both sides the whole time."
+        ],
+        "ko": [
+          "노란 벨. 위쪽 끝(중앙, y = 34)을 축으로 계속 흔들린다(멈추는 구간 없음).",
+          "각도 = 사인파 4개의 합. 4.7초에 23, 31, 43, 59회(약 4.9, 6.6, 9.1, 12.6Hz), 진폭 0.085, 0.065, 0.05, 0.035rad(겹치면 최대 약 0.235rad = 13.5°).",
+          "위치도 흔든다: 가로는 29, 47, 61회에 진폭 4, 3, 2px, 세로는 37, 53회에 진폭 2.4, 1.8px.",
+          "모든 주파수가 4.7초에 딱 정수 횟수라서 루프가 이어진다. 서로 나누어떨어지지 않는 횟수를 섞어 규칙적으로 보이지 않게 한다.",
+          "벨의 추(코럴, 반지름 13)는 반대로 흔들린다(각도 × 70px). 양옆에 흰 진동 호(반지름 86과 110, 선 두께 6)를 깜박이며 계속 띄운다."
         ]
       },
       "use": {
         "ja": "通知・着信・注意を引きたい物に。ずっと続く小さな揺れで、落ち着かなさや手持ち感を出したいとき。",
-        "en": "Use it on a notification, an incoming call or anything that should catch the eye, or to add a restless, handheld feel."
+        "en": "Use it on a notification, an incoming call or anything that should catch the eye, or to add a restless, handheld feel.",
+        "ko": "알림, 착신처럼 눈길을 끌어야 하는 것에. 계속되는 작은 흔들림으로 들뜬 느낌이나 핸드헬드 느낌을 내고 싶을 때."
       },
       "tags": ["wiggle", "jitter", "shake", "random", "noise", "bell", "notification"]
     },
     {
       "no": "05", "slug": "pulse", "category": "techniques",
-      "name": { "ja": "パルス", "en": "Pulse", "es": "Pulso (pulse)", "zh-Hans": "脉冲动画", "zh-Hant": "脈動效果" },
-      "meaning": { "ja": "鼓動のように大きさが脈打つ", "en": "Its size throbs like a heartbeat", "es": "Su tamaño late como un corazón", "zh-Hans": "像心跳一样有节奏地缩放", "zh-Hant": "大小像心跳一樣一縮一放" },
-      "ask": { "ja": "ハートのアイコンをパルスさせて。1.2秒ごとに、10%ほど大きくなって戻る。", "en": "Make the heart icon pulse: about 10% larger and back, every 1.2 s.", "es": "Ponle un pulso al ícono del corazón: que crezca alrededor de un 10 % y vuelva, cada 1,2 s.", "zh-Hans": "给爱心图标加上脉冲动画：每 1.2 s 放大约 10% 再恢复原样。", "zh-Hant": "請幫愛心圖示加上脈動效果：每 1.2 秒放大約 10% 再恢復。" },
+      "name": { "ja": "パルス", "en": "Pulse", "es": "Pulso (pulse)", "zh-Hans": "脉冲动画", "zh-Hant": "脈動效果", "ko": "펄스" },
+      "meaning": { "ja": "鼓動のように大きさが脈打つ", "en": "Its size throbs like a heartbeat", "es": "Su tamaño late como un corazón", "zh-Hans": "像心跳一样有节奏地缩放", "zh-Hant": "大小像心跳一樣一縮一放", "ko": "심장 박동처럼 크기가 두근거린다" },
+      "ask": { "ja": "ハートのアイコンをパルスさせて。1.2秒ごとに、10%ほど大きくなって戻る。", "en": "Make the heart icon pulse: about 10% larger and back, every 1.2 s.", "es": "Ponle un pulso al ícono del corazón: que crezca alrededor de un 10 % y vuelva, cada 1,2 s.", "zh-Hans": "给爱心图标加上脉冲动画：每 1.2 s 放大约 10% 再恢复原样。", "zh-Hant": "請幫愛心圖示加上脈動效果：每 1.2 秒放大約 10% 再恢復。", "ko": "하트 아이콘에 펄스를 넣어 줘. 1.2초마다 10% 정도 커졌다가 돌아오게." },
       "summary": {
         "ja": "ハートが鼓動のように、ドクン・ドクンと大きさを脈打たせ、輪が広がる。",
-        "en": "A heart throbs like a heartbeat, a double beat each time, with rings spreading out."
+        "en": "A heart throbs like a heartbeat, a double beat each time, with rings spreading out.",
+        "ko": "하트가 심장 박동처럼 두근두근 크기를 키웠다 줄이고, 고리가 퍼져 나간다."
       },
       "spec": {
         "ja": [
@@ -153,22 +190,30 @@
           "Scale = 1 + 0.26·G(0.2 s, width 0.065) + 0.15·G(0.44 s, width 0.07), where G = e^(−((t − centre) ÷ width)²): a quick swell that drops straight back.",
           "Two heart-shaped outlines spread from 0.16 s and 0.40 s: scale 1.2→2.4 over 0.8 s, cubic ease-out.",
           "As they spread, their opacity goes 0.75→0 (the second at 60%) and the line width 8.5→1.5 px."
+        ],
+        "ko": [
+          "코럴색 하트. 1.175초에 1박(4.7초에 4박). 1박은 두 번 뛰는 '두근두근'.",
+          "크기 = 1 + 0.26·G(0.2초, 폭 0.065) + 0.15·G(0.44초, 폭 0.07). G = e^(−((t − 중심) ÷ 폭)²)(빠르게 부풀었다가 바로 돌아오는 봉우리).",
+          "하트 윤곽선 2개를 퍼뜨린다: 0.16초와 0.40초부터 0.8초 동안 크기 1.2→2.4(3차 ease-out).",
+          "고리는 퍼지면서 불투명도 0.75→0(두 번째는 60% 농도), 선 두께 8.5→1.5px."
         ]
       },
       "use": {
         "ja": "「いいね」・録音中・ライブ配信中・押してほしいボタンなど、生きている感じや注目を出したいとき。",
-        "en": "Use it for a like, a recording or live indicator, or a button you want pressed, to make it feel alive."
+        "en": "Use it for a like, a recording or live indicator, or a button you want pressed, to make it feel alive.",
+        "ko": "좋아요, 녹음 중, 라이브 표시, 눌러 주길 바라는 버튼처럼 살아 있는 느낌이나 주목을 끌고 싶을 때."
       },
       "tags": ["pulse", "heartbeat", "throb", "scale", "loop", "like", "attention"]
     },
     {
       "no": "06", "slug": "motion-path", "category": "techniques",
-      "name": { "ja": "モーションパス", "en": "Motion path", "es": "Motion path (trayectoria)", "zh-Hans": "运动路径", "zh-Hant": "動態路徑" },
-      "meaning": { "ja": "決めた曲線に沿って動く", "en": "Moves along a curve that you define", "es": "Se mueve siguiendo una curva que tú defines", "zh-Hans": "沿设定的曲线移动", "zh-Hant": "沿著指定的曲線移動" },
-      "ask": { "ja": "紙飛行機を、この曲線のモーションパスに沿って4秒で飛ばして。向きは進む方向に合わせて。", "en": "Fly the paper plane along this curve as a motion path in 4 s, turning it to face the direction of travel.", "es": "Haz volar el avión de papel por esta curva como motion path en 4 s, girándolo para que mire hacia donde avanza.", "zh-Hans": "让纸飞机沿这条曲线的运动路径在 4 s 内飞完，机头始终朝向前进方向。", "zh-Hant": "請讓紙飛機沿著這條曲線的動態路徑飛行，花 4 秒，機頭跟著前進方向轉。" },
+      "name": { "ja": "モーションパス", "en": "Motion path", "es": "Motion path (trayectoria)", "zh-Hans": "运动路径", "zh-Hant": "動態路徑", "ko": "모션 패스" },
+      "meaning": { "ja": "決めた曲線に沿って動く", "en": "Moves along a curve that you define", "es": "Se mueve siguiendo una curva que tú defines", "zh-Hans": "沿设定的曲线移动", "zh-Hant": "沿著指定的曲線移動", "ko": "정해 둔 곡선을 따라 움직인다" },
+      "ask": { "ja": "紙飛行機を、この曲線のモーションパスに沿って4秒で飛ばして。向きは進む方向に合わせて。", "en": "Fly the paper plane along this curve as a motion path in 4 s, turning it to face the direction of travel.", "es": "Haz volar el avión de papel por esta curva como motion path en 4 s, girándolo para que mire hacia donde avanza.", "zh-Hans": "让纸飞机沿这条曲线的运动路径在 4 s 内飞完，机头始终朝向前进方向。", "zh-Hant": "請讓紙飛機沿著這條曲線的動態路徑飛行，花 4 秒，機頭跟著前進方向轉。", "ko": "종이비행기를 이 곡선 모션 패스를 따라 4초 동안 날려 줘. 방향은 진행 방향에 맞춰서." },
       "summary": {
         "ja": "点線の道に沿って、紙飛行機が向きを変えながら進み、途中で宙返りする。",
-        "en": "A paper plane follows a dotted path, turning as it goes and looping the loop on the way."
+        "en": "A paper plane follows a dotted path, turning as it goes and looping the loop on the way.",
+        "ko": "점선 경로를 따라 종이비행기가 방향을 바꾸며 날아가다가 중간에 공중제비를 돈다."
       },
       "spec": {
         "ja": [
@@ -182,22 +227,30 @@
           "θ advances in proportion to time (so the speed along the path is not constant; the loop looks slower).",
           "The plane turns to the path direction: angle = atan2(74·sinθ, 112 − 150·cosθ).",
           "The path is shown in advance as a dotted line (width 6, dash 2/15). A mint trail of 24 segments (0.03 in θ each) follows, thinner and fainter towards the back."
+        ],
+        "ko": [
+          "4.7초에 1회, 왼쪽 화면 밖에서 오른쪽 화면 밖으로. 경로는 x = 270 + 112θ − 150·sinθ, y = 106 − 74·cosθ(θ = −π→π). 가운데 위쪽에서 고리를 그린다(공중제비).",
+          "θ는 시간에 비례해 늘린다(경로 위의 속도는 일정하지 않고, 고리 부분은 느려 보인다).",
+          "종이비행기는 경로 방향으로 돌린다: 각도 = atan2(74·sinθ, 112 − 150·cosθ).",
+          "경로는 미리 점선(선 두께 6, 간격 2/15)으로 보여 준다. 지나간 자리에 민트색 선을 24구간(θ로 0.03씩) 남기고, 뒤로 갈수록 가늘고 옅게 한다."
         ]
       },
       "use": {
         "ja": "飛ぶ物・走る車・地図の上の移動など、決まった道筋を通らせたいとき。",
-        "en": "Use it whenever something should follow a set route: a flying object, a car, a journey on a map."
+        "en": "Use it whenever something should follow a set route: a flying object, a car, a journey on a map.",
+        "ko": "날아가는 물체, 달리는 차, 지도 위 이동처럼 정해진 길을 따라가게 하고 싶을 때."
       },
       "tags": ["motion-path", "path", "curve", "trajectory", "follow-path", "orient-to-path", "loop"]
     },
     {
       "no": "07", "slug": "ping-pong-loop", "category": "techniques",
-      "name": { "ja": "ピンポンループ", "en": "Ping-pong loop", "es": "Bucle ping-pong (ping-pong loop)", "zh-Hans": "往返循环", "zh-Hant": "Ping-pong 循環" },
-      "meaning": { "ja": "行って戻るを繰り返す", "en": "Plays forward, then backward, over and over", "es": "Se reproduce hacia adelante y luego hacia atrás, una y otra vez", "zh-Hans": "正放后倒放，反复来回", "zh-Hant": "正著播完再倒著播，不斷來回" },
-      "ask": { "ja": "ローディングの点をピンポンループで左右に往復させて。片道1秒で。", "en": "Move the loading dot back and forth as a ping-pong loop, 1 s each way.", "es": "Mueve el punto de carga de un lado a otro en bucle ping-pong, 1 s en cada sentido.", "zh-Hans": "让加载圆点以往返循环左右来回移动，单程 1 s。", "zh-Hant": "請讓載入中的圓點以 Ping-pong 循環左右來回移動，單程 1 秒。" },
+      "name": { "ja": "ピンポンループ", "en": "Ping-pong loop", "es": "Bucle ping-pong (ping-pong loop)", "zh-Hans": "往返循环", "zh-Hant": "Ping-pong 循環", "ko": "핑퐁 루프" },
+      "meaning": { "ja": "行って戻るを繰り返す", "en": "Plays forward, then backward, over and over", "es": "Se reproduce hacia adelante y luego hacia atrás, una y otra vez", "zh-Hans": "正放后倒放，反复来回", "zh-Hant": "正著播完再倒著播，不斷來回", "ko": "갔다가 돌아오기를 반복한다" },
+      "ask": { "ja": "ローディングの点をピンポンループで左右に往復させて。片道1秒で。", "en": "Move the loading dot back and forth as a ping-pong loop, 1 s each way.", "es": "Mueve el punto de carga de un lado a otro en bucle ping-pong, 1 s en cada sentido.", "zh-Hans": "让加载圆点以往返循环左右来回移动，单程 1 s。", "zh-Hant": "請讓載入中的圓點以 Ping-pong 循環左右來回移動，單程 1 秒。", "ko": "로딩 점을 핑퐁 루프로 좌우 왕복시켜 줘. 편도 1초로." },
       "summary": {
         "ja": "四角が端まで行ったら、同じ道を逆再生のように戻ってくる。往復をくり返す。",
-        "en": "A square travels to one end, then comes back along the same path as if played in reverse, again and again."
+        "en": "A square travels to one end, then comes back along the same path as if played in reverse, again and again.",
+        "ko": "사각형이 끝까지 갔다가 같은 길을 역재생하듯 되돌아온다. 왕복을 반복한다."
       },
       "spec": {
         "ja": [
@@ -213,22 +266,31 @@
           "Four ghost copies, 0.045 s apart, opacity 0.1–0.4.",
           "A playback bar below: blue with a play label while going forward, coral with a reverse label while going back. The progress bar and its knob follow g.",
           "Vertical posts mark the two turning points."
+        ],
+        "ko": [
+          "4.7초에 1왕복: 앞 2.35초는 재생, 뒤 2.35초는 같은 움직임을 역재생(진행도 g는 0→1→0, 선형).",
+          "민트색 둥근 사각형(48px, 모서리 반경 13)이 x = 92→447을 높이 62·|sin(3πg)|인 아치 3개로 튀며 이동하고, 동시에 g에 맞춰 한 바퀴 돈다.",
+          "잔상 4개(0.045초씩 지연, 불투명도 0.1–0.4).",
+          "아래에 재생 바: 재생 중에는 파란색으로 '▶ 재생', 역재생 중에는 코럴색으로 '◀ 역재생'. 진행 바와 손잡이가 g에 맞춰 오간다.",
+          "양 끝 반환점에 세로 기둥."
         ]
       },
       "use": {
         "ja": "ローディング・待機中の飾り・繰り返して見せたい動きに。途切れずに往復させたいとき。",
-        "en": "Use it for loaders, idle animations and any move that should repeat back and forth without a cut."
+        "en": "Use it for loaders, idle animations and any move that should repeat back and forth without a cut.",
+        "ko": "로딩, 대기 중 장식, 반복해서 보여 줄 움직임에. 끊김 없이 왕복시키고 싶을 때."
       },
       "tags": ["ping-pong", "loop", "boomerang", "yoyo", "reverse", "back-and-forth", "loader"]
     },
     {
       "no": "08", "slug": "stop-motion-style", "category": "techniques",
-      "name": { "ja": "ストップモーション風", "en": "Stop-motion style", "es": "Estilo stop-motion", "zh-Hans": "定格动画风格", "zh-Hant": "定格動畫風" },
-      "meaning": { "ja": "コマを落としてカクカク動かす", "en": "Moves in choppy steps, with frames dropped", "es": "Se mueve a saltos, como si le faltaran cuadros", "zh-Hans": "抽帧后动作一顿一顿", "zh-Hant": "抽掉影格，動得一頓一頓的" },
-      "ask": { "ja": "この動きをストップモーション風にして。1秒8コマで、コマごとに少しだけ位置をぶらして。", "en": "Make this move stop-motion style: 8 frames per second, with a slight jitter on every frame.", "es": "Dale a este movimiento estilo stop-motion: 8 cuadros por segundo, con un leve temblor en cada cuadro.", "zh-Hans": "把这段动作做成定格动画风格：每秒 8 帧，每帧位置都轻微错开。", "zh-Hant": "請把這段動作做成定格動畫風：每秒 8 格，每一格的位置都稍微偏移一點。" },
+      "name": { "ja": "ストップモーション風", "en": "Stop-motion style", "es": "Estilo stop-motion", "zh-Hans": "定格动画风格", "zh-Hant": "定格動畫風", "ko": "스톱모션 스타일" },
+      "meaning": { "ja": "コマを落としてカクカク動かす", "en": "Moves in choppy steps, with frames dropped", "es": "Se mueve a saltos, como si le faltaran cuadros", "zh-Hans": "抽帧后动作一顿一顿", "zh-Hant": "抽掉影格，動得一頓一頓的", "ko": "프레임을 덜어 내 뚝뚝 끊기게 움직인다" },
+      "ask": { "ja": "この動きをストップモーション風にして。1秒8コマで、コマごとに少しだけ位置をぶらして。", "en": "Make this move stop-motion style: 8 frames per second, with a slight jitter on every frame.", "es": "Dale a este movimiento estilo stop-motion: 8 cuadros por segundo, con un leve temblor en cada cuadro.", "zh-Hans": "把这段动作做成定格动画风格：每秒 8 帧，每帧位置都轻微错开。", "zh-Hant": "請把這段動作做成定格動畫風：每秒 8 格，每一格的位置都稍微偏移一點。", "ko": "이 움직임을 스톱모션 스타일로 바꿔 줘. 초당 8프레임으로, 프레임마다 위치를 살짝 흔들어서." },
       "summary": {
         "ja": "星が1秒8コマほどのカクカクした動きで跳ねて進み、コマごとに位置が少しずつぶれる。",
-        "en": "A star hops across in choppy steps at about 8 frames per second, each frame slightly off."
+        "en": "A star hops across in choppy steps at about 8 frames per second, each frame slightly off.",
+        "ko": "별이 초당 8프레임 정도로 뚝뚝 끊기며 튀어 가고, 프레임마다 위치가 조금씩 어긋난다."
       },
       "spec": {
         "ja": [
@@ -244,22 +306,31 @@
           "Each frame gets a fixed random jitter: position ±5 px across and ±4.5 px up and down, rotation ±0.15 rad, size ±5%.",
           "The previous two frames stay faintly visible (opacity 0.28 and 0.12), like onion skin.",
           "Black film-strip bands top and bottom (26 px each, with sprocket holes) and a frames-per-second label."
+        ],
+        "ko": [
+          "4.7초에 38프레임(약 8프레임/초, 1프레임 약 0.124초). 해당 프레임의 그림만 보여 주고 사이는 보간하지 않는다.",
+          "노란 별(반지름 38)이 x = −44→583을 높이 54·|sin(3πt)|인 아치 3개로 튀며 이동하고 2바퀴 돈다.",
+          "프레임마다 고정 난수로 흔든다: 위치 가로 ±5px, 세로 ±4.5px, 각도 ±0.15rad, 크기 ±5%.",
+          "직전 2프레임을 옅게 남긴다(불투명도 0.28과 0.12, 어니언 스킨처럼).",
+          "위아래에 검은 필름 띠(각 26px, 스프로킷 구멍 포함), 오른쪽 위에 '8프레임/초' 표시."
         ]
       },
       "use": {
         "ja": "手作り感・クレイアニメ風・コラージュ風の映像に。なめらかすぎる動きを素朴に見せたいとき。",
-        "en": "Use it for a handmade, claymation or collage look, when smooth motion feels too slick."
+        "en": "Use it for a handmade, claymation or collage look, when smooth motion feels too slick.",
+        "ko": "수작업 느낌, 클레이 애니메이션, 콜라주 느낌의 영상에. 너무 매끄러운 움직임을 소박하게 보이고 싶을 때."
       },
       "tags": ["stop-motion", "choppy", "frame-rate", "on-twos", "jitter", "handmade", "claymation"]
     },
     {
       "no": "09", "slug": "text-scramble", "category": "text-shapes",
-      "name": { "ja": "テキストスクランブル", "en": "Text scramble", "es": "Text scramble (texto revuelto)", "zh-Hans": "文字乱码效果", "zh-Hant": "文字亂碼效果" },
-      "meaning": { "ja": "文字がランダムに入れ替わってから決まる", "en": "Letters shuffle at random, then settle", "es": "Las letras cambian al azar y luego se fijan", "zh-Hans": "字符随机变换后定格为正确文字", "zh-Hant": "文字隨機跳動後才變成正確的字" },
-      "ask": { "ja": "見出しをテキストスクランブルで出して。ランダムな文字が1秒ほど入れ替わって、左から順に決まる。", "en": "Bring the headline in with a text scramble: random characters for about 1 s, settling from left to right.", "es": "Haz entrar el titular con un text scramble: caracteres al azar durante cerca de 1 s, que se fijan de izquierda a derecha.", "zh-Hans": "让标题以文字乱码效果出现：随机字符变换约 1 s，再从左到右依次定格。", "zh-Hant": "標題請用文字亂碼效果出現：隨機字元跳動約 1 秒，再由左至右依序變成正確的字。" },
+      "name": { "ja": "テキストスクランブル", "en": "Text scramble", "es": "Text scramble (texto revuelto)", "zh-Hans": "文字乱码效果", "zh-Hant": "文字亂碼效果", "ko": "텍스트 스크램블" },
+      "meaning": { "ja": "文字がランダムに入れ替わってから決まる", "en": "Letters shuffle at random, then settle", "es": "Las letras cambian al azar y luego se fijan", "zh-Hans": "字符随机变换后定格为正确文字", "zh-Hant": "文字隨機跳動後才變成正確的字", "ko": "글자가 무작위로 바뀌다가 제자리를 찾는다" },
+      "ask": { "ja": "見出しをテキストスクランブルで出して。ランダムな文字が1秒ほど入れ替わって、左から順に決まる。", "en": "Bring the headline in with a text scramble: random characters for about 1 s, settling from left to right.", "es": "Haz entrar el titular con un text scramble: caracteres al azar durante cerca de 1 s, que se fijan de izquierda a derecha.", "zh-Hans": "让标题以文字乱码效果出现：随机字符变换约 1 s，再从左到右依次定格。", "zh-Hant": "標題請用文字亂碼效果出現：隨機字元跳動約 1 秒，再由左至右依序變成正確的字。", "ko": "제목을 텍스트 스크램블로 띄워 줘. 무작위 문자가 1초 정도 바뀌다가 왼쪽부터 차례로 확정되게." },
       "summary": {
         "ja": "ランダムな文字が入れ替わり続け、左から順に正しい単語に決まる。",
-        "en": "Random characters keep changing, then lock into the right word from left to right."
+        "en": "Random characters keep changing, then lock into the right word from left to right.",
+        "ko": "무작위 문자가 계속 바뀌다가 왼쪽부터 차례로 올바른 단어로 확정된다."
       },
       "spec": {
         "ja": [
@@ -275,22 +346,31 @@
           "Slots lock from left to right: slot i at 0.45 + 0.18i s (the last at 1.17 s). A newly locked letter is yellow for 0.22 s, then white, settling with scale 1 + 0.2·e^(−14t).",
           "From 1.85 s the slots return to random from right to left (slot i at 1.85 + 0.08 × (4 − i) s).",
           "A bar under each slot: blue when locked, yellow for the next one to lock, navy otherwise."
+        ],
+        "ko": [
+          "앞 2.35초는 \"HELLO\", 뒤는 \"WORLD\". 5글자 고정폭 글꼴(92px).",
+          "확정 전 칸: A–Z(I와 O 제외), 0–9, #$%&@? 중에서 무작위로 골라 4.7초에 76회(약 0.062초마다) 바꾼다. 민트색, 불투명도 0.75.",
+          "왼쪽부터 확정: i번째 글자는 0.45 + 0.18i초(마지막은 1.17초). 확정 순간부터 0.22초는 노랑, 이후 흰색. 크기 1 + 0.2·e^(−14t)로 안정된다.",
+          "1.85초부터 오른쪽부터 차례로 다시 무작위로 돌아간다(i번째 글자는 1.85 + 0.08 × (4 − i)초).",
+          "각 글자 아래에 가로 막대: 확정된 글자는 파랑, 다음에 확정될 글자는 노랑, 나머지는 남색."
         ]
       },
       "use": {
         "ja": "見出し・数字・コードネームの登場に。解読・ハッキング・テック系の雰囲気を出したいとき。",
-        "en": "Use it to bring in a headline, a number or a code name with a decoding, hacker or tech feel."
+        "en": "Use it to bring in a headline, a number or a code name with a decoding, hacker or tech feel.",
+        "ko": "제목, 숫자, 코드명이 등장할 때. 해독, 해킹, 테크 분위기를 내고 싶을 때."
       },
       "tags": ["text-scramble", "scramble", "decode", "shuffle", "random", "text", "hacker"]
     },
     {
       "no": "10", "slug": "wave-text", "category": "text-shapes",
-      "name": { "ja": "ウェーブテキスト", "en": "Wave text", "es": "Texto en ola (wave text)", "zh-Hans": "波浪文字", "zh-Hant": "波浪文字" },
-      "meaning": { "ja": "文字が波のように順に上下する", "en": "Letters rise and fall in turn, like a wave", "es": "Las letras suben y bajan por turnos, como una ola", "zh-Hans": "文字像波浪一样依次上下起伏", "zh-Hant": "文字像波浪一樣依序上下起伏" },
-      "ask": { "ja": "ロゴの文字をウェーブテキストで動かして。1文字ずつずらして、上下20pxくらい。", "en": "Animate the logo letters as wave text, each letter slightly behind the last, about 20 px up and down.", "es": "Anima las letras del logo como texto en ola, cada letra un poco después de la anterior, unos 20 px arriba y abajo.", "zh-Hans": "让标志的文字做波浪文字动画：每个字依次错开，上下起伏约 20 px。", "zh-Hant": "Logo 的文字請做成波浪文字，每個字稍微錯開，上下起伏約 20 px。" },
+      "name": { "ja": "ウェーブテキスト", "en": "Wave text", "es": "Texto en ola (wave text)", "zh-Hans": "波浪文字", "zh-Hant": "波浪文字", "ko": "웨이브 텍스트" },
+      "meaning": { "ja": "文字が波のように順に上下する", "en": "Letters rise and fall in turn, like a wave", "es": "Las letras suben y bajan por turnos, como una ola", "zh-Hans": "文字像波浪一样依次上下起伏", "zh-Hant": "文字像波浪一樣依序上下起伏", "ko": "글자가 파도처럼 차례로 오르내린다" },
+      "ask": { "ja": "ロゴの文字をウェーブテキストで動かして。1文字ずつずらして、上下20pxくらい。", "en": "Animate the logo letters as wave text, each letter slightly behind the last, about 20 px up and down.", "es": "Anima las letras del logo como texto en ola, cada letra un poco después de la anterior, unos 20 px arriba y abajo.", "zh-Hans": "让标志的文字做波浪文字动画：每个字依次错开，上下起伏约 20 px。", "zh-Hant": "Logo 的文字請做成波浪文字，每個字稍微錯開，上下起伏約 20 px。", "ko": "로고 글자를 웨이브 텍스트로 움직여 줘. 한 글자씩 어긋나게, 위아래로 20px 정도." },
       "summary": {
         "ja": "「WAVE TEXT」の文字が1文字ずつ、波のように順に上下する。",
-        "en": "The letters of \"WAVE TEXT\" rise and fall one after another, like a wave."
+        "en": "The letters of \"WAVE TEXT\" rise and fall one after another, like a wave.",
+        "ko": "\"WAVE TEXT\"의 글자가 한 글자씩 파도처럼 차례로 오르내린다."
       },
       "spec": {
         "ja": [
@@ -304,22 +384,30 @@
           "Vertical offset of letter i = −28·sin(φ − 0.62i), with φ = 2π × 3 × time ÷ 4.7 (each letter lags the previous by 0.62 rad).",
           "Rising letters stretch vertically (1 + 0.06·s) and shift from white towards yellow (s is the sine value, clamped to 0–1 for the colour).",
           "A shadow ellipse under each letter shrinks as the letter rises."
+        ],
+        "ko": [
+          "\"WAVE TEXT\"(70px, 굵게, 자간 4px). 4.7초에 파도 3번(1파 1.567초).",
+          "i번째 글자의 세로 위치 = −28·sin(φ − 0.62i). φ = 2π × 3 × 시간 ÷ 4.7(옆 글자는 0.62rad씩 늦다).",
+          "올라간 글자일수록 세로로 늘리고(1 + 0.06·s) 색을 흰색에서 노랑 쪽으로 옮긴다(s는 사인 값, 색에는 0–1로 제한해 섞는다).",
+          "각 글자 아래에 그림자 타원. 글자가 올라갈수록 작아진다."
         ]
       },
       "use": {
         "ja": "ロゴ・短い見出し・BGMに合わせたテロップに。楽しさやリズム感を出したいとき。",
-        "en": "Use it on a logo, a short heading or a caption timed to music, to add fun and rhythm."
+        "en": "Use it on a logo, a short heading or a caption timed to music, to add fun and rhythm.",
+        "ko": "로고, 짧은 제목, 배경 음악에 맞춘 자막에. 즐거움이나 리듬감을 주고 싶을 때."
       },
       "tags": ["wave-text", "wave", "text", "letters", "stagger", "bounce", "kinetic-type"]
     },
     {
       "no": "11", "slug": "text-on-a-path", "category": "text-shapes",
-      "name": { "ja": "テキストオンパス", "en": "Text on a path", "es": "Texto en trazado (text on a path)", "zh-Hans": "路径文字", "zh-Hant": "路徑文字" },
-      "meaning": { "ja": "文字が線に沿って流れる", "en": "Text flows along a line or curve", "es": "El texto corre a lo largo de una línea o una curva", "zh-Hans": "文字沿线条或曲线流动", "zh-Hant": "文字沿著線條或曲線流動" },
-      "ask": { "ja": "キャッチコピーをテキストオンパスで、波線に沿って左から右へ流して。1周5秒で。", "en": "Run the tagline as text on a path along a wavy line, scrolling left to right, one full pass every 5 s.", "es": "Pasa el eslogan como texto en trazado por una línea ondulada, de izquierda a derecha, con una pasada completa cada 5 s.", "zh-Hans": "把宣传语做成路径文字，沿波浪线从左向右流动，每 5 s 走完一轮。", "zh-Hant": "標語請做成路徑文字，沿著波浪線由左往右流動，5 秒跑完一輪。" },
+      "name": { "ja": "テキストオンパス", "en": "Text on a path", "es": "Texto en trazado (text on a path)", "zh-Hans": "路径文字", "zh-Hant": "路徑文字", "ko": "텍스트 온 패스" },
+      "meaning": { "ja": "文字が線に沿って流れる", "en": "Text flows along a line or curve", "es": "El texto corre a lo largo de una línea o una curva", "zh-Hans": "文字沿线条或曲线流动", "zh-Hant": "文字沿著線條或曲線流動", "ko": "글자가 선을 따라 흘러간다" },
+      "ask": { "ja": "キャッチコピーをテキストオンパスで、波線に沿って左から右へ流して。1周5秒で。", "en": "Run the tagline as text on a path along a wavy line, scrolling left to right, one full pass every 5 s.", "es": "Pasa el eslogan como texto en trazado por una línea ondulada, de izquierda a derecha, con una pasada completa cada 5 s.", "zh-Hans": "把宣传语做成路径文字，沿波浪线从左向右流动，每 5 s 走完一轮。", "zh-Hant": "標語請做成路徑文字，沿著波浪線由左往右流動，5 秒跑完一輪。", "ko": "캐치프레이즈를 텍스트 온 패스로 물결선을 따라 왼쪽에서 오른쪽으로 흘려 줘. 한 바퀴 5초로." },
       "summary": {
         "ja": "文字列が、波打つ線に沿って向きを変えながら流れていく。",
-        "en": "A line of text flows along a wavy line, each letter turning to follow it."
+        "en": "A line of text flows along a wavy line, each letter turning to follow it.",
+        "ko": "글자열이 물결치는 선을 따라 방향을 바꾸며 흘러간다."
       },
       "spec": {
         "ja": [
@@ -333,22 +421,30 @@
           "\"ALONG THE LINE • \" (42 px, bold, 2 px letter spacing) is repeated. Each character is placed at its arc-length position on the path and rotated to the path direction.",
           "The text moves along the path by the length of one copy of the string every 4.7 s, so the loop joins up.",
           "Letters are white; the bullet is yellow."
+        ],
+        "ko": [
+          "경로: y = 118 + 42·sin(2πx ÷ 330 + 0.6), x = −70에서 609까지. 6px 아래에 남색 파선(14/10, 선 두께 5)으로 보여 준다.",
+          "\"ALONG THE LINE • \"(42px, 굵게, 자간 2px)를 반복해 늘어놓는다. 한 글자씩 경로 위 길이(호 길이) 위치에 놓고 경로 방향으로 돌린다.",
+          "4.7초에 문자열 1개 길이만큼 경로를 따라 이동한다(루프가 이어진다).",
+          "글자는 흰색, '•'는 노랑."
         ]
       },
       "use": {
         "ja": "ロゴのまわり・道や川・波の上など、形に沿って文字を流したいとき。ループする帯の文字にも。",
-        "en": "Use it to run text along a shape: around a logo, along a road, river or wave, or as a looping band of text."
+        "en": "Use it to run text along a shape: around a logo, along a road, river or wave, or as a looping band of text.",
+        "ko": "로고 둘레, 길이나 강, 파도 위처럼 형태를 따라 글자를 흘리고 싶을 때. 반복되는 띠 모양 글자에도."
       },
       "tags": ["text-on-path", "path-text", "curved-text", "text", "marquee", "wave", "scroll"]
     },
     {
       "no": "12", "slug": "variable-font-animation", "category": "text-shapes",
-      "name": { "ja": "可変フォントアニメーション", "en": "Variable font animation", "es": "Animación de fuente variable", "zh-Hans": "可变字体动画", "zh-Hant": "可變字型動畫" },
-      "meaning": { "ja": "文字の太さがなめらかに変わる", "en": "The weight of the letters changes smoothly", "es": "El peso de las letras cambia suavemente", "zh-Hans": "文字粗细平滑变化", "zh-Hant": "文字的粗細平順地變化" },
-      "ask": { "ja": "タイトルを可変フォントアニメーションで、細字から極太へ1秒で変えて。", "en": "Use a variable font animation on the title: from Thin to Black (weight 100 to 900) in 1 s.", "es": "Usa una animación de fuente variable en el título: de Thin a Black (peso 100 a 900) en 1 s.", "zh-Hans": "给标题加上可变字体动画：1 s 内从 Thin 变到 Black（字重 100 到 900）。", "zh-Hant": "標題請用可變字型動畫，在 1 秒內從 Thin 變成 Black（字重 100 到 900）。" },
+      "name": { "ja": "可変フォントアニメーション", "en": "Variable font animation", "es": "Animación de fuente variable", "zh-Hans": "可变字体动画", "zh-Hant": "可變字型動畫", "ko": "가변 폰트 애니메이션" },
+      "meaning": { "ja": "文字の太さがなめらかに変わる", "en": "The weight of the letters changes smoothly", "es": "El peso de las letras cambia suavemente", "zh-Hans": "文字粗细平滑变化", "zh-Hant": "文字的粗細平順地變化", "ko": "글자 굵기가 부드럽게 바뀐다" },
+      "ask": { "ja": "タイトルを可変フォントアニメーションで、細字から極太へ1秒で変えて。", "en": "Use a variable font animation on the title: from Thin to Black (weight 100 to 900) in 1 s.", "es": "Usa una animación de fuente variable en el título: de Thin a Black (peso 100 a 900) en 1 s.", "zh-Hans": "给标题加上可变字体动画：1 s 内从 Thin 变到 Black（字重 100 到 900）。", "zh-Hant": "標題請用可變字型動畫，在 1 秒內從 Thin 變成 Black（字重 100 到 900）。", "ko": "제목에 가변 폰트 애니메이션을 넣어 줘. Thin에서 Black(굵기 100에서 900)까지 1초 동안." },
       "summary": {
         "ja": "同じ単語の太さが、細→極太→細となめらかに変わり、下のつまみが太さを示す。",
-        "en": "The same word goes smoothly from thin to very bold and back, with a slider below showing the weight."
+        "en": "The same word goes smoothly from thin to very bold and back, with a slider below showing the weight.",
+        "ko": "같은 단어의 굵기가 가늘게→아주 굵게→가늘게 부드럽게 바뀌고, 아래 슬라이더가 굵기를 보여 준다."
       },
       "spec": {
         "ja": [
@@ -360,22 +456,29 @@
           "\"MOTION\" (112 px, system-ui, 2 px letter spacing). The weight goes back and forth twice per 4.7 s: v = 0.5 − 0.5·cos(2π × 2 × time ÷ 4.7), which eases at both ends.",
           "Weight = round(100 + 800v), from 100 to 900, set directly as the font weight.",
           "A slider below (x = 112→427, y = 180) labelled thin on the left and bold on the right. The knob (yellow, radius 14) follows v, with the current weight shown above it."
+        ],
+        "ko": [
+          "\"MOTION\"(112px, system-ui, 자간 2px). 굵기를 4.7초에 2왕복: v = 0.5 − 0.5·cos(2π × 2 × 시간 ÷ 4.7)(cos라서 양 끝에서 부드럽게 멈춘다).",
+          "굵기 = round(100 + 800v)(100–900)를 그대로 폰트 굵기에 넣는다.",
+          "아래에 슬라이더(x = 112→427, y = 180). 왼쪽에 '가늘게', 오른쪽에 '굵게'. 손잡이(노랑, 반지름 14)가 v에 맞춰 움직이고, 위에 현재 굵기 숫자를 띄운다."
         ]
       },
       "use": {
         "ja": "タイトル・ロゴ・強調したい一語に。文字の形そのものを動かして、音や感情の強弱を見せたいとき。",
-        "en": "Use it on a title, a logo or a single word to show loudness or emotion through the letters themselves."
+        "en": "Use it on a title, a logo or a single word to show loudness or emotion through the letters themselves.",
+        "ko": "제목, 로고, 강조할 한 단어에. 글자 모양 자체를 움직여 소리나 감정의 세기를 보여 주고 싶을 때."
       },
       "tags": ["variable-font", "font-weight", "typography", "text", "weight", "kinetic-type"]
     },
     {
       "no": "13", "slug": "text-mask", "category": "text-shapes",
-      "name": { "ja": "テキストマスク", "en": "Text mask", "es": "Máscara de texto (text mask)", "zh-Hans": "文字遮罩", "zh-Hant": "文字遮罩" },
-      "meaning": { "ja": "文字の形にくり抜いて中の柄を見せる", "en": "Letters cut out to show a picture inside", "es": "Letras recortadas que dejan ver una imagen adentro", "zh-Hans": "镂空成文字形状，透出内部画面", "zh-Hant": "把文字形狀挖空，露出裡面的畫面" },
-      "ask": { "ja": "「OCEAN」の文字をテキストマスクにして、中に波の映像を見せて。最後の1秒で外側も見せる。", "en": "Use the word OCEAN as a text mask with ocean footage inside, and reveal the whole footage in the last second.", "es": "Usa la palabra OCEAN como máscara de texto con un video del mar adentro, y muestra el video completo en el último segundo.", "zh-Hans": "把“OCEAN”做成文字遮罩，里面透出海浪视频，最后 1 s 显示完整画面。", "zh-Hant": "請把「OCEAN」做成文字遮罩，字裡面顯示海浪影片，最後 1 秒連文字外面的畫面也全部顯示。" },
+      "name": { "ja": "テキストマスク", "en": "Text mask", "es": "Máscara de texto (text mask)", "zh-Hans": "文字遮罩", "zh-Hant": "文字遮罩", "ko": "텍스트 마스크" },
+      "meaning": { "ja": "文字の形にくり抜いて中の柄を見せる", "en": "Letters cut out to show a picture inside", "es": "Letras recortadas que dejan ver una imagen adentro", "zh-Hans": "镂空成文字形状，透出内部画面", "zh-Hant": "把文字形狀挖空，露出裡面的畫面", "ko": "글자 모양으로 뚫어 안쪽 그림을 보여 준다" },
+      "ask": { "ja": "「OCEAN」の文字をテキストマスクにして、中に波の映像を見せて。最後の1秒で外側も見せる。", "en": "Use the word OCEAN as a text mask with ocean footage inside, and reveal the whole footage in the last second.", "es": "Usa la palabra OCEAN como máscara de texto con un video del mar adentro, y muestra el video completo en el último segundo.", "zh-Hans": "把“OCEAN”做成文字遮罩，里面透出海浪视频，最后 1 s 显示完整画面。", "zh-Hant": "請把「OCEAN」做成文字遮罩，字裡面顯示海浪影片，最後 1 秒連文字外面的畫面也全部顯示。", "ko": "\"OCEAN\" 글자를 텍스트 마스크로 만들고 안에 파도 영상을 보여 줘. 마지막 1초에는 바깥도 보여 주고." },
       "summary": {
         "ja": "太い文字の形にくり抜いて、その中だけに動く海の景色が見える。周期の終わりに外側も見せる。",
-        "en": "Heavy letters are cut out so that a moving seascape shows only inside them; near the end of the cycle the whole picture appears."
+        "en": "Heavy letters are cut out so that a moving seascape shows only inside them; near the end of the cycle the whole picture appears.",
+        "ko": "굵은 글자 모양으로 뚫린 곳 안에만 움직이는 바다 풍경이 보인다. 주기 끝 무렵에는 바깥까지 다 보인다."
       },
       "spec": {
         "ja": [
@@ -389,22 +492,30 @@
           "The scene inside keeps moving: coral sky, a yellow sun bobbing ±6 px, blue sea below y = 116 with four white wavy lines drifting 240 px per 4.7 s in alternating directions, a sailboat crossing once per 4.7 s, clouds drifting 60 px.",
           "Method: draw the word on an offscreen canvas, then composite the scene onto it with source-in, so the scene remains only inside the letters. A white 4 px outline around the letters.",
           "Outside the letters the scene shows at 12% opacity; it rises to 100% at 3.45–3.85 s and returns to 12% at 4.25–4.65 s (smoothstep)."
+        ],
+        "ko": [
+          "\"OCEAN\"(굵기 900, system-ui, 자간 2px). 폭 500px 이하가 될 때까지 172px에서 2px씩 줄여 글자 크기를 정한다.",
+          "안쪽 풍경(계속 움직임): 코럴색 하늘, 노란 해(위아래 ±6px), y = 116 아래는 파란 바다에 흰 물결선 4개(4.7초에 240px씩 번갈아 반대 방향으로 흐름), 요트가 4.7초에 한 번 가로지르고, 구름이 60px 흐른다.",
+          "만드는 법: 별도 캔버스에 글자를 그리고 source-in으로 풍경을 합성한다(글자 모양 안에만 풍경이 남는다). 글자 테두리에 흰 선(선 두께 4).",
+          "글자 바깥에서는 풍경을 불투명도 12%로 보여 주고, 3.45–3.85초에 100%까지 올렸다가 4.25–4.65초에 12%로 되돌린다(smoothstep)."
         ]
       },
       "use": {
         "ja": "タイトル・ブランド名の中に写真や映像を見せたいとき。言葉とイメージを1つにまとめたいとき。",
-        "en": "Use it to show a photo or footage inside a title or brand name, putting the word and the picture together."
+        "en": "Use it to show a photo or footage inside a title or brand name, putting the word and the picture together.",
+        "ko": "제목이나 브랜드명 안에 사진이나 영상을 보여 주고 싶을 때. 단어와 이미지를 하나로 묶고 싶을 때."
       },
       "tags": ["text-mask", "mask", "clipping-mask", "knockout", "text", "typography", "title"]
     },
     {
       "no": "14", "slug": "repeater", "category": "text-shapes",
-      "name": { "ja": "リピーター", "en": "Repeater", "es": "Repetidor (repeater)", "zh-Hans": "中继器", "zh-Hant": "Repeater" },
-      "meaning": { "ja": "図形を複製して並べて回す", "en": "Duplicates a shape and turns the copies", "es": "Duplica una forma y hace girar las copias", "zh-Hans": "复制图形并排列旋转", "zh-Hant": "複製圖形、排列並旋轉" },
-      "ask": { "ja": "この花びらの形をリピーターで12枚、円に並べて、4秒で1回転させて。", "en": "Use a repeater to make 12 copies of this petal in a circle, turning once every 4 s.", "es": "Usa un repetidor para hacer 12 copias de este pétalo en círculo, dando una vuelta cada 4 s.", "zh-Hans": "用中继器把这片花瓣复制成 12 片排成圆形，每 4 s 旋转一圈。", "zh-Hant": "請用 Repeater 把這片花瓣複製成 12 片排成一圈，4 秒轉一圈。" },
+      "name": { "ja": "リピーター", "en": "Repeater", "es": "Repetidor (repeater)", "zh-Hans": "中继器", "zh-Hant": "Repeater", "ko": "리피터" },
+      "meaning": { "ja": "図形を複製して並べて回す", "en": "Duplicates a shape and turns the copies", "es": "Duplica una forma y hace girar las copias", "zh-Hans": "复制图形并排列旋转", "zh-Hant": "複製圖形、排列並旋轉", "ko": "도형을 복제해 늘어놓고 돌린다" },
+      "ask": { "ja": "この花びらの形をリピーターで12枚、円に並べて、4秒で1回転させて。", "en": "Use a repeater to make 12 copies of this petal in a circle, turning once every 4 s.", "es": "Usa un repetidor para hacer 12 copias de este pétalo en círculo, dando una vuelta cada 4 s.", "zh-Hans": "用中继器把这片花瓣复制成 12 片排成圆形，每 4 s 旋转一圈。", "zh-Hant": "請用 Repeater 把這片花瓣複製成 12 片排成一圈，4 秒轉一圈。", "ko": "이 꽃잎 모양을 리피터로 12장 복제해 원형으로 배치하고, 4초에 한 바퀴 돌려 줘." },
       "summary": {
         "ja": "1つの図形が複製されて円に並び、少しずつずれながら回る。",
-        "en": "One shape is duplicated around a circle, and the copies turn and pulse slightly out of step."
+        "en": "One shape is duplicated around a circle, and the copies turn and pulse slightly out of step.",
+        "ko": "도형 하나가 복제되어 원형으로 늘어서고, 조금씩 어긋나며 돈다."
       },
       "spec": {
         "ja": [
@@ -418,22 +529,30 @@
           "Count: 1→12 at 0.35–1.7 s and 12→1 at 3.6–4.45 s (quadratic ease-in-out). Each new copy slides from the previous slot to its own, 30° further on (cubic ease-out).",
           "The whole ring turns once per 4.7 s. Each copy pulses in size by 1 ± 0.22 twice per 4.7 s, each one 0.55 rad later than the last, so a ripple runs round the ring.",
           "Colours go blue, coral, yellow, mint. The original copy has a white outline. A \"×N\" counter at the top right."
+        ],
+        "ko": [
+          "둥근 막대(24×60, 모서리 반경 12)를 중앙의 반지름 58 원 위에 최대 12개 배치한다. 각각 바깥을 향하게 돌린다(각도 + 90°).",
+          "개수: 0.35–1.7초에 1→12, 3.6–4.45초에 12→1(2차 ease-in-out). 새 복제본은 이전 자리에서 30° 앞의 자기 자리로 미끄러져 나온다(3차 ease-out).",
+          "전체를 4.7초에 한 바퀴 돌린다. 각 복제본의 크기를 1 ± 0.22로 4.7초에 2번 맥동시키고, 하나 앞으로 갈수록 0.55rad씩 늦춘다(고리를 도는 물결이 된다).",
+          "색은 파랑, 코럴, 노랑, 민트 순. 원본 1개에는 흰 테두리. 오른쪽 위에 개수를 나타내는 \"×N\"."
         ]
       },
       "use": {
         "ja": "ローディング・背景の模様・花や光の放射など、同じ形をくり返して並べたいとき。",
-        "en": "Use it for loaders, background patterns, flowers or rays: anything built from one shape repeated."
+        "en": "Use it for loaders, background patterns, flowers or rays: anything built from one shape repeated.",
+        "ko": "로딩, 배경 패턴, 꽃이나 빛의 방사처럼 같은 모양을 반복해 늘어놓고 싶을 때."
       },
       "tags": ["repeater", "duplicate", "radial", "array", "clone", "pattern", "loader"]
     },
     {
       "no": "15", "slug": "kaleidoscope", "category": "text-shapes",
-      "name": { "ja": "カレイドスコープ", "en": "Kaleidoscope", "es": "Caleidoscopio", "zh-Hans": "万花筒", "zh-Hant": "萬花筒效果" },
-      "meaning": { "ja": "万華鏡のように対称に広がる", "en": "Mirrored patterns spread out symmetrically", "es": "Patrones en espejo que se abren de forma simétrica", "zh-Hans": "像万花筒一样对称展开", "zh-Hant": "像萬花筒一樣對稱地擴散" },
-      "ask": { "ja": "ロゴの背景にカレイドスコープを入れて。8分割の対称で、ゆっくり回しながら広げて。", "en": "Put a kaleidoscope behind the logo: 8-way mirror symmetry, turning slowly as it spreads out.", "es": "Pon un caleidoscopio detrás del logo: simetría de espejo en 8 partes, girando despacio mientras se expande.", "zh-Hans": "在标志背后加入万花筒效果：8 等分镜像对称，一边缓慢旋转一边向外展开。", "zh-Hant": "Logo 的背景請加上萬花筒效果：8 等分對稱，一邊慢慢旋轉一邊擴散。" },
+      "name": { "ja": "カレイドスコープ", "en": "Kaleidoscope", "es": "Caleidoscopio", "zh-Hans": "万花筒", "zh-Hant": "萬花筒效果", "ko": "칼레이도스코프" },
+      "meaning": { "ja": "万華鏡のように対称に広がる", "en": "Mirrored patterns spread out symmetrically", "es": "Patrones en espejo que se abren de forma simétrica", "zh-Hans": "像万花筒一样对称展开", "zh-Hant": "像萬花筒一樣對稱地擴散", "ko": "만화경처럼 대칭으로 퍼져 나간다" },
+      "ask": { "ja": "ロゴの背景にカレイドスコープを入れて。8分割の対称で、ゆっくり回しながら広げて。", "en": "Put a kaleidoscope behind the logo: 8-way mirror symmetry, turning slowly as it spreads out.", "es": "Pon un caleidoscopio detrás del logo: simetría de espejo en 8 partes, girando despacio mientras se expande.", "zh-Hans": "在标志背后加入万花筒效果：8 等分镜像对称，一边缓慢旋转一边向外展开。", "zh-Hant": "Logo 的背景請加上萬花筒效果：8 等分對稱，一邊慢慢旋轉一邊擴散。", "ko": "로고 배경에 칼레이도스코프를 넣어 줘. 8분할 대칭으로, 천천히 돌리면서 퍼지게." },
       "summary": {
         "ja": "万華鏡のように、8分割の対称な模様が回りながら中心から広がる。",
-        "en": "An 8-way symmetrical pattern turns and spreads out from the centre, like a kaleidoscope."
+        "en": "An 8-way symmetrical pattern turns and spreads out from the centre, like a kaleidoscope.",
+        "ko": "만화경처럼 8분할 대칭 무늬가 돌면서 중심에서 퍼져 나간다."
       },
       "spec": {
         "ja": [
@@ -449,22 +568,31 @@
           "Shapes grow as they go out ((5 + 0.1r) × 0.7–1.4) and spin 0.02 rad per px. They fade in over the first 30 px and out over the last 70 px; each sways ±0.08 rad once per 4.7 s.",
           "The whole pattern turns 90° per 4.7 s (two wedges, so the loop joins up).",
           "A white eight-point star at the centre (radius 20 ± 4, pulsing twice per 4.7 s)."
+        ],
+        "ko": [
+          "중심 둘레를 45°씩 8개로 나누고, 하나 걸러 좌우 반전해 그린다(거울 대칭 8개).",
+          "한 구역에 도형 13개(원, 마름모, 삼각형, 4색, 난수 시드 고정). 중심에서 반지름 300까지 바깥으로 나아가며, 4.7초에 반지름 하나만큼 이동한다(끝에 닿으면 중심으로 돌아간다).",
+          "도형은 바깥으로 갈수록 커지고((5 + 0.1r) × 0.7–1.4), 나아갈수록 돈다(1px당 0.02rad). 처음 30px에서 나타나고 마지막 70px에서 사라진다. 각도는 4.7초에 한 번 ±0.08rad 흔든다.",
+          "무늬 전체를 4.7초에 90° 돌린다(구역 2개분이라 루프가 이어진다).",
+          "중심에 흰 8각 별(반지름 20 ± 4, 4.7초에 2번 맥동)."
         ]
       },
       "use": {
         "ja": "ミュージックビデオ・ライブの背景・幻想的な場面転換に。くり返し見ても飽きない模様がほしいとき。",
-        "en": "Use it for music videos, live backdrops or dreamy scene changes, wherever a pattern has to hold up on repeat."
+        "en": "Use it for music videos, live backdrops or dreamy scene changes, wherever a pattern has to hold up on repeat.",
+        "ko": "뮤직비디오, 공연 배경, 몽환적인 장면 전환에. 반복해 봐도 질리지 않는 무늬가 필요할 때."
       },
       "tags": ["kaleidoscope", "symmetry", "mirror", "mandala", "pattern", "radial", "psychedelic"]
     },
     {
       "no": "16", "slug": "line-boil", "category": "text-shapes",
-      "name": { "ja": "ラインボイル", "en": "Line boil", "es": "Line boil (línea temblorosa)", "zh-Hans": "线条抖动", "zh-Hant": "Line Boil 線條抖動" },
-      "meaning": { "ja": "手描きの線が小刻みに揺らぐ", "en": "Hand-drawn lines wobble frame to frame", "es": "Las líneas dibujadas a mano tiemblan de un cuadro a otro", "zh-Hans": "手绘线条逐帧轻微抖动", "zh-Hant": "手繪線條每幾格就微微晃動" },
-      "ask": { "ja": "手描きのイラストにラインボイルを付けて。1秒10コマで、線を2〜3pxだけ揺らして。", "en": "Add line boil to the hand-drawn illustration: 10 frames per second, with the lines shifting only 2–3 px.", "es": "Agrega line boil a la ilustración dibujada a mano: 10 cuadros por segundo, con las líneas moviéndose solo 2–3 px.", "zh-Hans": "给手绘插画加上线条抖动：每秒 10 帧，线条只偏移 2–3 px。", "zh-Hant": "請幫手繪插畫加上 Line Boil 線條抖動：每秒 10 格，線條只晃動 2–3 px。" },
+      "name": { "ja": "ラインボイル", "en": "Line boil", "es": "Line boil (línea temblorosa)", "zh-Hans": "线条抖动", "zh-Hant": "Line Boil 線條抖動", "ko": "라인 보일" },
+      "meaning": { "ja": "手描きの線が小刻みに揺らぐ", "en": "Hand-drawn lines wobble frame to frame", "es": "Las líneas dibujadas a mano tiemblan de un cuadro a otro", "zh-Hans": "手绘线条逐帧轻微抖动", "zh-Hant": "手繪線條每幾格就微微晃動", "ko": "손그림 선이 잘게 일렁인다" },
+      "ask": { "ja": "手描きのイラストにラインボイルを付けて。1秒10コマで、線を2〜3pxだけ揺らして。", "en": "Add line boil to the hand-drawn illustration: 10 frames per second, with the lines shifting only 2–3 px.", "es": "Agrega line boil a la ilustración dibujada a mano: 10 cuadros por segundo, con las líneas moviéndose solo 2–3 px.", "zh-Hans": "给手绘插画加上线条抖动：每秒 10 帧，线条只偏移 2–3 px。", "zh-Hant": "請幫手繪插畫加上 Line Boil 線條抖動：每秒 10 格，線條只晃動 2–3 px。", "ko": "손그림 일러스트에 라인 보일을 넣어 줘. 초당 10프레임으로, 선은 2–3px만 흔들리게." },
       "summary": {
         "ja": "手描き風の線の絵が、数コマごとに小刻みに揺らぐ。絵そのものは動かない。",
-        "en": "A hand-drawn line picture wobbles every few frames while the picture itself stays still."
+        "en": "A hand-drawn line picture wobbles every few frames while the picture itself stays still.",
+        "ko": "손그림 느낌의 선화가 몇 프레임마다 잘게 일렁인다. 그림 자체는 움직이지 않는다."
       },
       "spec": {
         "ja": [
@@ -478,22 +606,30 @@
           "The drawing does not move. 47 times per 4.7 s (about every 0.1 s) every point is redrawn with a fixed random offset of up to ±3.5 px in x and in y.",
           "Each line is first turned into a row of points (every 6–13 px; 96 points round the cloud) and drawn as quadratic curves through the midpoints between them, so it wobbles like hand-drawn frames.",
           "The offsets are a hash of the frame number and the point number, so the same frame always looks the same."
+        ],
+        "ko": [
+          "정지한 선화(노란 별, 흰 구름, 민트색 반짝임 선, 옅은 지면 선). 선 두께 6–8, 끝은 둥글게.",
+          "그림은 움직이지 않고, 4.7초에 47회(약 0.1초마다) 모든 점을 다시 그린다. 각 점을 가로, 세로 각각 ±3.5px의 고정 난수로 어긋나게 한다.",
+          "선은 미리 점의 열로 바꿔 두고(6–13px 간격, 구름은 윤곽 96점), 이웃한 점의 중점을 지나는 2차 곡선으로 이어 그린다(손으로 그린 프레임처럼 일렁인다).",
+          "난수는 프레임 번호와 점 번호로 만든다(같은 프레임은 늘 같은 모양)."
         ]
       },
       "use": {
         "ja": "手描き風のイラスト・アイコン・文字に。止まった絵にも、手で描いたような生きた感じを出したいとき。",
-        "en": "Use it on hand-drawn illustrations, icons or lettering to make even a still picture feel drawn by hand."
+        "en": "Use it on hand-drawn illustrations, icons or lettering to make even a still picture feel drawn by hand.",
+        "ko": "손그림 일러스트, 아이콘, 레터링에. 멈춰 있는 그림에도 손으로 그린 듯한 생동감을 주고 싶을 때."
       },
       "tags": ["line-boil", "boil", "hand-drawn", "wobble", "jitter", "sketch", "frame-by-frame"]
     },
     {
       "no": "17", "slug": "push-transition", "category": "transitions-highlights",
-      "name": { "ja": "プッシュ", "en": "Push transition", "es": "Transición de empuje (push)", "zh-Hans": "推入转场", "zh-Hant": "推移轉場" },
-      "meaning": { "ja": "次の画面が前の画面を押し出す", "en": "The next scene pushes the current one out", "es": "La escena siguiente empuja fuera a la actual", "zh-Hans": "下一画面把当前画面推出", "zh-Hant": "下一個畫面把目前的畫面推出去" },
-      "ask": { "ja": "次のスライドへはプッシュで。右から0.8秒で押し出すように。", "en": "Go to the next slide with a push transition from the right, 0.8 s.", "es": "Pasa a la siguiente diapositiva con una transición de empuje desde la derecha, en 0,8 s.", "zh-Hans": "用推入转场切到下一张幻灯片，从右侧在 0.8 s 内推入。", "zh-Hant": "切到下一張投影片請用推移轉場，從右邊推進來，0.8 秒。" },
+      "name": { "ja": "プッシュ", "en": "Push transition", "es": "Transición de empuje (push)", "zh-Hans": "推入转场", "zh-Hant": "推移轉場", "ko": "푸시 트랜지션" },
+      "meaning": { "ja": "次の画面が前の画面を押し出す", "en": "The next scene pushes the current one out", "es": "La escena siguiente empuja fuera a la actual", "zh-Hans": "下一画面把当前画面推出", "zh-Hant": "下一個畫面把目前的畫面推出去", "ko": "다음 화면이 지금 화면을 밀어낸다" },
+      "ask": { "ja": "次のスライドへはプッシュで。右から0.8秒で押し出すように。", "en": "Go to the next slide with a push transition from the right, 0.8 s.", "es": "Pasa a la siguiente diapositiva con una transición de empuje desde la derecha, en 0,8 s.", "zh-Hans": "用推入转场切到下一张幻灯片，从右侧在 0.8 s 内推入。", "zh-Hant": "切到下一張投影片請用推移轉場，從右邊推進來，0.8 秒。", "ko": "다음 슬라이드로는 푸시 트랜지션으로 넘겨 줘. 오른쪽에서 0.8초 동안 밀어내듯이." },
       "summary": {
         "ja": "次の画面が横から入ってきて、前の画面を一緒に押し出す。",
-        "en": "The next scene slides in from the side and pushes the current one out with it."
+        "en": "The next scene slides in from the side and pushes the current one out with it.",
+        "ko": "다음 화면이 옆에서 들어오며 이전 화면을 함께 밀어낸다."
       },
       "spec": {
         "ja": [
@@ -507,22 +643,30 @@
           "The two scenes stay joined and move together by the full frame width (539 px); no overlap and no fade.",
           "Direction: sea→mountain moves left (the next scene enters from the right); mountain→sea moves right.",
           "A navy line (width 6) marks the seam between the two scenes."
+        ],
+        "ko": [
+          "바다 화면 → 산 화면 → 바다 화면을 2.35초씩. 각 구간의 0.45–1.6초(1.15초)에 전환, 3차 ease-in-out.",
+          "두 화면을 붙인 채 함께 화면 폭(539px)만큼 이동한다. 겹치거나 흐리게 하지 않는다.",
+          "방향: 바다→산은 왼쪽으로(다음 화면은 오른쪽에서), 산→바다는 오른쪽으로.",
+          "두 화면의 경계에 남색 선(폭 6)."
         ]
       },
       "use": {
         "ja": "スライド・写真・手順を順番に送るとき。続いている感じ、前へ進む感じを出したいとき。",
-        "en": "Use it to step through slides, photos or steps, when the change should feel continuous and moving forward."
+        "en": "Use it to step through slides, photos or steps, when the change should feel continuous and moving forward.",
+        "ko": "슬라이드, 사진, 단계를 차례로 넘길 때. 이어지는 느낌, 앞으로 나아가는 느낌을 주고 싶을 때."
       },
       "tags": ["push", "push-transition", "slide", "transition", "scene-change", "carousel"]
     },
     {
       "no": "18", "slug": "blinds-transition", "category": "transitions-highlights",
-      "name": { "ja": "ブラインド", "en": "Blinds transition", "es": "Transición de persianas (blinds)", "zh-Hans": "百叶窗转场", "zh-Hant": "百葉窗轉場" },
-      "meaning": { "ja": "細い帯の隙間から次の画面が開く", "en": "The next scene opens through thin strips", "es": "La escena siguiente se abre entre franjas delgadas", "zh-Hans": "从细条缝隙中打开下一画面", "zh-Hant": "下一個畫面從細長橫條的縫隙中打開" },
-      "ask": { "ja": "場面の切り替えをブラインドで。横の帯7本で、1秒かけて開くように。", "en": "Change scenes with a blinds transition: seven horizontal strips that open over 1 s.", "es": "Cambia de escena con una transición de persianas: siete franjas horizontales que se abren en 1 s.", "zh-Hans": "用百叶窗转场切换场景：7 条横向条带，在 1 s 内打开。", "zh-Hant": "場景切換請用百葉窗轉場：7 條橫條，花 1 秒打開。" },
+      "name": { "ja": "ブラインド", "en": "Blinds transition", "es": "Transición de persianas (blinds)", "zh-Hans": "百叶窗转场", "zh-Hant": "百葉窗轉場", "ko": "블라인드 트랜지션" },
+      "meaning": { "ja": "細い帯の隙間から次の画面が開く", "en": "The next scene opens through thin strips", "es": "La escena siguiente se abre entre franjas delgadas", "zh-Hans": "从细条缝隙中打开下一画面", "zh-Hant": "下一個畫面從細長橫條的縫隙中打開", "ko": "가는 띠 사이로 다음 화면이 열린다" },
+      "ask": { "ja": "場面の切り替えをブラインドで。横の帯7本で、1秒かけて開くように。", "en": "Change scenes with a blinds transition: seven horizontal strips that open over 1 s.", "es": "Cambia de escena con una transición de persianas: siete franjas horizontales que se abren en 1 s.", "zh-Hans": "用百叶窗转场切换场景：7 条横向条带，在 1 s 内打开。", "zh-Hant": "場景切換請用百葉窗轉場：7 條橫條，花 1 秒打開。", "ko": "장면 전환을 블라인드 트랜지션으로 해 줘. 가로 띠 7개가 1초 동안 열리게." },
       "summary": {
         "ja": "細い帯ごとのすき間がだんだん広がって、次の画面が開く。",
-        "en": "Gaps in a row of thin strips widen until the next scene is fully open."
+        "en": "Gaps in a row of thin strips widen until the next scene is fully open.",
+        "ko": "가는 띠마다 틈이 점점 넓어지며 다음 화면이 열린다."
       },
       "spec": {
         "ja": [
@@ -534,22 +678,29 @@
           "Day scene → night scene → day, 2.35 s each. Seven horizontal strips (208 ÷ 7 ≈ 29.7 px each).",
           "0.4–1.65 s (1.25 s), quadratic ease-in-out: in every strip at once, the next scene is revealed from the strip's top edge downward, opening from 0 to the full strip height.",
           "The previous scene stays underneath. Neither picture moves."
+        ],
+        "ko": [
+          "낮 화면 → 밤 화면 → 낮을 2.35초씩. 가로 띠 7개(1개 208 ÷ 7 ≈ 29.7px).",
+          "0.4–1.65초(1.25초), 2차 ease-in-out: 모든 띠에서 동시에, 띠 위쪽 끝부터 아래로 다음 화면이 보이는 부분을 넓혀 0에서 띠 높이 전체까지 연다.",
+          "이전 화면은 아래에 둔 채 움직이지 않는다. 두 화면 모두 그림은 움직이지 않는다."
         ]
       },
       "use": {
         "ja": "昼夜・季節・前後など、2つの場面をはっきり切り替えたいとき。レトロな雰囲気を出したいときにも。",
-        "en": "Use it for a clear switch between two scenes, such as day and night or before and after, or for a retro feel."
+        "en": "Use it for a clear switch between two scenes, such as day and night or before and after, or for a retro feel.",
+        "ko": "낮과 밤, 계절, 전후처럼 두 장면을 분명하게 바꾸고 싶을 때. 레트로한 분위기를 낼 때도."
       },
       "tags": ["blinds", "venetian-blinds", "stripes", "transition", "wipe", "scene-change"]
     },
     {
       "no": "19", "slug": "cube-transition", "category": "transitions-highlights",
-      "name": { "ja": "キューブ", "en": "Cube transition", "es": "Transición de cubo (cube)", "zh-Hans": "立方体转场", "zh-Hant": "立方體轉場" },
-      "meaning": { "ja": "立方体が回るように面が替わる", "en": "Changes scenes like a turning cube", "es": "Cambia de escena como un cubo que gira", "zh-Hans": "像立方体旋转一样切换画面", "zh-Hant": "像轉動立方體一樣換到下一面" },
-      "ask": { "ja": "商品写真の切り替えをキューブで。左へ90°回して、0.8秒で。", "en": "Switch the product shots with a cube transition, turning 90° to the left in 0.8 s.", "es": "Cambia las fotos del producto con una transición de cubo, girando 90° a la izquierda en 0,8 s.", "zh-Hans": "商品照片用立方体转场切换，向左转 90°，时长 0.8 s。", "zh-Hant": "商品照片的切換請用立方體轉場，往左轉 90 度，0.8 秒。" },
+      "name": { "ja": "キューブ", "en": "Cube transition", "es": "Transición de cubo (cube)", "zh-Hans": "立方体转场", "zh-Hant": "立方體轉場", "ko": "큐브 트랜지션" },
+      "meaning": { "ja": "立方体が回るように面が替わる", "en": "Changes scenes like a turning cube", "es": "Cambia de escena como un cubo que gira", "zh-Hans": "像立方体旋转一样切换画面", "zh-Hant": "像轉動立方體一樣換到下一面", "ko": "정육면체가 돌듯이 면이 바뀐다" },
+      "ask": { "ja": "商品写真の切り替えをキューブで。左へ90°回して、0.8秒で。", "en": "Switch the product shots with a cube transition, turning 90° to the left in 0.8 s.", "es": "Cambia las fotos del producto con una transición de cubo, girando 90° a la izquierda en 0,8 s.", "zh-Hans": "商品照片用立方体转场切换，向左转 90°，时长 0.8 s。", "zh-Hant": "商品照片的切換請用立方體轉場，往左轉 90 度，0.8 秒。", "ko": "상품 사진 전환을 큐브 트랜지션으로 해 줘. 왼쪽으로 90° 돌려서 0.8초 동안." },
       "summary": {
         "ja": "立方体が回るように、前の面が奥へ倒れて次の面が現れる。",
-        "en": "Like a turning cube, the front face swings away and the next face comes round."
+        "en": "Like a turning cube, the front face swings away and the next face comes round.",
+        "ko": "정육면체가 돌듯이 앞면이 안쪽으로 넘어가고 다음 면이 나타난다."
       },
       "spec": {
         "ja": [
@@ -563,22 +714,30 @@
           "Rotation 0→90° at 0.45–1.6 s (1.15 s), cubic ease-in-out, around a vertical axis through the centre of the cube (depth equal to the face width, 250).",
           "Perspective: camera distance 820 px. Each face is drawn as 2 px vertical slices, each sized and placed by its perspective factor.",
           "The face turning away darkens up to 55% (0.55·sinφ); the incoming face starts 55% dark and brightens (0.55·cosφ). The floor shadow follows the visible width."
+        ],
+        "ko": [
+          "면 A(코럴 바탕에 \"A\")와 면 B(민트 바탕에 \"B\"), 각 250×146. 2.35초씩 A→B→A.",
+          "0.45–1.6초(1.15초)에 0→90° 회전, 3차 ease-in-out. 회전축은 정육면체 중심을 지나는 세로선(깊이는 면 폭과 같은 250).",
+          "원근: 카메라 거리 820px. 면을 폭 2px의 세로 띠로 나누고, 띠마다 원근 배율로 높이와 위치를 정해 그린다.",
+          "안쪽으로 넘어가는 면은 최대 55%까지 어둡게(0.55·sinφ), 나오는 면은 55% 어두운 상태에서 밝게 한다(0.55·cosφ). 바닥 그림자 폭은 보이는 폭에 맞춘다."
         ]
       },
       "use": {
         "ja": "商品・プラン・画面を次々に見せるとき。立体感を出して、横に並んでいる物を順に見せたいとき。",
-        "en": "Use it to show products, plans or screens one after another with a sense of depth."
+        "en": "Use it to show products, plans or screens one after another with a sense of depth.",
+        "ko": "상품, 요금제, 화면을 차례로 보여 줄 때. 옆으로 늘어선 것을 입체감 있게 하나씩 보여 주고 싶을 때."
       },
       "tags": ["cube", "cube-transition", "3d", "rotate", "transition", "perspective"]
     },
     {
       "no": "20", "slug": "page-curl", "category": "transitions-highlights",
-      "name": { "ja": "ページめくり", "en": "Page curl", "es": "Vuelta de página (page curl)", "zh-Hans": "翻页转场", "zh-Hant": "翻頁轉場" },
-      "meaning": { "ja": "紙のようにめくれて次へ", "en": "Peels back like paper to show the next page", "es": "Se levanta como papel y deja ver la página siguiente", "zh-Hans": "像纸张一样卷起，翻到下一页", "zh-Hant": "像紙張一樣翻起，露出下一頁" },
-      "ask": { "ja": "次の章へはページめくりで。右下の角から1.2秒でめくって。", "en": "Go to the next chapter with a page curl from the bottom-right corner, 1.2 s.", "es": "Pasa al siguiente capítulo con una vuelta de página desde la esquina inferior derecha, en 1,2 s.", "zh-Hans": "用翻页转场进入下一章，从右下角在 1.2 s 内翻起。", "zh-Hant": "進入下一章請用翻頁轉場，從右下角翻起，1.2 秒。" },
+      "name": { "ja": "ページめくり", "en": "Page curl", "es": "Vuelta de página (page curl)", "zh-Hans": "翻页转场", "zh-Hant": "翻頁轉場", "ko": "페이지 컬" },
+      "meaning": { "ja": "紙のようにめくれて次へ", "en": "Peels back like paper to show the next page", "es": "Se levanta como papel y deja ver la página siguiente", "zh-Hans": "像纸张一样卷起，翻到下一页", "zh-Hant": "像紙張一樣翻起，露出下一頁", "ko": "종이처럼 넘어가며 다음 장이 나온다" },
+      "ask": { "ja": "次の章へはページめくりで。右下の角から1.2秒でめくって。", "en": "Go to the next chapter with a page curl from the bottom-right corner, 1.2 s.", "es": "Pasa al siguiente capítulo con una vuelta de página desde la esquina inferior derecha, en 1,2 s.", "zh-Hans": "用翻页转场进入下一章，从右下角在 1.2 s 内翻起。", "zh-Hant": "進入下一章請用翻頁轉場，從右下角翻起，1.2 秒。", "ko": "다음 챕터로는 페이지 컬로 넘겨 줘. 오른쪽 아래 모서리에서 1.2초 동안 넘기게." },
       "summary": {
         "ja": "角から紙がめくれて裏返り、下から次のページが現れる。",
-        "en": "A page peels back from its corner and folds over, revealing the next page beneath."
+        "en": "A page peels back from its corner and folds over, revealing the next page beneath.",
+        "ko": "모서리부터 종이가 말려 뒤집히고, 아래에서 다음 페이지가 나타난다."
       },
       "spec": {
         "ja": [
@@ -592,22 +751,30 @@
           "The fold line moves from the corner in the direction (−1, −0.42), normalised, by 0→600 px.",
           "The part beyond the fold line is mirrored across it to form the flap, the back of the page (light grey or beige), with a drop shadow (blur 14, offset 4, 4) and a white 2 px edge.",
           "The next page shows where the paper has lifted, with a 50 px shadow gradient along the fold."
+        ],
+        "ko": [
+          "페이지 1(흰색) → 페이지 2(크림색) → 페이지 1을 2.35초씩. 오른쪽 아래 모서리부터 0.35–1.75초(1.4초), 2차 ease-in-out.",
+          "접힘선을 모서리에서 방향 (−1, −0.42)(길이 1로 정규화)로 0→600px 이동한다.",
+          "접힘선보다 모서리 쪽 부분을 접힘선 기준으로 반사해 넘어간 뒷면으로 만든다(옅은 회색 또는 베이지). 그림자(블러 14, 오프셋 4, 4)와 흰 테두리(선 두께 2)를 붙인다.",
+          "넘어간 자리에는 다음 페이지를 보여 주고, 접힘선을 따라 50px 그림자 그라데이션을 넣는다."
         ]
       },
       "use": {
         "ja": "本・カタログ・アルバム・章の切り替えに。紙の手ざわりや、物語を読み進める感じを出したいとき。",
-        "en": "Use it for books, catalogues, albums or chapter breaks, where a paper feel or reading on suits the content."
+        "en": "Use it for books, catalogues, albums or chapter breaks, where a paper feel or reading on suits the content.",
+        "ko": "책, 카탈로그, 앨범, 챕터 전환에. 종이의 질감이나 이야기를 읽어 나가는 느낌을 주고 싶을 때."
       },
       "tags": ["page-curl", "page-turn", "page-peel", "paper", "book", "transition"]
     },
     {
       "no": "21", "slug": "pixelate", "category": "transitions-highlights",
-      "name": { "ja": "ピクセレート", "en": "Pixelate", "es": "Pixelado (pixelate)", "zh-Hans": "像素化转场", "zh-Hant": "像素化轉場" },
-      "meaning": { "ja": "モザイクが粗くなって切り替わる", "en": "Turns into coarse blocks, then switches", "es": "Se vuelve bloques gruesos y luego cambia", "zh-Hans": "马赛克逐渐变粗后切换画面", "zh-Hant": "馬賽克越變越粗，再切換畫面" },
-      "ask": { "ja": "ピクセレートで切り替えて。0.6秒でモザイクが粗くなり、いちばん粗いところで次の画面へ。", "en": "Use a pixelate transition: the mosaic gets coarser over 0.6 s and the scene changes at the coarsest point.", "es": "Usa una transición de pixelado: el mosaico se vuelve más grueso durante 0,6 s y la escena cambia en el punto más grueso.", "zh-Hans": "用像素化转场切换：0.6 s 内马赛克逐渐变粗，在最粗时切到下一画面。", "zh-Hant": "請用像素化轉場：0.6 秒內馬賽克越來越粗，在最粗的時候切換到下一個畫面。" },
+      "name": { "ja": "ピクセレート", "en": "Pixelate", "es": "Pixelado (pixelate)", "zh-Hans": "像素化转场", "zh-Hant": "像素化轉場", "ko": "픽셀레이트" },
+      "meaning": { "ja": "モザイクが粗くなって切り替わる", "en": "Turns into coarse blocks, then switches", "es": "Se vuelve bloques gruesos y luego cambia", "zh-Hans": "马赛克逐渐变粗后切换画面", "zh-Hant": "馬賽克越變越粗，再切換畫面", "ko": "모자이크가 거칠어지며 전환된다" },
+      "ask": { "ja": "ピクセレートで切り替えて。0.6秒でモザイクが粗くなり、いちばん粗いところで次の画面へ。", "en": "Use a pixelate transition: the mosaic gets coarser over 0.6 s and the scene changes at the coarsest point.", "es": "Usa una transición de pixelado: el mosaico se vuelve más grueso durante 0,6 s y la escena cambia en el punto más grueso.", "zh-Hans": "用像素化转场切换：0.6 s 内马赛克逐渐变粗，在最粗时切到下一画面。", "zh-Hant": "請用像素化轉場：0.6 秒內馬賽克越來越粗，在最粗的時候切換到下一個畫面。", "ko": "픽셀레이트로 전환해 줘. 0.6초 동안 모자이크가 거칠어지고, 가장 거칠 때 다음 화면으로." },
       "summary": {
         "ja": "画面がだんだん粗いモザイクになり、いちばん粗いところで切り替わって細かく戻る。",
-        "en": "The picture turns into coarser and coarser blocks, switches at the coarsest point, then sharpens again."
+        "en": "The picture turns into coarser and coarser blocks, switches at the coarsest point, then sharpens again.",
+        "ko": "화면이 점점 거친 모자이크가 되고, 가장 거친 순간 바뀐 뒤 다시 선명해진다."
       },
       "spec": {
         "ja": [
@@ -619,22 +786,29 @@
           "Field scene → city scene → field, 2.35 s each. At 0.2–1.9 s (1.7 s) the block size steps up and back down through 1, 2, 3, 4, 6, 8, 11, 15, 20, 27 and 36 px (coarsest at the midpoint, 1.05 s).",
           "The first half shows the old scene and the second half the new one; the swap happens at the coarsest step.",
           "Method: shrink the frame to width ÷ block size with smoothing on, then scale it back up with smoothing off."
+        ],
+        "ko": [
+          "들판 화면 → 도시 화면 → 들판을 2.35초씩. 0.2–1.9초(1.7초)에 모자이크 칸 크기를 1, 2, 3, 4, 6, 8, 11, 15, 20, 27, 36px로 단계적으로 올렸다가 내린다(중간인 1.05초가 가장 거칠다).",
+          "앞쪽 절반은 이전 화면, 뒤쪽 절반은 다음 화면(가장 거친 단계에서 바꿔 넣는다).",
+          "만드는 법: 화면을 폭 ÷ 칸 크기로 축소하고(부드러운 보간 켬), 보간을 끈 채 원래 크기로 늘린다."
         ]
       },
       "use": {
         "ja": "ゲーム風・レトロ・デジタルな場面転換に。隠したい物をぼかして切り替えたいときにも。",
-        "en": "Use it for game-like, retro or digital scene changes, or to blur something out as the scene switches."
+        "en": "Use it for game-like, retro or digital scene changes, or to blur something out as the scene switches.",
+        "ko": "게임풍, 레트로, 디지털 느낌의 장면 전환에. 가리고 싶은 것을 흐리며 바꾸고 싶을 때도."
       },
       "tags": ["pixelate", "mosaic", "pixel", "transition", "retro", "8-bit", "scene-change"]
     },
     {
       "no": "22", "slug": "shatter", "category": "transitions-highlights",
-      "name": { "ja": "ガラス割れ", "en": "Shatter", "es": "Vidrio roto (shatter)", "zh-Hans": "玻璃碎裂", "zh-Hant": "玻璃碎裂" },
-      "meaning": { "ja": "ガラスのように割れて破片が飛ぶ", "en": "Breaks like glass and the shards fly off", "es": "Se rompe como vidrio y los fragmentos salen volando", "zh-Hans": "像玻璃一样碎裂，碎片飞散", "zh-Hant": "像玻璃一樣碎裂，碎片四散" },
-      "ask": { "ja": "タイトルの登場前に、前の画面をガラス割れで砕いて。ひびが入ってから破片が1秒で落ちるように。", "en": "Before the title appears, break the previous scene with a shatter: cracks first, then the shards fall away in about 1 s.", "es": "Antes de que aparezca el título, rompe la escena anterior con un efecto de vidrio roto: primero las grietas y luego los fragmentos caen en aproximadamente 1 s.", "zh-Hans": "标题出现前，用玻璃碎裂打碎前一画面：先出现裂纹，碎片再在约 1 s 内落下。", "zh-Hant": "標題出現之前，請用玻璃碎裂把前一個畫面打碎：先出現裂痕，再讓碎片在約 1 秒內落下。" },
+      "name": { "ja": "ガラス割れ", "en": "Shatter", "es": "Vidrio roto (shatter)", "zh-Hans": "玻璃碎裂", "zh-Hant": "玻璃碎裂", "ko": "유리 깨짐" },
+      "meaning": { "ja": "ガラスのように割れて破片が飛ぶ", "en": "Breaks like glass and the shards fly off", "es": "Se rompe como vidrio y los fragmentos salen volando", "zh-Hans": "像玻璃一样碎裂，碎片飞散", "zh-Hant": "像玻璃一樣碎裂，碎片四散", "ko": "유리처럼 깨지며 파편이 흩어진다" },
+      "ask": { "ja": "タイトルの登場前に、前の画面をガラス割れで砕いて。ひびが入ってから破片が1秒で落ちるように。", "en": "Before the title appears, break the previous scene with a shatter: cracks first, then the shards fall away in about 1 s.", "es": "Antes de que aparezca el título, rompe la escena anterior con un efecto de vidrio roto: primero las grietas y luego los fragmentos caen en aproximadamente 1 s.", "zh-Hans": "标题出现前，用玻璃碎裂打碎前一画面：先出现裂纹，碎片再在约 1 s 内落下。", "zh-Hant": "標題出現之前，請用玻璃碎裂把前一個畫面打碎：先出現裂痕，再讓碎片在約 1 秒內落下。", "ko": "타이틀이 나오기 전에 이전 화면을 유리 깨짐으로 부숴 줘. 금이 간 뒤 파편이 1초 동안 떨어지게." },
       "summary": {
         "ja": "画面がガラスのようにひび割れ、破片が飛び散って次の画面が現れる。",
-        "en": "The picture cracks like glass, the shards fly off and the next scene is revealed."
+        "en": "The picture cracks like glass, the shards fly off and the next scene is revealed.",
+        "ko": "화면이 유리처럼 금 가고, 파편이 흩어지며 다음 화면이 나타난다."
       },
       "spec": {
         "ja": [
@@ -650,22 +824,31 @@
           "The glass breaks at 0.82 s: 52 shards (13 × 4 rings) cut from the old scene fly outward at 220–480 px/s (vertical speed × 0.7, plus up to 120 upward), with gravity 1300 px/s², spinning ±4 rad/s and shrinking up to 35% over 1 s.",
           "Outer rings leave later (0.035 s per ring plus up to 0.03 s at random). Each shard fades out 0.55–1.0 s after it starts moving.",
           "Shards have a white 2.5 px edge; the next scene is underneath."
+        ],
+        "ko": [
+          "산 화면 → 낮 화면 → 산을 2.35초씩. 깨지는 중심은 (304, 92).",
+          "금: 0.3–0.65초. 중심에서 방사선 13개와 반지름 약 40, 98, 175(각 ±15%)의 고리가 중심에서 가까운 순서로 뻗어 나간다(3차 ease-out, 420px까지). 중심에 흰 빛의 별(0.6초에 사라짐).",
+          "0.82초에 깨진다: 파편 52개(13개 × 4단)로 이전 화면을 잘라 중심에서 바깥으로 220–480px/s로 날린다(세로는 0.7배, 위쪽으로 최대 120을 더함). 중력 1300px/s², 회전 ±4rad/s, 1초 동안 최대 35% 줄어든다.",
+          "바깥 단일수록 늦게 날아간다(1단당 0.035초 + 난수로 최대 0.03초). 각 파편은 날아가기 시작해 0.55–1.0초 만에 사라진다.",
+          "파편에는 흰 테두리(선 두께 2.5). 아래에는 다음 화면."
         ]
       },
       "use": {
         "ja": "衝撃・破壊・どんでん返しの場面転換に。タイトルや結果を強く見せる直前に。",
-        "en": "Use it for an impact, a break or a twist, just before a title or a result that should hit hard."
+        "en": "Use it for an impact, a break or a twist, just before a title or a result that should hit hard.",
+        "ko": "충격, 파괴, 반전이 있는 장면 전환에. 타이틀이나 결과를 강하게 보여 주기 직전에."
       },
       "tags": ["shatter", "glass-break", "broken-glass", "shards", "crack", "transition", "impact"]
     },
     {
       "no": "23", "slug": "exploded-view", "category": "transitions-highlights",
-      "name": { "ja": "分解図", "en": "Exploded view", "es": "Vista explosionada (exploded view)", "zh-Hans": "爆炸图", "zh-Hant": "分解圖" },
-      "meaning": { "ja": "部品がばらけて中の構造を見せる", "en": "Parts separate to show the structure inside", "es": "Las piezas se separan y muestran la estructura interna", "zh-Hans": "零件分离，展示内部结构", "zh-Hant": "零件散開，露出內部構造" },
-      "ask": { "ja": "製品の分解図を見せて。4つの部品が1秒でばらけて、名前のラベルを付けて。", "en": "Show an exploded view of the product: four parts spread apart in 1 s, each with a name label.", "es": "Muestra una vista explosionada del producto: cuatro piezas que se separan en 1 s, cada una con una etiqueta con su nombre.", "zh-Hans": "展示产品的爆炸图：4 个零件在 1 s 内分开，并分别标上名称。", "zh-Hant": "請呈現產品的分解圖：4 個零件在 1 秒內散開，每個都加上名稱標籤。" },
+      "name": { "ja": "分解図", "en": "Exploded view", "es": "Vista explosionada (exploded view)", "zh-Hans": "爆炸图", "zh-Hant": "分解圖", "ko": "분해도" },
+      "meaning": { "ja": "部品がばらけて中の構造を見せる", "en": "Parts separate to show the structure inside", "es": "Las piezas se separan y muestran la estructura interna", "zh-Hans": "零件分离，展示内部结构", "zh-Hant": "零件散開，露出內部構造", "ko": "부품이 흩어져 내부 구조를 보여 준다" },
+      "ask": { "ja": "製品の分解図を見せて。4つの部品が1秒でばらけて、名前のラベルを付けて。", "en": "Show an exploded view of the product: four parts spread apart in 1 s, each with a name label.", "es": "Muestra una vista explosionada del producto: cuatro piezas que se separan en 1 s, cada una con una etiqueta con su nombre.", "zh-Hans": "展示产品的爆炸图：4 个零件在 1 s 内分开，并分别标上名称。", "zh-Hant": "請呈現產品的分解圖：4 個零件在 1 秒內散開，每個都加上名稱標籤。", "ko": "제품 분해도를 보여 줘. 부품 4개가 1초 동안 흩어지고, 이름 라벨을 붙여서." },
       "summary": {
         "ja": "スマホの部品が層ごとにばらけて中の構造を見せ、また組み上がる。",
-        "en": "A phone separates into its layers to show how it is built, then assembles again."
+        "en": "A phone separates into its layers to show how it is built, then assembles again.",
+        "ko": "스마트폰 부품이 층별로 분리되어 내부 구조를 보여 준 뒤 다시 조립된다."
       },
       "spec": {
         "ja": [
@@ -679,22 +862,30 @@
           "Separate: from 0.45 s, 0.75 s per layer, each layer 0.08 s after the one below, backOut (s = 1.3). Height of layer i (0–3 from the bottom) = 7i + 30i × progress, so the back cover stays put.",
           "While apart, each layer bobs ±3 px twice per 4.7 s, dotted guide lines join the corners, and name labels with leader lines appear on the right (in Japanese in the demo).",
           "Reassemble: from 3.25 s, 0.7 s per layer, starting with the top layer, 0.07 s apart, cubic ease-in-out."
+        ],
+        "ko": [
+          "아이소메트릭 스마트폰을 4층(후면, 배터리, 기판, 화면)으로 만든다. 각 층은 평평한 둥근 판을 0.85배, 좌우 30° 기울인 좌표로 그리고, 옆면 두께는 6px.",
+          "분리: 0.45초부터 층마다 0.75초, 위층일수록 0.08초씩 늦춘다. backOut(s = 1.3). 아래에서 i번째 층(0–3)의 높이 = 7i + 30i × 진행도(가장 아래 후면은 움직이지 않는다).",
+          "분리되어 있는 동안: 각 층을 ±3px로 4.7초에 2번 오르내리고, 모서리를 잇는 점선 보조선과 오른쪽으로 지시선이 달린 이름 라벨(후면, 배터리, 기판, 화면)을 띄운다.",
+          "조립: 3.25초부터 층마다 0.7초, 가장 위층부터 0.07초씩 늦춘다. 3차 ease-in-out."
         ]
       },
       "use": {
         "ja": "製品の中身・仕組み・構成要素を説明するとき。何でできているかを一目で見せたいとき。",
-        "en": "Use it to explain what is inside a product, how it works or what it is made of, at a glance."
+        "en": "Use it to explain what is inside a product, how it works or what it is made of, at a glance.",
+        "ko": "제품의 속, 원리, 구성 요소를 설명할 때. 무엇으로 이루어졌는지 한눈에 보여 주고 싶을 때."
       },
       "tags": ["exploded-view", "explode", "layers", "isometric", "product", "breakdown", "explainer"]
     },
     {
       "no": "24", "slug": "split-screen", "category": "transitions-highlights",
-      "name": { "ja": "スプリットスクリーン", "en": "Split screen", "es": "Pantalla dividida (split screen)", "zh-Hans": "分屏", "zh-Hant": "分割畫面" },
-      "meaning": { "ja": "画面を分けて同時に見せる", "en": "Divides the frame to show scenes side by side", "es": "Divide el cuadro para mostrar escenas lado a lado", "zh-Hans": "分割画面，同时展示多个场景", "zh-Hant": "把畫面分成幾格同時呈現" },
-      "ask": { "ja": "スプリットスクリーンで3つの場面を同時に見せて。1画面から2分割、3分割へ0.5秒ずつで。", "en": "Show three scenes at once with a split screen: from one panel to two, then three, 0.5 s each.", "es": "Muestra tres escenas a la vez con pantalla dividida: de un panel a dos y luego a tres, 0,5 s cada paso.", "zh-Hans": "用分屏同时展示三个场景：从一个画面分成两个，再分成三个，每步 0.5 s。", "zh-Hant": "請用分割畫面同時呈現 3 個場景：從 1 個畫面分成 2 格、再分成 3 格，每次 0.5 秒。" },
+      "name": { "ja": "スプリットスクリーン", "en": "Split screen", "es": "Pantalla dividida (split screen)", "zh-Hans": "分屏", "zh-Hant": "分割畫面", "ko": "스플릿 스크린" },
+      "meaning": { "ja": "画面を分けて同時に見せる", "en": "Divides the frame to show scenes side by side", "es": "Divide el cuadro para mostrar escenas lado a lado", "zh-Hans": "分割画面，同时展示多个场景", "zh-Hant": "把畫面分成幾格同時呈現", "ko": "화면을 나눠 동시에 보여 준다" },
+      "ask": { "ja": "スプリットスクリーンで3つの場面を同時に見せて。1画面から2分割、3分割へ0.5秒ずつで。", "en": "Show three scenes at once with a split screen: from one panel to two, then three, 0.5 s each.", "es": "Muestra tres escenas a la vez con pantalla dividida: de un panel a dos y luego a tres, 0,5 s cada paso.", "zh-Hans": "用分屏同时展示三个场景：从一个画面分成两个，再分成三个，每步 0.5 s。", "zh-Hant": "請用分割畫面同時呈現 3 個場景：從 1 個畫面分成 2 格、再分成 3 格，每次 0.5 秒。", "ko": "스플릿 스크린으로 장면 3개를 동시에 보여 줘. 한 화면에서 2분할, 3분할로 0.5초씩." },
       "summary": {
         "ja": "1枚の画面が2つ、3つに分かれて、別々の場面が同時に動く。",
-        "en": "One full-frame scene splits into two panels, then three, each with its own scene moving."
+        "en": "One full-frame scene splits into two panels, then three, each with its own scene moving.",
+        "ko": "화면 하나가 둘, 셋으로 나뉘고 각기 다른 장면이 동시에 움직인다."
       },
       "spec": {
         "ja": [
@@ -706,11 +897,17 @@
           "A full-frame sea scene splits into two panels at 0.45–0.95 s (divider 539→269.5), then into three at 1.4–1.9 s (dividers at 1/3 and 2/3), and merges back into one at 3.75–4.4 s, all cubic ease-in-out.",
           "The three scenes (sea, city, field) are each centred in and clipped to their own panel and keep moving inside it (waves and a sailboat, city windows switching 8 times per 4.7 s, a windmill turning twice per 4.7 s).",
           "White dividers (width 6) between the panels."
+        ],
+        "ko": [
+          "화면 가득한 바다 장면이 0.45–0.95초에 2분할(경계 539→269.5), 1.4–1.9초에 3분할(경계는 1/3과 2/3)이 된다. 3.75–4.4초에 한 화면으로 돌아간다. 모두 3차 ease-in-out.",
+          "장면 3개(바다, 도시, 들판)는 각자 자기 칸의 가운데에 놓고 칸 모양으로 잘라 낸다. 안쪽은 계속 움직인다(파도와 요트, 도시 창문이 4.7초에 8번 깜박임, 풍차가 4.7초에 2바퀴).",
+          "칸 경계에 흰 선(폭 6)."
         ]
       },
       "use": {
         "ja": "比較・同時進行・複数の人や場所を並べて見せたいとき。ビフォーアフターや選択肢の紹介に。",
-        "en": "Use it to compare, to show things happening at once, or to line up several people or places, such as before and after or a set of options."
+        "en": "Use it to compare, to show things happening at once, or to line up several people or places, such as before and after or a set of options.",
+        "ko": "비교, 동시 진행, 여러 사람이나 장소를 나란히 보여 주고 싶을 때. 비포 애프터나 선택지 소개에."
       },
       "tags": ["split-screen", "multi-screen", "panels", "side-by-side", "comparison", "layout"]
     }

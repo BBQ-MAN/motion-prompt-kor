@@ -1,0 +1,46 @@
+// Motion Prompt #096 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#096
+//
+// 플로팅 애니메이션 / Floating animation
+// 팩: lp (랜딩 페이지·웹사이트 연출) · element 24 · 카테고리: 로딩·페이지 이동·반복 연출
+// 무엇이 일어나는가: 헤드라인 옆에서 스마트폰, 하트 배지, 평점 칩이 조금씩 엇갈리며 천천히 위아래로 움직이고, 스마트폰 아래 그림자도 커졌다 작아진다.
+// 동작 사양:
+//   - 스마트폰(92×132): y = −8·sin(2πt/2.4)(2.4초에 한 번 왕복, 사인파라 양 끝에서 느려진다)
+//   - 하트 배지(반지름 20): y = −6·sin(2πt/1.6 + 1.2). 평점 칩(76×30): y = −6·sin(2πt/2.4 + 2.4)
+//   - 스마트폰 아래 그림자(가로 54×세로 6 타원): 크기와 불투명도를 (1 + y/40)배로. 올라가면 작고 옅어진다
+//   - 주기 2.4초와 1.6초 모두 4.8초를 나누어떨어뜨리므로 루프에 이음매가 없다
+// 쓰임새: 제품 이미지, 앱 목업, 장식 아이콘에 잔잔한 움직임을 더하고 싶을 때.
+// 태그: floating, float, bob, hover-animation, keyframes, translatey, decoration, loop
+// 크기: 539x208 px · 1주기: 4.8 s
+// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#096
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 24
+// 24 ふわふわアニメーション（画面の飾りが、ゆっくり上下に浮き沈みし続ける）
+CELLS[23] = (k, w, h, u) => {
+  frame(k);
+  const bob = (T, A, ph) => -A * Math.sin(2 * Math.PI * u / T + ph);   // 上下（easeInOut に近いサイン波）
+  const y1 = bob(2.4, 8, 0), y2 = bob(1.6, 6, 1.2), y3 = bob(2.4, 6, 2.4);
+  view(k, () => {
+    k.fillStyle = C.soft; k.fillRect(0, 0, VW, VH);
+    txt(k, 'アプリで、', 34, 62, `800 24px ${JP}`, C.ink); txt(k, 'もっと身軽に。', 34, 94, `800 24px ${JP}`, C.ink);
+    bars(k, 34, 108, 170, 2); btn(k, 34, 134, 112, 24, 'ダウンロード');
+    // 影（上がるほど小さく薄く）
+    const sh = 1 + y1 / 40;
+    k.fillStyle = `rgba(28,35,51,${0.16 * sh})`; k.beginPath(); k.ellipse(352, 160, 54 * sh, 6 * sh, 0, 0, 7); k.fill();
+    // スマホ
+    k.save(); k.translate(0, y1);
+    k.fillStyle = C.ink; rr(k, 306, 18, 92, 132, 16); k.fill(); k.fillStyle = '#fff'; rr(k, 312, 24, 80, 120, 11); k.fill();
+    pic(k, 318, 32, 68, 52, 0, 6); bars(k, 318, 92, 68, 3, C.faint, 5, 10);
+    k.restore();
+    // 飾り（ハートの丸と星のチップ）
+    k.save(); k.translate(0, y2); k.shadowColor = 'rgba(28,35,51,.18)'; k.shadowBlur = 10; k.shadowOffsetY = 4;
+    k.fillStyle = C.acc; k.beginPath(); k.arc(268, 54, 20, 0, 7); k.fill(); k.shadowColor = 'transparent';
+    k.fillStyle = '#fff'; k.beginPath(); k.moveTo(268, 62); k.bezierCurveTo(254, 53, 260, 41, 268, 48); k.bezierCurveTo(276, 41, 282, 53, 268, 62); k.fill(); k.restore();
+    k.save(); k.translate(0, y3); k.shadowColor = 'rgba(28,35,51,.16)'; k.shadowBlur = 10; k.shadowOffsetY = 4;
+    k.fillStyle = '#fff'; rr(k, 410, 92, 76, 30, 15); k.fill(); k.shadowColor = 'transparent';
+    txt(k, '★ 4.8', 448, 108, `800 13px ${EN}`, C.acc, 'center', 'middle'); k.restore();
+  });
+};

@@ -16,7 +16,7 @@ const SITE = 'https://showheyohtaki.github.io/motion-prompt/';
 const REPO = 'https://github.com/showheyohtaki/motion-prompt';
 const LICENCE = 'MIT License (c) 2026 Shohei Ohtaki';
 const VERSION = 1;
-const LANGS = ['ja', 'en'];   // languages of the gallery, the API folders and the copyable prompt
+const LANGS = ['ja', 'en', 'ko'];   // languages of the gallery, the API folders and the copyable prompt
 const BASE_LANG = 'en';       // every text field needs this one; any other language code is optional
 
 const args = process.argv.slice(2);
@@ -44,6 +44,22 @@ function mpPrompt(el, packTitle, lang) {
   var kit = base + 'api/v1/kit/' + el.pack + '.js';
   var same = el.name.en === el.name.ja;
   var mean = el.meaning && (el.meaning[lang] || el.meaning.en);
+  if (lang === 'ko') {
+    return [
+      '다음 이름을 사용해 주세요: 「' + el.name.ko + (el.name.ko === el.name.en ? '' : ' (' + el.name.en + ')') + '」 — 「' + packTitle + '」에 들어 있는 이름입니다.',
+      'Motion Prompt #' + el.id,
+      ''
+    ].concat(mean ? ['어떤 것인가: ' + mean] : [], [
+      '견본에서 일어나는 일: ' + el.summary.ko,
+      '사양:',
+      spec,
+      '쓰임새: ' + el.use.ko,
+      '',
+      '참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): ' + ref,
+      '공통 보조 코드: ' + kit,
+      '참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.'
+    ]).join('\n');
+  }
   if (en) {
     return [
       'Please use "' + el.name.en + '"' + (same ? '' : ' (' + el.name.ja + ')') + ', one of the names in "' + packTitle + '".',
@@ -348,12 +364,15 @@ const T = {
   en: { what: 'What happens', spec: 'Motion spec', use: 'When to use it', size: 'Size', cycle: 'Cycle', needs: 'Needs', demo: 'Live demo', pack: 'Pack', cat: 'Category', tags: 'Tags',
     sig: 'cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.',
     code: 'Element code starts here. CELLS, constants and helpers live in the kit.' },
+  ko: { what: '무엇이 일어나는가', spec: '동작 사양', use: '쓰임새', size: '크기', cycle: '1주기', needs: 'Needs', demo: '움직이는 견본', pack: '팩', cat: '카테고리', tags: '태그',
+    sig: 'cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.',
+    code: '여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.' },
 };
 
 function elementTxt(el, lang) {
   const t = T[lang], p = packOf[el.pack];
   const cat = p.categories.find(c => c.slug === el.category);
-  const name = lang === 'ja' ? `${el.name.ja} / ${el.name.en}` : `${el.name.en} / ${el.name.ja}`;
+  const name = lang === 'en' ? `${el.name.en} / ${el.name.ja}` : `${el.name[lang]} / ${el.name.en}`;
   const head = [
     `Motion Prompt #${el.id} · ${LICENCE} · ${SITE}#${el.id}`,
     '',
@@ -381,7 +400,7 @@ function kitJs(p) {
     `Motion Prompt ${range} · ${LICENCE} · ${SITE}#${p.first}`,
     '',
     `Kit for pack "${p.pack}" (${p.title.en} / ${p.title.ja}): the constants and helpers its elements share.`,
-    `Elements ${range} · ${W}x${H} px · cycle ${C} s. Element code: ${SITE}api/v1/en/e/<id>.txt (or /ja/).`,
+    `Elements ${range} · ${W}x${H} px · cycle ${C} s. Element code: ${SITE}api/v1/en/e/<id>.txt (or /ja/, /ko/).`,
     ...(p.fonts.length ? [`Fonts used: ${p.fonts.map(f => `${f.family} (${SITE}packs/${p.pack}/${f.url})`).join(', ')}. Load them before drawing.`] : []),
     '',
     'Run one element standalone in a browser:',
@@ -406,7 +425,7 @@ function catalogTsv(lang) {
   const head = `# Motion Prompt catalog (${lang}) · ${catalog.count} elements · ${SITE} · columns: id\tpack\tcategory\ttitle\ttags\tsummary`;
   const rows = catalog.elements.map(el => {
     const cat = packOf[el.pack].categories.find(c => c.slug === el.category);
-    const title = lang === 'ja' ? `${el.name.ja} (${el.name.en})` : `${el.name.en} (${el.name.ja})`;
+    const title = lang === 'en' ? `${el.name.en} (${el.name.ja})` : `${el.name[lang]} (${el.name.en})`;
     return [el.id, el.pack, cat ? cat[lang] : el.category, title, el.tags.join(','), el.summary[lang]].map(tsvCell).join('\t');
   });
   return [head, ...rows].join('\n') + '\n';
@@ -436,6 +455,10 @@ const DOC = {
     intro: '找到名称后直接告诉 AI。补充时长、幅度和运动对象，可以更接近你想要的效果。',
     no: '编号', name: '名称', en: '英文名', meaning: '含义', ask: '向 AI 提出需求的示例',
     more: '点击编号可打开动态示例。单个术语的时间、缓动数值与参考代码位于：', all: '全部分类', preview: '示例' },
+  ko: { gen: 'tools/build.mjs가 meta.json에서 만든 파일입니다. 고칠 때는 이 파일이 아니라 meta.json을 편집하세요.', names: '개의 이름', pack: '팩', langs: '언어',
+    intro: '이름을 찾았다면 그대로 AI에게 말하세요. 「몇 초 동안」「얼마나 세게」「무엇이 움직이는지」를 덧붙이면 생각한 결과에 더 가까워집니다.',
+    no: '번호', name: '이름', en: '영어 이름', meaning: '한마디로', ask: 'AI에게 요청하는 예',
+    more: '번호를 누르면 갤러리의 움직이는 견본이 열립니다. 이름 하나의 초 단위 타이밍·이징 수치·참고 코드:', all: '전체 팩', preview: '견본' },
 };
 const LANG_NAME = { en: 'English', ja: '日本語', zh: '中文', 'zh-Hans': '简体中文', 'zh-Hant': '繁體中文', ko: '한국어', es: 'Español', fr: 'Français', de: 'Deutsch', pt: 'Português', it: 'Italiano', id: 'Bahasa Indonesia', vi: 'Tiếng Việt', th: 'ไทย', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
 const readmeName = lang => (lang === BASE_LANG ? 'README.md' : `README.${lang}.md`);

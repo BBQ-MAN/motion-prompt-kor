@@ -1,0 +1,41 @@
+// Motion Prompt #069 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#069
+//
+// 스켈레톤 UI / Skeleton screen
+// 팩: ui (UI 컴포넌트 이름) · element 21 · 카테고리: 내비게이션·상태 표시
+// 무엇이 일어나는가: 새로 고침을 누르면 목록이 같은 모양의 회색 블록으로 바뀌고 빛이 가로로 지나간다. 로딩이 끝나면 내용이 돌아온다.
+// 동작 사양:
+//   - 4.5초 주기, 카드 542×191. 2줄 목록(각각 96×56 그림과 텍스트 3줄). 커서가 1.0초에 오른쪽 위 새로 고침 아이콘을 클릭한다.
+//   - 1.05–1.2초에(linear) 내용이 같은 크기·위치의 회색 #e9e7e5 둥근 블록으로 바뀐다.
+//   - 빛: 너비 160의 흰 띠(양 끝 투명, 가운데 불투명도 0.75)가 0.9초마다 x −200에서 x 742까지 지나간다. 블록 위에만 그린다.
+//   - 3.0–3.3초에(linear) 내용이 돌아온다.
+// 쓰임새: 로딩에 잠시 시간이 걸리는 목록이나 카드에서 기다리는 동안에도 레이아웃을 보여 줄 때.
+// 태그: skeleton, skeleton-screen, placeholder, shimmer, loading, ghost-content
+// 크기: 542x191 px · 1주기: 4.5 s
+// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#069
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 21
+// 21 スケルトン（Skeleton screen）
+CELLS[20] = ui((w, h, t) => {
+  const sk = seg(t, 1.05, 1.2) * (1 - seg(t, 3.0, 3.3));
+  ring(w - 40, 26, 14, C.line2, 1.8); X.beginPath(); X.arc(w - 40, 26, 7, -Math.PI * .1, Math.PI * 1.4); X.strokeStyle = '#666'; X.lineWidth = 2.2; X.stroke();
+  bar(24, 20, 160, C.line2, 12);
+  for (let k = 0; k < 2; k++) {
+    const y = 56 + k * 66;
+    X.save(); X.globalAlpha = 1 - sk; mountains(24, y, 96, 56, k); bar(136, y + 6, 200, C.ink, 11); bar(136, y + 26, 340); bar(136, y + 42, 260); X.restore();
+    if (sk > 0) {
+      X.save(); X.globalAlpha = sk; const g = '#e9e7e5';
+      fillRR(24, y, 96, 56, 8, g); fillRR(136, y + 4, 200, 14, 7, g); fillRR(136, y + 26, 340, 10, 5, g); fillRR(136, y + 42, 260, 10, 5, g);
+      // 光が横に流れる
+      const sx = -200 + ((t - 1.1) % 0.9) / 0.9 * (w + 400);
+      X.globalCompositeOperation = 'source-atop';
+      const gr = X.createLinearGradient(sx - 80, 0, sx + 80, 0); gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.5, 'rgba(255,255,255,.75)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+      X.fillStyle = gr; X.fillRect(0, y - 2, w, 64);
+      X.restore();
+    }
+  }
+  pointer([[.3, w + 30, h + 30], [.95, w - 38, 30], [1.4, w - 38, 30], [2.1, w + 30, h + 30]], [1.0], t);
+});

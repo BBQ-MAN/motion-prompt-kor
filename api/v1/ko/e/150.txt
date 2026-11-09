@@ -1,0 +1,46 @@
+// Motion Prompt #150 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#150
+//
+// 스크롤스파이 / Scrollspy
+// 팩: lp2 (랜딩 페이지·웹사이트 연출 2탄) · element 06 · 카테고리: 스크롤 연출
+// 무엇이 일어나는가: 글을 스크롤하면 지금 읽고 있는 섹션의 목차 항목이 강조되고, 다음 제목이 들어오면 강조가 그쪽으로 넘어간다.
+// 동작 사양:
+//   - 511 × 168 뷰포트. 왼쪽에 목차(폭 150 px, 항목 4개), 오른쪽에 본문(제목 간격 100 px). 스크롤: 0.3–0.9초에 0→100, 1.35–1.95초에 →200, 2.4–3.0초에 →300, 3.5–4.4초에 300→0(cubic ease-in-out). 1회 4.7초(팩 주기 9.4초에 2회).
+//   - 현재 항목 = 윗변이 scroll + 40 px보다 위에 있는 마지막 제목(뷰포트 위에서 40 px 아래의 트리거 라인).
+//   - 항목이 바뀌면 0.25초 동안(cubic ease-out) 연한 주황 배경(126 × 26, radius 6)과 왼쪽 주황 막대(폭 4)가 붙고, 글자가 회색에서 굵은 주황색으로 바뀐다. 이전 항목은 같은 0.25초 동안 원래대로 돌아간다.
+//   - 목차는 고정되어 있고 본문만 스크롤된다. 스크롤바 썸은 스크롤을 따라간다.
+// 쓰임새: 긴 글, 문서, FAQ에서 독자가 전체 중 어디쯤 있는지 보여 줄 때.
+// 태그: scrollspy, table-of-contents, toc, navigation, active-state, scroll
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#150
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 06
+// 06 スクロールスパイ（左の目次のうち、いま読んでいる見出しの項目が光る）
+CELLS[5] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const y = steps([[0.3, 0], [0.9, 100], [1.35, 100], [1.95, 200], [2.4, 200], [3.0, 300], [3.5, 300], [4.4, 0]], u);
+  const NAMES = ['はじめに', '使い方', '料金', 'よくある質問'], TX = 160;
+  const act = t => { const yy = steps([[0.3, 0], [0.9, 100], [1.35, 100], [1.95, 200], [2.4, 200], [3.0, 300], [3.5, 300], [4.4, 0]], t); let a = 0; for (let i = 0; i < 4; i++) if (i * 100 <= yy + 40) a = i; return a; };
+  view(k, () => {
+    k.save(); k.beginPath(); k.rect(TX - 10, 0, VW, VH); k.clip(); k.translate(0, -y);
+    NAMES.forEach((s, i) => {
+      const y0 = i * 100 + 14;
+      txt(k, `${i + 1}. ${s}`, TX + 14, y0 + 22, `800 16px ${JP}`, C.ink);
+      bars(k, TX + 14, y0 + 38, 300, 3, C.faint, 6, 12, 0.6);
+    });
+    k.restore();
+    k.fillStyle = C.soft; k.fillRect(0, 0, TX - 10, VH);
+    txt(k, '目次', 20, 30, `800 12px ${JP}`, C.sub);
+    const a = act(u);
+    NAMES.forEach((s, i) => {
+      const q = trans(t => act(t) === i, u, 0.25), iy = 54 + i * 30;
+      if (q > 0) { k.fillStyle = `rgba(255,229,219,${q})`; rr(k, 12, iy - 13, TX - 34, 26, 6); k.fill(); k.fillStyle = C.acc; k.globalAlpha = q; rr(k, 12, iy - 13, 4, 26, 2); k.fill(); k.globalAlpha = 1; }
+      txt(k, s, 26, iy + 1, `${a === i ? 800 : 600} 13px ${JP}`, mix('#7D879B', C.acc, q), 'left', 'middle');
+    });
+    sbar(k, y / 300, 0.36);
+  });
+};

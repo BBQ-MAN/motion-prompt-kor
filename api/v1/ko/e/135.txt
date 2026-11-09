@@ -1,0 +1,43 @@
+// Motion Prompt #135 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#135
+//
+// 칼레이도스코프 / Kaleidoscope
+// 팩: motion2 (모션 그래픽 연출 2탄) · element 15 · 카테고리: 텍스트·도형 연출
+// 무엇이 일어나는가: 만화경처럼 8분할 대칭 무늬가 돌면서 중심에서 퍼져 나간다.
+// 동작 사양:
+//   - 중심 둘레를 45°씩 8개로 나누고, 하나 걸러 좌우 반전해 그린다(거울 대칭 8개).
+//   - 한 구역에 도형 13개(원, 마름모, 삼각형, 4색, 난수 시드 고정). 중심에서 반지름 300까지 바깥으로 나아가며, 4.7초에 반지름 하나만큼 이동한다(끝에 닿으면 중심으로 돌아간다).
+//   - 도형은 바깥으로 갈수록 커지고((5 + 0.1r) × 0.7–1.4), 나아갈수록 돈다(1px당 0.02rad). 처음 30px에서 나타나고 마지막 70px에서 사라진다. 각도는 4.7초에 한 번 ±0.08rad 흔든다.
+//   - 무늬 전체를 4.7초에 90° 돌린다(구역 2개분이라 루프가 이어진다).
+//   - 중심에 흰 8각 별(반지름 20 ± 4, 4.7초에 2번 맥동).
+// 쓰임새: 뮤직비디오, 공연 배경, 몽환적인 장면 전환에. 반복해 봐도 질리지 않는 무늬가 필요할 때.
+// 태그: kaleidoscope, symmetry, mirror, mandala, pattern, radial, psychedelic
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#135
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 15
+// 15 カレイドスコープ（万華鏡のように、8分割の対称な模様が回りながら広がる）
+const KAL = (() => { const R = rand(1515), a = []; for (let i = 0; i < 13; i++) a.push({ r0: R() * 300, th: 0.06 + R() * 0.66, kind: i % 3, col: PAL[i % 4], sz: 0.7 + R() * 0.7, ph: R() * 6 }); return a; })();
+CELLS[14] = (k, w, h, u) => {
+  stage(k);
+  const X = w / 2, Y = h / 2, RM = 300, rot = (Math.PI / 2) * u / CYC, W8 = Math.PI / 4;
+  for (let s = 0; s < 8; s++) {
+    k.save(); k.translate(X, Y);
+    if (s % 2) { k.rotate(rot + (s + 1) * W8); k.scale(1, -1); } else k.rotate(rot + s * W8);
+    k.beginPath(); k.moveTo(0, 0); k.arc(0, 0, RM + 60, -0.006, W8 + 0.006); k.closePath(); k.clip();
+    for (const it of KAL) {
+      const r = mod(it.r0 + (u / CYC) * RM, RM), th = it.th + 0.08 * Math.sin(2 * Math.PI * u / CYC + it.ph), sz = (5 + r * 0.1) * it.sz;
+      const a = smooth(P(r, 0, 30)) * (1 - smooth(P(r, RM - 70, RM))); if (a <= 0) continue;
+      k.globalAlpha = a; k.fillStyle = it.col; k.save(); k.translate(Math.cos(th) * r, Math.sin(th) * r); k.rotate(r * 0.02);
+      if (it.kind === 0) { k.beginPath(); k.arc(0, 0, sz, 0, 7); k.fill(); }
+      else if (it.kind === 1) { k.beginPath(); k.moveTo(0, -sz * 1.2); k.lineTo(sz * 0.8, 0); k.lineTo(0, sz * 1.2); k.lineTo(-sz * 0.8, 0); k.closePath(); k.fill(); }
+      else { k.beginPath(); k.moveTo(0, -sz); k.lineTo(sz * 0.95, sz * 0.7); k.lineTo(-sz * 0.95, sz * 0.7); k.closePath(); k.fill(); }
+      k.restore();
+    }
+    k.globalAlpha = 1; k.restore();
+  }
+  k.fillStyle = '#fff'; star(k, X, Y, 20 + 4 * Math.sin(2 * Math.PI * 2 * u / CYC), rot, 0.5, 8); k.fill();
+};

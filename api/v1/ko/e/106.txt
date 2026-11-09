@@ -1,0 +1,36 @@
+// Motion Prompt #106 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#106
+//
+// 틸트 시프트 / Tilt-shift
+// 팩: photo (사진 표현·빛과 스타일) · element 10 · 카테고리: 렌즈·카메라 효과
+// 무엇이 일어나는가: 거리의 위아래 띠가 흐려지고, 도로와 자동차와 작은 사람들이 늘어선 가운데 띠에만 초점이 남아 모형 거리처럼 보인다.
+// 동작 사양:
+//   - 길모퉁이(안쪽에 건물 줄·나무·가로등, 도로는 y 132~162)에서 앞쪽의 큰 인물을 빼고, 보도에 키 23~26px의 작은 사람 4명(발 위치 y 172)을 둔다. 자동차는 5초마다 x −60 → 600을 달린다
+//   - 초점 띠: y 66~176은 선명
+//   - 흐림: y 0~42와 y 190~208은 0 → 7px, y 42~66과 y 176~190은 0 → 3px
+//   - 띠 경계에 점선(선 6px, 간격 5px, #8E8E93, 75%)
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 도시나 행사를 장난감 같은 모형 세상처럼 보여 줄 때.
+// 태그: tilt-shift, miniature, miniature effect, fake miniature, selective focus, toy town, focus band
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#106
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 10
+// ティルトシフト: 上下の帯がぼけて中央の帯だけピントが合い、街と小さな人と車が模型のように見える
+CELLS[9] = cell((k, u) => {
+  const a = env(u), carX = lerp(-60, 600, u / CYC);
+  const minis = D => { [[196, 26], [322, 26], [340, 23], [452, 25]].forEach(([x, h]) => figure(D, x, 172, h, BASE.person)); };
+  const [S, ks] = layer('tilt'); stageStreet(ks, BASE, { car: carX, person: false, after: minis });
+  const [B1, k1] = layer('tilt-1'); k1.filter = `blur(${(3 * a).toFixed(2)}px)`; k1.drawImage(S, 0, 0); k1.filter = 'none';
+  const [B2, k2] = layer('tilt-2'); k2.filter = `blur(${(7 * a).toFixed(2)}px)`; k2.drawImage(S, 0, 0); k2.filter = 'none';
+  k.drawImage(S, 0, 0);
+  const band = (img, y0, y1) => { k.save(); k.beginPath(); k.rect(0, y0, CW, y1 - y0); k.clip(); k.drawImage(img, 0, 0); k.restore(); };
+  band(B2, 0, 42); band(B1, 42, 66); band(B1, 176, 190); band(B2, 190, CH);
+  // ピントの帯の目印（写真アプリの線）
+  k.save(); k.globalAlpha = 0.75 * a; k.strokeStyle = '#8E8E93'; k.lineWidth = 1.4; k.setLineDash([6, 5]);
+  k.beginPath(); k.moveTo(0, 66); k.lineTo(CW, 66); k.moveTo(0, 176); k.lineTo(CW, 176); k.stroke(); k.setLineDash([]);
+  k.restore();
+});

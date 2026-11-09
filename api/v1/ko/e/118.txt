@@ -1,0 +1,30 @@
+// Motion Prompt #118 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#118
+//
+// 필름 그레인 / Film grain
+// 팩: photo (사진 표현·빛과 스타일) · element 22 · 카테고리: 톤·마무리 스타일
+// 무엇이 일어나는가: 같은 풍경 전체에 고운 입자가 얹히고, 색이 살짝 따뜻한 크림색 쪽으로 기운다.
+// 동작 사양:
+//   - 장면 3: 왼쪽에 흉상(머리 중심 x 140, y 82, 반지름 28px), 오른쪽에 언덕·집·나무·해(x 432, y 54, 반지름 15px).
+//   - 입자: 사각형 2,600개(고정 시드), 크기 0.8~1.7px. 55%는 어두운 #3A3530, 45%는 흰색
+//   - 입자 불투명도: 16~38% × 효과량. 입자는 움직이지 않는다(깜빡임 없음)
+//   - 색: 모든 색을 #F2DDBE 쪽으로 16% 옮긴다
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 디지털의 매끈한 느낌을 없애고 아날로그 필름 질감을 더할 때.
+// 태그: film grain, grain, noise, analog, 35mm film, texture, warm tone
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#118
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 22
+// フィルムグレイン: 細かい粒子が全体に乗り、全体が少し暖かい色に寄る
+CELLS[21] = cell((k, u) => {
+  const a = env(u);
+  const FILM = mapPal(BASE, c => mixc(c, '#F2DDBE', 0.16));
+  const p = pal(BASE, FILM, a);
+  const G = once('grain', () => { const r = rng(22), o = []; for (let i = 0; i < 2600; i++) o.push([r() * CW, r() * CH, 0.8 + r() * 0.9, r() < 0.55 ? 0 : 1, 0.16 + r() * 0.22]); return o; });
+  const grain = kk => { kk.save(); for (const [x, y, s, d, al] of G) { kk.globalAlpha = al * a; kk.fillStyle = d ? '#FFFFFF' : '#3A3530'; kk.fillRect(x, y, s, s); } kk.restore(); };
+  stageLand(k, p); grain(k);
+});

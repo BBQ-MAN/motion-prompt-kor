@@ -1,0 +1,29 @@
+// Motion Prompt #110 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#110
+//
+// 어안 렌즈 / Fisheye lens
+// 팩: photo (사진 표현·빛과 스타일) · element 14 · 카테고리: 렌즈·카메라 효과
+// 무엇이 일어나는가: 길모퉁이 장면의 가운데가 부풀어 오르고, 건물의 세로선과 도로의 선이 바깥쪽으로 휘며, 네 모서리는 제자리에 남는다.
+// 동작 사양:
+//   - 장면 2: 길모퉁이. 안쪽에 건물 줄·나무·가로등(x 114, 292, 494), 도로는 y 132~162, 인물은 왼쪽 앞(발 위치 x 176, y 200, 키 124px).
+//   - 변형: 중심에서 거리 d인 점을 그 거리의 g = (1 + k) / (1 + k·d²/R²)배 위치로 옮긴다. R = 중심에서 모서리까지 거리(289px)
+//   - k: 0 → 1.25. 중심은 2.25배로 확대되고 네 모서리는 움직이지 않는다
+//   - 모든 윤곽을 6px마다 잘게 나눈 뒤 변형하므로 직선이 곡선이 된다
+//   - 오른쪽 위 초점 거리 24mm → 8mm
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 스케이트보드나 뮤직비디오처럼 박력 있거나 장난스러운, 문구멍으로 들여다보는 듯한 시점을 낼 때.
+// 태그: fisheye, fisheye lens, barrel distortion, ultra wide, 8mm, distortion
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#110
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 14
+// 魚眼レンズ: 中心がふくらみ、建物の縦の線が外側へ丸く曲がる
+CELLS[13] = cell((k, u) => {
+  const a = env(u), kk = 1.25 * a, cx = CW / 2, cy = CH / 2, R2 = cx * cx + cy * cy;
+  const M = kk < 0.002 ? null : (x, y) => { const dx = x - cx, dy = y - cy, g = (1 + kk) / (1 + kk * (dx * dx + dy * dy) / R2); return [cx + dx * g, cy + dy * g]; };
+  stageStreet(k, BASE, { M });
+  hud(k, `${Math.round(lerp(24, 8, a))}mm`);
+});

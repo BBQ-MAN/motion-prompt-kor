@@ -1,0 +1,33 @@
+// Motion Prompt #060 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#060
+//
+// 세그먼트 컨트롤 / Segmented control
+// 팩: ui (UI 컴포넌트 이름) · element 12 · 카테고리: 선택·전환 컴포넌트
+// 무엇이 일어나는가: 일·주·월을 누르면 파란 선택 영역이 미끄러져 옮겨 가고 아래 막대그래프의 높이가 바뀐다.
+// 동작 사양:
+//   - 4.5초 주기, 카드 542×191. (121, 12)에 회색 300×40 바탕(모서리 반경 10)을 너비 100씩 3칸으로 나눠 일·주·월(화면은 일본어).
+//   - 선택 영역: 파란 92×32, 모서리 반경 8, 그림자 blur 6. 선택된 라벨은 흰색.
+//   - 커서가 1.0초에 주, 2.1초에 월, 3.3초에 일을 클릭한다. 선택 영역은 매번 0.25초 동안 easeInOutCubic으로 미끄러진다.
+//   - 아래 차트: 너비 34, 58px 간격의 막대 7개(여섯 번째만 파랑). 높이는 데이터 3세트(약 30–85, 40–100, 60–115) 사이를 선택 영역과 함께 같은 이징으로 바뀐다.
+// 쓰임새: 같은 데이터를 일·주·월처럼 2–4가지 보기로 전환할 때.
+// 태그: segmented-control, segmented-button, button-group, toggle-group, switcher, view-switch
+// 크기: 542x191 px · 1주기: 4.5 s
+// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#060
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 12
+// 12 セグメントコントロール（Segmented control）
+CELLS[11] = ui((w, h, t) => {
+  const pos = eio(seg(t, 1.0, 1.25)) + eio(seg(t, 2.1, 2.35)) - 2 * eio(seg(t, 3.3, 3.55));
+  const sx = 121, sy = 12, sw = 300, sh = 40, cw = sw / 3;
+  fillRR(sx, sy, sw, sh, 10, '#efedeb');
+  shadowed(() => fillRR(sx + 4 + pos * cw, sy + 4, cw - 8, sh - 8, 8, C.blue), 6, 2, .2);
+  ['日', '週', '月'].forEach((s, i) => { const near = 1 - clamp(Math.abs(pos - i)); text(s, sx + cw * i + cw / 2, sy + sh / 2 + 1, 17, near > .5 ? '#fff' : '#6d6b69', 700, 'center'); });
+  const sets = [[30, 55, 40, 70, 50, 85, 60], [60, 40, 90, 75, 100, 55, 80], [95, 70, 110, 60, 85, 115, 100]];
+  const fi = Math.floor(pos), fr = pos - fi, gi = Math.min(2, fi + 1);
+  X.fillStyle = C.line; X.fillRect(60, 182, 422, 1.5);
+  for (let k = 0; k < 7; k++) { const bh = lerp(sets[fi][k], sets[gi][k], eio(fr)); fillRR(72 + k * 58, 180 - bh, 34, bh, 5, k === 5 ? C.blue : C.mb); }
+  pointer([[.3, w + 30, h + 30], [.95, 276, 36], [1.6, 276, 36], [2.05, 376, 36], [2.8, 376, 36], [3.25, 176, 36], [3.7, 176, 36], [4.25, w + 30, h + 30]], [1.0, 2.1, 3.3], t);
+});

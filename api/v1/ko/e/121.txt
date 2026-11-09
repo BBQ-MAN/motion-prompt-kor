@@ -1,0 +1,50 @@
+// Motion Prompt #121 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#121
+//
+// 예비 동작 / Anticipation
+// 팩: motion2 (모션 그래픽 연출 2탄) · element 01 · 카테고리: 모션 테크닉
+// 무엇이 일어나는가: 네모난 캐릭터가 진행 방향과 반대로 살짝 물러나며 찌그러져 힘을 모은 뒤 힘차게 튀어 나간다.
+// 동작 사양:
+//   - 2.35초에 1회(4.7초에 2회. 1회째는 왼쪽→오른쪽, 2회째는 오른쪽→왼쪽). 코럴색 둥근 사각형(86px, 모서리 반경 24)에 흰 화살표. 출발점은 가장자리에서 108px, 바닥은 y = 178.
+//   - 예비 동작: 0.2–0.95초, 2차 ease-in-out. 진행 방향과 반대로 44px 물러나며 가로 1.22 × 세로 0.76으로 찌그러지고 뒤로 0.18rad 기운다.
+//   - 튀어 나가기: 0.95–1.38초(0.43초). 물러난 위치에서 반대쪽 끝까지 backOut(s = 1.1)으로 이동하며 살짝 오버슈트한다. 이동의 처음 60% 동안 최대 가로 1.55 × 세로 0.72로 늘어나고(사인 반주기) 앞으로 0.08rad 기운다.
+//   - 착지: 1.38초부터 가로와 세로가 0.13·e^(−7t)·sin(17t)만큼 서로 반대로 흔들리며 멈춘다.
+//   - 튀어 나가는 순간 출발점에 흙먼지 원 3개(이동의 처음 70% 안에 사라짐), 뒤쪽에 노란 속도선 3개(선 두께 8).
+// 쓰임새: 점프, 대시, 버튼 발사처럼 힘 있는 동작 직전에. 움직임에 반동과 무게감을 주고 싶을 때.
+// 태그: anticipation, wind-up, squash, character, jump, dash, animation-principle
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#121
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 01
+// 01 アンティシペーション（進む向きと逆へ少し引いて、つぶれて溜めてから、勢いよく飛び出す）
+CELLS[0] = (k, w, h, u) => {
+  u = snapU(u);
+  stage(k);
+  const T = CYC / 2, n = Math.floor(u / T), lu = u - n * T, dir = n % 2 ? -1 : 1;
+  const XL = 108, XR = w - 108, xs = dir > 0 ? XL : XR, xe = dir > 0 ? XR : XL, floor = h - 30, S = 86, BACK = 44;
+  k.fillStyle = C.navy3; rr(k, 26, floor, w - 52, 5, 2.5); k.fill();
+  const wind = eIOs(P(lu, 0.2, 0.95)), go = P(lu, 0.95, 1.38);
+  let x, sx = 1, sy = 1, rot = 0;
+  if (go <= 0) { x = xs - dir * BACK * wind; sx = 1 + 0.22 * wind; sy = 1 - 0.24 * wind; rot = -dir * 0.18 * wind; }
+  else {
+    x = lerp(xs - dir * BACK, xe, backOut(go, 1.1));
+    const st = go < 0.6 ? Math.sin(Math.PI * go / 0.6) : 0;
+    sx = 1 + 0.55 * st; sy = 1 - 0.28 * st; rot = dir * 0.08 * st;
+    const land = lu - 1.38; if (land > 0) { const wob = 0.13 * Math.exp(-7 * land) * Math.sin(17 * land); sy = 1 - wob; sx = 1 + wob; }
+  }
+  // 飛び出した地点の土けむり
+  if (go > 0 && go < 0.7) { const q = go / 0.7; k.fillStyle = C.dim; k.globalAlpha = 0.8 * (1 - q); for (let i = 0; i < 3; i++) { k.beginPath(); k.arc(xs - dir * (BACK + 30 + i * 22 + q * 30), floor - 8 - i * 6 - q * 10, 7 + q * 12 - i * 2, 0, 7); k.fill(); } k.globalAlpha = 1; }
+  // 影
+  k.fillStyle = 'rgba(0,0,0,.3)'; k.beginPath(); k.ellipse(x, floor + 8, S * 0.62 * sx, 6, 0, 0, 7); k.fill();
+  // スピード線
+  if (go > 0.02 && go < 0.8) { const a = 1 - go / 0.8; k.strokeStyle = C.yel; k.lineCap = 'round'; k.lineWidth = 8; k.globalAlpha = a;[0.28, 0.55, 0.8].forEach((f, i) => { const y = floor - S * sy * f, x0 = x - dir * (S * sx / 2 + 12), L = 120 * a + 20; k.beginPath(); k.moveTo(x0, y); k.lineTo(x0 - dir * L * (i === 1 ? 1 : 0.7), y); k.stroke(); }); k.globalAlpha = 1; }
+  k.save(); k.translate(x, floor); k.rotate(rot); k.scale(sx, sy);
+  k.fillStyle = C.coral; rr(k, -S / 2, -S, S, S, 24); k.fill();
+  k.fillStyle = 'rgba(255,255,255,.16)'; rr(k, -S / 2, -S, S, S / 2, [24, 24, 0, 0]); k.fill();
+  k.strokeStyle = '#fff'; k.lineWidth = 10; k.lineCap = 'round'; k.lineJoin = 'round';
+  k.beginPath(); k.moveTo(-dir * 12, -S / 2 - 20); k.lineTo(dir * 12, -S / 2); k.lineTo(-dir * 12, -S / 2 + 20); k.stroke();
+  k.restore();
+};

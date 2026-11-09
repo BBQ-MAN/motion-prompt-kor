@@ -1,0 +1,45 @@
+// Motion Prompt #001 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#001
+//
+// 팝인 / Pop-in
+// 팩: motion (모션 그래픽 동작) · element 01 · 카테고리: 등장·텍스트 연출
+// 무엇이 일어나는가: 앱 아이콘이 통통 튀며 나타나고, 조금 뒤 알림 배지가 팝인된다.
+// 동작 사양:
+//   - 2.35초에 1회(4.7초 주기에 2회. 첫 번째는 코랄 바탕에 별, 두 번째는 파랑 바탕에 하트).
+//   - 아이콘: 116px 둥근 사각형(모서리 반경 30). 0.28초부터 스케일 0→1을 스프링으로: 1 − e^(−6.5t)·cos(15t). 최대 약 1.26까지 오버슈트한다.
+//   - 동시에 회전 −0.35rad(약 −20°) → 0을 스프링 1 − e^(−6t)·cos(11t)로 되돌린다.
+//   - 배지: 반지름 25의 노란 원에 "1". 아이콘 오른쪽 위(+52, −52)에 둔다. 0.62초부터 스프링 1 − e^(−7t)·cos(17t)로 나타난다.
+//   - 퇴장: 1.86–2.12초. 스케일에 (1 − backIn, s = 2.2)를 곱해 살짝 부풀었다가 0으로 줄어든다.
+//   - 바닥 그림자: 62 × 8 타원이 아이콘 스케일(0–1로 제한)에 맞춰 커지고 줄어든다.
+// 쓰임새: 아이콘·버튼·배지처럼 작은 요소를 가볍게 강조하며 등장시킬 때.
+// 태그: pop, pop-in, spring, bounce, scale, icon, badge, entrance
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#001
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 01
+// 01 ポップイン（アプリのアイコンがポンと弾んで現れ、通知バッジが遅れてポン）
+CELLS[0] = (k, w, h, u) => {
+  stage(k);
+  const T = CYC / 2, n = Math.floor(u / T), lu = u - n * T, X = w / 2, Y = h / 2 + 4, S = 116;
+  const col = n % 2 ? C.blue : C.coral;
+  const out = backIn(P(lu, 1.86, 2.12), 2.2);
+  const sc = spring(lu - 0.28, 15, 6.5) * (1 - out);
+  const rot = (1 - spring(lu - 0.28, 11, 6)) * -0.35;
+  // 床の影
+  k.fillStyle = 'rgba(0,0,0,.28)'; k.beginPath(); k.ellipse(X, Y + 78, 62 * clamp(sc), 8 * clamp(sc), 0, 0, 7); k.fill();
+  if (sc > 0.002) {
+    k.save(); k.translate(X, Y); k.rotate(rot); k.scale(sc, sc);
+    k.fillStyle = col; rr(k, -S / 2, -S / 2, S, S, 30); k.fill();
+    k.fillStyle = 'rgba(255,255,255,.16)'; rr(k, -S / 2, -S / 2, S, S / 2, [30, 30, 0, 0]); k.fill();
+    k.fillStyle = '#fff';
+    if (n % 2) { k.save(); k.translate(0, 2); heartPath(k, 30); k.fill(); k.restore(); }
+    else { star(k, 0, 2, 36, 0, 0.48); k.lineJoin = 'round'; k.strokeStyle = '#fff'; k.lineWidth = 6; k.stroke(); k.fill(); }
+    k.restore();
+    // 通知バッジ
+    const bs = spring(lu - 0.62, 17, 7) * (1 - out);
+    if (bs > 0.002) { k.save(); k.translate(X + 52 * sc, Y - 52 * sc); k.scale(bs, bs); k.fillStyle = C.yel; k.beginPath(); k.arc(0, 0, 25, 0, 7); k.fill(); k.strokeStyle = C.navy; k.lineWidth = 5; k.stroke(); txt(k, '1', 0, 2, `800 30px ${DISP}`, C.navy, 'center', 'middle'); k.restore(); }
+  }
+};

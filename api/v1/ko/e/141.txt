@@ -1,0 +1,31 @@
+// Motion Prompt #141 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#141
+//
+// 픽셀레이트 / Pixelate
+// 팩: motion2 (모션 그래픽 연출 2탄) · element 21 · 카테고리: 화면 전환·강조 연출
+// 무엇이 일어나는가: 화면이 점점 거친 모자이크가 되고, 가장 거친 순간 바뀐 뒤 다시 선명해진다.
+// 동작 사양:
+//   - 들판 화면 → 도시 화면 → 들판을 2.35초씩. 0.2–1.9초(1.7초)에 모자이크 칸 크기를 1, 2, 3, 4, 6, 8, 11, 15, 20, 27, 36px로 단계적으로 올렸다가 내린다(중간인 1.05초가 가장 거칠다).
+//   - 앞쪽 절반은 이전 화면, 뒤쪽 절반은 다음 화면(가장 거친 단계에서 바꿔 넣는다).
+//   - 만드는 법: 화면을 폭 ÷ 칸 크기로 축소하고(부드러운 보간 켬), 보간을 끈 채 원래 크기로 늘린다.
+// 쓰임새: 게임풍, 레트로, 디지털 느낌의 장면 전환에. 가리고 싶은 것을 흐리며 바꾸고 싶을 때도.
+// 태그: pixelate, mosaic, pixel, transition, retro, 8-bit, scene-change
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#141
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 21
+// 21 ピクセレート（画面がだんだん粗いモザイクになり、いちばん粗いところで切り替わって細かく戻る）
+const SMC = mkCanvas(CW, CH), SMK = SMC.getContext('2d');
+const BLV = [1, 2, 3, 4, 6, 8, 11, 15, 20, 27, 36];
+CELLS[20] = abCell((k, w, h, u, a, b) => {
+  const S = [scField, scCity], p = P(u, TA - 0.3, TB + 0.4), tri = 1 - Math.abs(2 * p - 1), bs = BLV[Math.round(tri * (BLV.length - 1))];
+  const scr = p < 0.5 ? a : b;
+  if (bs <= 1) return S[scr](k, w, h);
+  TK.setTransform(1, 0, 0, 1, 0, 0); TK.globalCompositeOperation = 'source-over'; TK.clearRect(0, 0, w, h); S[scr](TK, w, h);
+  const sw = Math.ceil(w / bs), sh = Math.ceil(h / bs);
+  SMK.setTransform(1, 0, 0, 1, 0, 0); SMK.clearRect(0, 0, CW, CH); SMK.imageSmoothingEnabled = true; SMK.imageSmoothingQuality = 'high'; SMK.drawImage(TMP, 0, 0, sw, sh);
+  k.imageSmoothingEnabled = false; k.drawImage(SMC, 0, 0, sw, sh, 0, 0, sw * bs, sh * bs); k.imageSmoothingEnabled = true;
+});

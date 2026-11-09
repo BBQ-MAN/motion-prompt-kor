@@ -1,0 +1,34 @@
+// Motion Prompt #013 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#013
+//
+// 리퀴드 모션 / Liquid motion
+// 팩: motion (모션 그래픽 동작) · element 13 · 카테고리: 움직임 디테일
+// 무엇이 일어나는가: 덩어리가 늘어나고, 방울로 끊어졌다가, 다시 하나로 합쳐진다.
+// 동작 사양:
+//   - 선두 원(반지름 44): 0.35–1.45초에 cubic-bezier(.7, 0, .2, 1)로 오른쪽 300px 이동. 이동 중 사인 곡선으로 34px 떠오른다. 2.7–3.8초에 같은 방식으로 돌아온다.
+//   - 원 7개가 0.065초씩 늦게 같은 경로를 따라간다. 반지름은 44→15로 작아지고, 위아래로 ±6px 흔들린다.
+//   - 멈춰 있는 동안에도 작은 원 3개(반지름 15, 13, 11)가 34–64px 거리를 주기당 두 번 드나든다.
+//   - 합쳐지는 질감: 원을 흰색으로 그린다 → 9px 블러 → 알파를 임계값으로 자른다(112–144 사이만 부드럽게) → 남은 형태에 색을 채운다.
+//   - 채움은 민트 → 파랑 → 보라(#7C5CFF) 대각선 그라디언트. 선두 원에 흰 타원 하이라이트.
+// 쓰임새: 로고, 배경, 연결 동작에 유기적이고 부드러운 느낌을 줄 때.
+// 태그: liquid, blob, goo, gooey, metaball, fluid, organic, drip
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#013
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 13
+// 13 リキッドモーション（しずくが伸びて、ちぎれて、ぬるっと1つにまとまる）
+const LQ = bez(.7, 0, .2, 1);
+const lqPos = uu => { const u = mod(uu, CYC); let p; if (u < 0.35) p = 0; else if (u < 1.45) p = LQ(P(u, 0.35, 1.45)); else if (u < 2.7) p = 1; else if (u < 3.8) p = 1 - LQ(P(u, 2.7, 3.8)); else p = 0; const mvp = (u >= 0.35 && u < 1.45) ? P(u, 0.35, 1.45) : (u >= 2.7 && u < 3.8) ? P(u, 2.7, 3.8) : 0; return [lerp(120, 420, p), 104 - 34 * Math.sin(Math.PI * mvp)]; };
+CELLS[12] = (k, w, h, u) => {
+  stage(k);
+  const blobs = [];
+  for (let i = 0; i < 8; i++) { const [x, y] = lqPos(u - i * 0.065); blobs.push([x, y + (i ? 6 * Math.sin(u * 2.67 + i) : 0), lerp(44, 15, i / 7)]); }
+  // 止まっている間、まわりで小さなしずくが出入りする
+  for (let j = 0; j < 3; j++) { const [x, y] = lqPos(u - 0.1), a = j * 2.2 + 0.6, d = 34 + 30 * (0.5 - 0.5 * Math.cos(u / CYC * Math.PI * 4 + j * 2.1)); blobs.push([x + Math.cos(a) * d, y + Math.sin(a) * d * 0.8, 15 - j * 2]); }
+  const L = goo(g => { for (const b of blobs) { g.beginPath(); g.arc(b[0], b[1], b[2], 0, 7); g.fill(); } }, 9, g => { const gr = g.createLinearGradient(60, 30, 480, 180); gr.addColorStop(0, C.mint); gr.addColorStop(0.55, C.blue); gr.addColorStop(1, '#7C5CFF'); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
+  k.drawImage(L, 0, 0);
+  const [hx, hy] = lqPos(u); k.fillStyle = 'rgba(255,255,255,.75)'; k.beginPath(); k.ellipse(hx - 14, hy - 17, 10, 6, -0.6, 0, 7); k.fill();
+};

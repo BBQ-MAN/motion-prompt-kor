@@ -1,0 +1,24 @@
+// Motion Prompt #178 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#178
+//
+// 하이 앵글 / High angle
+// 팩: camera2 (카메라 워크와 화면 전환 2) · element 10 · 카테고리: 앵글·구도
+// 무엇이 일어나는가: 카메라가 올라가 아래를 내려다본다. 인물은 작아 보이고 지면이 화면 대부분을 채운다.
+// 동작 사양:
+//   - 카메라: 높이 1.5m → 4.5m로 올라가면서 피치 0 → -0.5rad(아래로 약 29°). 앞뒤 이동 없음
+//   - 타이밍: 0.6초부터 2.2초까지 1.6초. 3차 ease-in-out(cubic-bezier(0.65,0,0.35,1)에 가까움)
+//   - 피사체: 인물은 5m 앞에 서 있다. 카메라가 내려다보면 인물이 작아지며 아래로 내려가고, 지면 격자가 화면 대부분을 채우며 지평선은 위로 빠진다
+//   - 정지: 2.2초부터 4.2초까지 하이 앵글 유지(#031 크레인 업은 9m까지 계속 올라간다. 13 버즈 아이 뷰는 90°로 바로 내려다본다)
+//   - 복귀: 마지막 0.5초 동안 눈높이로 크로스페이드(1회 4.7초). 오른쪽 위에 각도와 높이 표시(↘ 0° · 1.5m → ↘ 29° · 4.5m)
+// 쓰임새: 인물을 약하거나 작게 보이게 할 때, 위에서 상황을 설명할 때.
+// 태그: high angle, look down, from above, overhead, vulnerable, angle
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#178
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 10
+// 10 ハイアングル: カメラを高い位置へ上げ、見下ろす。人物が小さく見える（#031 クレーンアップは上がり続けて全体を見せる）
+CELLS[9] = shot(camCell((k, w, h, p) => world(k, w, h, cam({ y: lerp(1.5, 4.5, p), pitch: lerp(0, -0.5, p) }), { person: { z: 5 } }),
+  p => `↘ ${Math.round(lerp(0, 0.5, p) * 57.3)}° · ${lerp(1.5, 4.5, p).toFixed(1)}m`, 0.6, 2.2));

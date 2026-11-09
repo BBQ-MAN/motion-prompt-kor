@@ -1,0 +1,51 @@
+// Motion Prompt #160 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#160
+//
+// 로딩 버튼 / Loading button
+// 팩: lp2 (랜딩 페이지·웹사이트 연출 2탄) · element 16 · 카테고리: 마우스·입력 반응
+// 무엇이 일어나는가: 전송 버튼을 누르면 원으로 줄어들며 안에서 스피너가 돌고, 끝나면 체크가 있는 초록색 "完了"(완료) 버튼으로 넓어진다.
+// 동작 사양:
+//   - 511 × 168 뷰포트, 주황색 알약형 버튼 220 × 36, 라벨 "送信する"(전송). 0.8초에 클릭된다. 1회 4.7초(팩 주기 9.4초에 2회).
+//   - 0.85–1.15초(0.3초, cubic ease-in-out)에 폭이 220에서 36 px로 줄어 원이 된다. 라벨은 축소의 처음 1/3 동안 페이드아웃된다.
+//   - 1.1–2.3초에 원 안에서 흰색 스피너(반지름 10, 선 두께 3, 0.7π 호)가 0.7초에 한 바퀴씩 돈다.
+//   - 2.25–2.45초에 색이 주황 → 초록(#1E9E5A)으로 바뀌고, 2.25–2.5초에 흰 체크가 그려진다. 2.45–2.8초(cubic ease-in-out)에 폭이 36 → 150 px로 넓어지고, 체크가 왼쪽으로 26 px 이동하며 "完了"(완료)가 나타난다.
+//   - 3.9–4.1초에 페이드아웃되고, 4.1–4.4초(cubic ease-out)에 원래 "送信する" 버튼이 6 px 떠오르며 돌아온다.
+// 쓰임새: 전송, 구매, 저장처럼 결과를 잠시 기다려야 하는 버튼에.
+// 태그: loading-button, button, spinner, submit, success-state, microinteraction
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#160
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 16
+// 16 ローディングボタン（押すと丸い読み込み表示に縮んで回り、チェック付きの「完了」に変わる）
+CELLS[15] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const CLK = 0.8, BY = 124, BHT = 36;
+  const shr = eIO(P(u, CLK + 0.05, CLK + 0.35)), done = eOut(P(u, 2.25, 2.45)), grow = eIO(P(u, 2.45, 2.8)), fade = P(u, 3.9, 4.1), back = eOut(P(u, 4.1, 4.4));
+  const bw = fade >= 1 ? 220 : grow > 0 ? lerp(BHT, 150, grow) : lerp(220, BHT, shr);
+  const cur = t => path([[0, 430, 205], [0.55, 290, 136], [1.1, 290, 136], [1.6, 440, 205], [4.7, 430, 205]], t);
+  const [cx, cy] = cur(u);
+  view(k, () => {
+    k.fillStyle = C.blueL; k.fillRect(0, 0, VW, VH);
+    k.save(); k.shadowColor = 'rgba(28,35,51,.1)'; k.shadowBlur = 12; k.shadowOffsetY = 3; k.fillStyle = '#fff'; rr(k, 130, 10, 251, 150, 12); k.fill(); k.restore();
+    txt(k, '資料請求', VW / 2, 36, `800 15px ${JP}`, C.ink, 'center');
+    for (let i = 0; i < 2; i++) { k.strokeStyle = '#D5DBE6'; k.lineWidth = 1.5; rr(k, 150, 50 + i * 32, 211, 24, 6); k.stroke(); bars(k, 160, 59 + i * 32, i ? 90 : 120, 1, '#AEB6C5', 6); }
+    const col = fade >= 1 ? '#FF5A2C' : mix('#FF5A2C', GREEN, done), ba = fade >= 1 ? back : 1 - fade;
+    k.save(); k.globalAlpha = ba; k.translate(0, fade >= 1 ? 6 * (1 - back) : 0); k.save(); k.shadowColor = 'rgba(28,35,51,.18)'; k.shadowBlur = 8; k.shadowOffsetY = 3; k.fillStyle = col; rr(k, VW / 2 - bw / 2, BY, bw, BHT, BHT / 2); k.fill(); k.restore();
+    const idleA = fade >= 1 ? 1 : 1 - clamp(shr * 3);
+    if (idleA > 0) { k.save(); k.globalAlpha = idleA * ba; txt(k, '送信する', VW / 2, BY + BHT / 2 + 0.5, `800 14px ${JP}`, '#fff', 'center', 'middle'); k.restore(); }
+    if (u > CLK + 0.3 && u < 2.3) { k.save(); k.globalAlpha = clamp((u - CLK - 0.3) / 0.1) * (1 - clamp((u - 2.2) / 0.08)); k.lineCap = 'round'; k.lineWidth = 3; k.strokeStyle = 'rgba(255,255,255,.35)'; k.beginPath(); k.arc(VW / 2, BY + BHT / 2, 10, 0, 7); k.stroke(); const a = u / 0.7 * Math.PI * 2; k.strokeStyle = '#fff'; k.beginPath(); k.arc(VW / 2, BY + BHT / 2, 10, a, a + Math.PI * 0.7); k.stroke(); k.restore(); }
+    if (u >= 2.25 && fade < 1) {
+      k.save();
+      const ox = lerp(0, -26, grow);
+      check(k, VW / 2 + ox, BY + BHT / 2, 16, '#fff', 3, P(u, 2.25, 2.5));
+      if (grow > 0.5) { k.globalAlpha = ba * P(grow, 0.5, 1); txt(k, '完了', VW / 2 + 12, BY + BHT / 2 + 0.5, `800 14px ${JP}`, '#fff', 'center', 'middle'); }
+      k.restore();
+    }
+    k.restore();
+    click(k, cx, cy, u, [CLK]);
+  });
+};

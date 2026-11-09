@@ -1,0 +1,35 @@
+// Motion Prompt #056 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#056
+//
+// 토스트 / Toast notification
+// 팩: ui (UI 컴포넌트 이름) · element 08 · 카테고리: 열리고 겹치는 컴포넌트
+// 무엇이 일어나는가: "저장"을 누르면 오른쪽 아래로 어두운 알림이 미끄러져 들어오고, 남은 시간 막대가 다 줄면 오른쪽으로 빠져나간다.
+// 동작 사양:
+//   - 4.5초 주기, 카드 542×191. 커서가 1.0초에 왼쪽 아래 파란 "저장" 버튼(110×36)을 클릭하고 왼쪽 아래로 빠진다.
+//   - 토스트: #26282c, 214×52, 모서리 반경 10. 오른쪽에서 18px, 아래에서 16px 위치로, 1.05–1.4초에 easeOutCubic으로 오른쪽에서 240px 미끄러져 들어온다.
+//   - 안: 파란 원 안의 흰 체크와 흰색 15px 텍스트 "저장했습니다".
+//   - 아래 가장자리의 남은 시간 막대(높이 3)가 1.4–3.2초에 194px에서 0으로 linear하게 줄어든다.
+//   - 퇴장: 3.2–3.55초에 easeInOutCubic으로 오른쪽으로 240px 빠져나간다.
+// 쓰임새: 저장이나 전송 같은 결과를 작업을 멈추지 않고 짧게 알릴 때.
+// 태그: toast, snackbar, notification, alert, message, auto-dismiss
+// 크기: 542x191 px · 1주기: 4.5 s
+// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#056
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 08
+// 08 トースト（Toast notification）
+CELLS[7] = ui((w, h, t) => {
+  bar(24, 16, 90, C.line2, 10); strokeRR(24, 34, 300, 34, 7, C.line2, 1.5); bar(24, 82, 90, C.line2, 10); strokeRR(24, 100, 300, 34, 7, C.line2, 1.5);
+  fillRR(24, 146, 110, 36, 8, C.blue); text('保存', 79, 164, 16, '#fff', 600, 'center');
+  const tin = eo(seg(t, 1.05, 1.4)), tout = eio(seg(t, 3.2, 3.55));
+  if (tin > 0 && tout < 1) {
+    const tw0 = 214, th = 52, tx = w - 18 - tw0 + (1 - tin) * 240 + tout * 240, ty = h - 16 - th;
+    shadowed(() => fillRR(tx, ty, tw0, th, 10, C.dark), 18, 6, .25);
+    circle(tx + 26, ty + 24, 11, C.blue); check(tx + 26, ty + 24, 5, '#fff', 2.4);
+    text('保存しました', tx + 46, ty + 24, 15, '#fff', 600);
+    const life = 1 - seg(t, 1.4, 3.2); fillRR(tx + 10, ty + th - 7, (tw0 - 20) * life, 3, 1.5, C.sb);
+  }
+  pointer([[.3, -30, h + 30], [.95, 84, 168], [1.5, 84, 168], [2.2, -40, h + 40]], [1.0], t);
+});

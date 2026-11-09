@@ -1,0 +1,25 @@
+// Motion Prompt #025 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#025
+//
+// 팬 / Pan
+// 팩: camera (카메라 무빙과 화면 전환) · element 01 · 카테고리: 카메라 움직임
+// 무엇이 일어나는가: 카메라 위치는 그대로 두고 방향만 왼쪽에서 오른쪽으로 돌린다. 회전이므로 가까운 것과 먼 것이 같은 양만큼 옆으로 흐른다.
+// 동작 사양:
+//   - 카메라: 위치 고정(높이 1.5m), 요만 -0.32rad → +0.32rad(-18° → +18°, 총 약 37°)
+//   - 시간: 0.5초부터 3.4초까지 2.9초 동안 회전. 3차 ease-in-out(cubic-bezier(0.65,0,0.35,1) 상당)
+//   - 피사체: 인물(키 약 1.8m)은 정면 8m 앞에서 움직이지 않는다. 화면에서는 오른쪽에서 왼쪽으로 흐른다
+//   - 패럴랙스 없음: 산, 건물, 나무, 인물이 모두 같은 각도만큼 이동(초점 거리 330px, 539×208 카드)
+//   - 복귀: 3.4~4.2초는 정지, 마지막 0.5초 동안 시작 상태로 크로스페이드(1회 4.7초)
+//   - 오른쪽 위에 각도를 정수 단위 도로 표시(-18° → +18°)
+// 쓰임새: 넓은 장소를 보여 주거나, 시선을 화면 한쪽에서 다른 쪽으로 옮길 때.
+// 태그: pan, panning, yaw, rotate, horizontal, camera move, reveal
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#025
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 01
+// 01 パン: 回転なので全ての層が同じだけ横に流れる
+CELLS[0] = shot(camCell((k, w, h, p) => world(k, w, h, cam({ yaw: lerp(-0.32, 0.32, p) }), { person: { x: 0, z: 8 } }),
+  p => `${Math.round(lerp(-0.32, 0.32, p) * 57.3)}°`.replace(/^(\d)/, '+$1')));

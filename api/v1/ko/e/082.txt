@@ -1,0 +1,34 @@
+// Motion Prompt #082 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#082
+//
+// 호버 이미지 줌 / Image zoom on hover
+// 팩: lp (랜딩 페이지·웹사이트 연출) · element 10 · 카테고리: 호버·클릭 인터랙션
+// 무엇이 일어나는가: 커서가 올라간 사진만 프레임 크기는 그대로 두고 안쪽이 천천히 확대되며, 벗어나면 돌아온다.
+// 동작 사양:
+//   - 사진 프레임 222×118(모서리 반경 8)을 2개 나란히 둔다. 커서가 왼쪽, 오른쪽 순서로 약 1.5초씩 올라간다
+//   - 호버하면 0.5초 동안 내용의 배율 1→1.15(중심 기준, easeOut 3차). 벗어나면 같은 0.5초로 돌아온다
+//   - 프레임 밖으로 넘친 부분은 잘라 낸다(overflow: hidden). 프레임과 아래 캡션은 움직이지 않는다
+// 쓰임새: 작품, 상품, 기사 같은 사진 목록에서 지금 무엇을 고르려는지 보여 주고 싶을 때.
+// 태그: hover, zoom, image, scale, overflow-hidden, thumbnail, gallery
+// 크기: 539x208 px · 1주기: 4.8 s
+// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#082
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 10
+// 10 ホバーで画像ズーム（枠はそのままで、中の写真だけがゆっくり拡大する）
+CELLS[9] = (k, w, h, u) => {
+  frame(k);
+  const FX = [22, 267], FY = 16, FW = 222, FH = 118, ZOOM = 0.15;
+  const cur = t => path([[0, 60, 160], [0.5, 120, 70], [1.8, 140, 84], [2.2, 370, 70], [3.4, 390, 84], [3.9, 470, 160], [4.8, 60, 160]], t);
+  view(k, () => {
+    for (let i = 0; i < 2; i++) {
+      const inside = t => { const [x, y] = cur(t); return x > FX[i] && x < FX[i] + FW && y > FY && y < FY + FH; };
+      const q = trans(inside, u, 0.5);
+      pic(k, FX[i], FY, FW, FH, i, 8, 1 + ZOOM * q);
+      txt(k, ['夏の山小屋', '海辺のカフェ'][i], FX[i], FY + FH + 20, `800 13px ${JP}`, C.ink); bars(k, FX[i], FY + FH + 28, 150, 1);
+    }
+    const [cx, cy] = cur(u); cursor(k, cx, cy);
+  });
+};

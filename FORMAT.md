@@ -135,7 +135,7 @@ A field without the new language shows its English text in that list. The headin
 list ("Name", "What it is", …) are English unless you add a block for the language to `DOC` in
 `tools/build.mjs`; add its display name to `LANG_NAME` there too.
 
-The gallery, `api/v1/<lang>/` and the copyable prompt are served in `ja` and `en` only (`LANGS` in
+The gallery, `api/v1/<lang>/` and the copyable prompt are served in `ja`, `en` and `ko` only (`LANGS` in
 `tools/build.mjs`). In those, a pack with no Japanese shows its English text. Other languages are
 carried in `api/v1/catalog.json` and shown in the generated lists.
 

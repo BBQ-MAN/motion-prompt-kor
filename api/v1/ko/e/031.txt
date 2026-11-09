@@ -1,0 +1,27 @@
+// Motion Prompt #031 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#031
+//
+// 크레인 업 / Crane up
+// 팩: camera (카메라 무빙과 화면 전환) · element 07 · 카테고리: 카메라 움직임
+// 무엇이 일어나는가: 카메라가 위로 올라가면서 아래를 향해, 인물을 내려다보는 구도가 된다.
+// 동작 사양:
+//   - 카메라: 높이 1.4m → 9m로 상승. 동시에 앞으로 0m → 1.5m 전진
+//   - 방향: 인물(8m 앞)이 화면에 들어오도록 아래로 숙인다. 피치 = -0.86 × atan2(높이 - 1.0, 8 - 전진량), 약 -2.5° → -44°
+//   - 시간: 0.5초부터 3.4초까지 2.9초. 3차 ease-in-out(cubic-bezier(0.65,0,0.35,1) 상당)
+//   - 피사체: 인물은 움직이지 않는다. 카메라가 올라갈수록 작아지고, 지면 격자가 화면을 채우며 지평선은 위로 빠져나간다
+//   - 복귀: 3.4~4.2초는 정지, 마지막 0.5초 동안 시작 상태로 크로스페이드(1회 4.7초)
+//   - 오른쪽 위에 높이 표시(↑ 1.4m → ↑ 9.0m)
+// 쓰임새: 장면 끝에서 인물로부터 멀어지거나, 장소의 규모를 드러낼 때.
+// 태그: crane, crane up, jib, boom up, rise, high angle, camera move
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#031
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 07
+// 07 クレーンアップ: カメラが上昇し、見下ろしになる
+CELLS[6] = shot(camCell((k, w, h, p) => {
+  const y = lerp(1.4, 9, p), z = lerp(0, 1.5, p);
+  world(k, w, h, cam({ y, z, pitch: -0.86 * Math.atan2(y - 1.0, 8 - z) }), { person: { z: 8 } });
+}, p => `↑ ${lerp(1.4, 9, p).toFixed(1)}m`));

@@ -1,0 +1,25 @@
+// Motion Prompt #028 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#028
+//
+// 줌 인 / Zoom in
+// 팩: camera (카메라 무빙과 화면 전환) · element 04 · 카테고리: 카메라 움직임
+// 무엇이 일어나는가: 카메라는 움직이지 않고 렌즈의 초점 거리만 길어진다. 화면 전체가 같은 비율로 확대된다.
+// 동작 사양:
+//   - 카메라: 위치와 방향 고정(높이 1.5m). 초점 거리만 330px → 1200px(24mm → 87mm로 표시, 약 3.6배)
+//   - 지수 보간: f = 330 × (8/2.2)^p. p는 0.5초~3.4초(2.9초)의 3차 ease-in-out
+//   - 피사체: 인물은 8m 앞에서 움직이지 않는다. 최종 크기는 03 돌리 인과 같은 약 3.6배
+//   - 패럴랙스 없음: 앞쪽 말뚝과 바위, 인물, 건물, 산이 모두 같은 비율로 커진다(겹치는 모양이 변하지 않음)
+//   - 복귀: 3.4~4.2초는 정지, 마지막 0.5초 동안 시작 상태로 크로스페이드(1회 4.7초)
+//   - 오른쪽 위에 초점 거리를 mm로 표시(24mm → 87mm)
+// 쓰임새: 카메라를 움직이지 않고 한 지점에 주목시킬 때. 돌리 인보다 평면적이고 관찰하는 느낌이 난다.
+// 태그: zoom, zoom in, focal length, lens, magnify, telephoto, camera move
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#028
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 04
+// 04 ズームイン: 位置は固定・焦点距離だけ伸びる（全体が同じ比率で拡大）
+CELLS[3] = shot(camCell((k, w, h, p) => world(k, w, h, cam({ f: F0 * Math.pow(8 / 2.2, p) }), { person: { z: 8 }, fg: [[-1.5, 3.6], [1.6, 4.8, 'rock']] }),
+  p => mm(F0 * Math.pow(8 / 2.2, p))));

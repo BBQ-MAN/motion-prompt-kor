@@ -1,0 +1,42 @@
+// Motion Prompt #080 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#080
+//
+// 형광펜 애니메이션 / Highlighter animation
+// 팩: lp (랜딩 페이지·웹사이트 연출) · element 08 · 카테고리: 스크롤 연출
+// 무엇이 일어나는가: 스크롤로 문장이 화면에 들어오면, 중요한 말의 아래쪽 절반에 노란 형광펜 줄이 왼쪽부터 그어진다.
+// 동작 사양:
+//   - 스크롤 양: 0.35~1.0초에 0→90px, 1.6~2.2초에 90→180px, 3.3~4.4초에 180→0(easeInOut 3차)
+//   - 문장은 2줄(20px, 굵게). 페이지상 190px과 290px에 있고, 처음에는 화면 아래에 숨어 있다
+//   - 줄의 위쪽 끝이 판정선(뷰포트 높이의 80% = 134px)보다 위로 올라온 시점에 강조할 말 아래에 줄을 긋기 시작한다
+//   - 줄: 노란색 #FFE36B, 높이 11(글자 아래쪽. 베이스라인 8px 위~3px 아래). 폭 0→단어 폭을 0.8초 동안 왼쪽부터(easeOut 3차). 글자 뒤에 그린다
+//   - 화면 아래로 벗어난 줄은 보이지 않는 곳에서 초기 상태로 돌린다
+// 쓰임새: 랜딩 페이지 본문에서 가장 전하고 싶은 한마디를 읽는 순간 눈에 띄게 하고 싶을 때.
+// 태그: highlighter, marker, text-highlight, emphasis, scroll-reveal, copy, underline
+// 크기: 539x208 px · 1주기: 4.8 s
+// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#080
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 08
+// 08 マーカーアニメーション（大事な言葉が画面に入ると、蛍光ペンの線が左から引かれる）
+CELLS[7] = (k, w, h, u) => {
+  frame(k);
+  const SY = t => steps([[0.35, 0], [1.0, 90], [1.6, 90], [2.2, 180], [3.3, 180], [4.4, 0]], t), y = SY(u);
+  const LINE = VH * 0.8, DUR = 0.8, MARK = '#FFE36B', F = `800 20px ${JP}`;
+  const rows = [[190, ['毎日のごはんが', 'たった10分で', '作れる。']], [290, ['はじめてでも', '失敗しないレシピ', 'だけ。']]];
+  view(k, () => {
+    k.save(); k.translate(0, -y);
+    txt(k, '忙しい人のための', 70, 50, `700 14px ${JP}`, C.sub); txt(k, '台所の新しい相棒', 70, 80, `800 24px ${JP}`, C.ink);
+    bars(k, 70, 96, 330, 4, C.faint, 6, 12, 0.8);
+    for (const [base, parts] of rows) {
+      k.font = F; const ws = parts.map(s => k.measureText(s).width); let x = (VW - ws.reduce((a, b) => a + b, 0)) / 2;
+      const t0 = enteredAt(SY, base - 20, LINE, u), q = t0 === null ? 0 : eOut(P(u, t0, t0 + DUR));
+      if (q > 0) { k.fillStyle = MARK; k.fillRect(x + ws[0], base - 8, ws[1] * q, 11); }
+      parts.forEach((s, i) => { txt(k, s, x, base, F, i === 1 ? C.ink : '#4A5368'); x += ws[i]; });
+      bars(k, 110, base + 22, 291, 2, C.faint, 6, 12, 0.7);
+    }
+    k.restore();
+    sbar(k, y / 180, 0.5);
+  });
+};

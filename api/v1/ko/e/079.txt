@@ -1,0 +1,36 @@
+// Motion Prompt #079 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#079
+//
+// 스크롤 프로그레스 바 / Scroll progress bar
+// 팩: lp (랜딩 페이지·웹사이트 연출) · element 07 · 카테고리: 스크롤 연출
+// 무엇이 일어나는가: 기사를 조금씩 읽어 내려갈 때마다 화면 위쪽 끝의 선이 왼쪽에서 늘어나고, 페이지 끝에 이르면 오른쪽 끝까지 닿는다.
+// 동작 사양:
+//   - 기사 페이지를 0→430px까지 스크롤. 110px씩 4번, 각각 0.45초 동안 움직이고 0.4초 멈춘다(easeInOut 3차)
+//   - 3.75~4.55초에 430→0으로 돌아간다
+//   - 뷰포트 위쪽 끝에 높이 6px 막대. 바탕은 옅은 회색, 채워지는 부분은 주황색
+//   - 채움 폭 = 511px × 스크롤 양 / 430(스크롤 비율 그대로. CSS animation-timeline: scroll()과 같다)
+// 쓰임새: 긴 기사나 칼럼에서 남은 분량을 알려 주고 싶을 때.
+// 태그: progress-bar, reading-progress, scroll-progress, indicator, scroll-driven, article
+// 크기: 539x208 px · 1주기: 4.8 s
+// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#079
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 07
+// 07 スクロールプログレスバー（読み進めた分だけ、画面上の線が伸びる）
+CELLS[6] = (k, w, h, u) => {
+  frame(k);
+  const MAX = 430;
+  const y = steps([[0.3, 0], [0.75, 110], [1.15, 110], [1.6, 220], [2.0, 220], [2.45, 330], [2.85, 330], [3.3, MAX], [3.75, MAX], [4.55, 0]], u);
+  view(k, () => {
+    k.save(); k.translate(0, -y);
+    txt(k, 'はじめてのWebデザイン', 70, 44, `800 20px ${JP}`, C.ink); bars(k, 70, 56, 120, 1, C.faint, 5);
+    pic(k, 70, 74, 371, 112, 0, 8);
+    for (let b = 0; b < 4; b++) { const y0 = 204 + b * 82; k.fillStyle = C.ink; rr(k, 70, y0, 140, 9, 4.5); k.fill(); bars(k, 70, y0 + 22, 371, 4, C.faint, 6, 12); }
+    k.restore();
+    k.fillStyle = C.faint; k.fillRect(0, 0, VW, 6);
+    k.fillStyle = C.acc; k.fillRect(0, 0, VW * (y / MAX), 6);
+    sbar(k, y / MAX, 0.3);
+  });
+};

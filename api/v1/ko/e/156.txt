@@ -1,0 +1,50 @@
+// Motion Prompt #156 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#156
+//
+// 텍스트 롤 / Text roll on hover
+// 팩: lp2 (랜딩 페이지·웹사이트 연출 2탄) · element 12 · 카테고리: 마우스·입력 반응
+// 무엇이 일어나는가: 메뉴 단어에 커서를 올리면 글자가 하나씩 위로 굴러 사라지고 같은 단어가 아래에서 주황색으로 굴러 들어온다. 커서가 벗어나면 다시 굴러 돌아간다.
+// 동작 사양:
+//   - 511 × 168 뷰포트, 메뉴 단어 3개(WORKS, ABOUT, CONTACT, 30 px, weight 800, 자간 1 px). 커서가 왼쪽부터 각 단어에 약 0.85초씩 머문다. 1회 4.7초(팩 주기 9.4초에 2회).
+//   - 각 단어 40 px 아래에 주황색 복사본이 있고, 둘 다 높이 39 px 상자로 잘린다(overflow: hidden).
+//   - 호버하면 각 글자가 0.035초씩 시차를 두고 0.36초 동안(cubic ease-in-out) 40 px 위로 빠져나가고, 주황색 복사본이 제자리로 올라온다.
+//   - 벗어나면 같은 시차와 타이밍으로 글자가 다시 아래로 굴러 돌아간다.
+// 쓰임새: 헤더 메뉴나 버튼에서 짧은 텍스트 링크에 손맛 있는 반응을 줄 때.
+// 태그: text-roll, hover, menu, link, stagger, typography
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#156
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 12
+// 12 テキストロール（メニューの文字にカーソルを乗せると、文字が上に回って同じ文字が下から出てくる）
+CELLS[11] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const LINKS = ['WORKS', 'ABOUT', 'CONTACT'], F = `800 30px ${EN}`, GAP = 44, LY = 100, LH = 40;
+  const cur = t => path([[0, 110, 200], [0.4, 120, 92], [1.25, 140, 96], [1.5, 252, 92], [2.35, 268, 96], [2.6, 380, 92], [3.45, 400, 96], [3.9, 450, 200], [4.7, 110, 200]], t);
+  view(k, () => {
+    k.fillStyle = '#FFF3EA'; k.fillRect(0, 0, VW, VH);
+    logo(k, 24, 28); txt(k, 'MENU', VW - 26, 28.5, `800 11px ${EN}`, C.sub, 'right', 'middle', '2px');
+    k.font = F; k.letterSpacing = '1px'; const ws = LINKS.map(s => k.measureText(s).width); k.letterSpacing = '0px';
+    let x = (VW - ws.reduce((a, b) => a + b, 0) - GAP * (LINKS.length - 1)) / 2;
+    LINKS.forEach((s, i) => {
+      const x0 = x, x1 = x + ws[i], inside = t => { const [a, b] = cur(t); return a > x0 - 6 && a < x1 + 6 && b > LY - 30 && b < LY + 10; };
+      const on = inside(u), tc = lastSwitch(inside, u);
+      k.save(); k.beginPath(); k.rect(x0 - 4, LY - 31, ws[i] + 8, 39); k.clip();
+      let cxp = x0;
+      [...s].forEach((ch, j) => {
+        const f = tc === null ? (on ? 1 : 0) : eIO(P(u, tc + 0.035 * j, tc + 0.035 * j + 0.36)), q = on ? f : 1 - f;
+        k.font = F; k.letterSpacing = '1px'; const cw = k.measureText(ch).width; k.letterSpacing = '0px';
+        txt(k, ch, cxp, LY - LH * q, F, C.ink, 'left', 'alphabetic', '1px');
+        txt(k, ch, cxp, LY + LH - LH * q, F, C.acc, 'left', 'alphabetic', '1px');
+        cxp += cw;
+      });
+      k.restore();
+      x += ws[i] + GAP;
+    });
+    bars(k, VW / 2 - 110, 132, 220, 1, '#F1D9C9', 6);
+    const [cx, cy] = cur(u); cursor(k, cx, cy);
+  });
+};

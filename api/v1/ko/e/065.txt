@@ -1,0 +1,41 @@
+// Motion Prompt #065 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#065
+//
+// 햄버거 메뉴 / Hamburger menu
+// 팩: ui (UI 컴포넌트 이름) · element 17 · 카테고리: 내비게이션·상태 표시
+// 무엇이 일어나는가: 헤더 오른쪽의 세 줄 아이콘을 누르면 ×로 바뀌고 헤더 아래에서 메뉴가 내려온다. 다시 누르면 닫힌다.
+// 동작 사양:
+//   - 4.5초 주기, 카드 542×191. 높이 44의 흰 헤더. 오른쪽 (500, 22)에 세 줄(길이 24, 두께 3, 8px 간격).
+//   - 커서가 1.0초와 3.3초에 클릭한다. 열림 정도 a: 1.0–1.3초에 0→1, 3.3–3.6초에 1→0, easeInOutCubic.
+//   - 세 줄 → ×: 위아래 줄이 가운데로 8px 모이며 ±45° 회전하고, 가운데 줄은 불투명도 1 − a로 사라진다. 열린 동안은 파랑.
+//   - 메뉴: 흰색, 높이 140, 위 가장자리 y = 44 − 140 + 140·a로 헤더 아래에서 내려온다(헤더 아래만 보이게 자름). 그림자 blur 16, 항목 4개, 첫 항목은 파랑.
+// 쓰임새: 모바일처럼 폭이 좁은 화면에서 전체 메뉴를 버튼 하나에 넣어 둘 때.
+// 태그: hamburger-menu, hamburger, menu-icon, nav-toggle, mobile-menu, menu
+// 크기: 542x191 px · 1주기: 4.5 s
+// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#065
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 17
+// 17 ハンバーガーメニュー（Hamburger menu）
+CELLS[16] = ui((w, h, t) => {
+  const a = eio(seg(t, 1.0, 1.3)) * (1 - eio(seg(t, 3.3, 3.6)));
+  pageLines(24, 66, 494); fillRR(24, 134, 494, 46, 8, C.block);
+  if (a > 0) {
+    X.save(); X.beginPath(); X.rect(0, 44, w, h); X.clip();
+    const mh = 140, my = 44 - mh + mh * a;
+    shadowed(() => { X.fillStyle = '#fff'; X.fillRect(0, my, w, mh); }, 16, 6, .16);
+    for (let k = 0; k < 4; k++) { const y = my + 14 + k * 32; bar(24, y + 6, [110, 150, 90, 130][k], k === 0 ? C.blue : C.line2, 11); if (k < 3) { X.fillStyle = C.line; X.fillRect(24, y + 26, w - 48, 1); } }
+    X.restore();
+  }
+  X.fillStyle = '#fff'; X.fillRect(0, 0, w, 44); X.fillStyle = C.line; X.fillRect(0, 44, w, 1.5);
+  fillRR(24, 15, 76, 16, 4, C.mb);
+  // 三本線 → ×
+  const hx = w - 42, hy = 22; X.save(); X.translate(hx, hy); X.strokeStyle = a > .02 ? C.blue : '#333'; X.lineWidth = 3; X.lineCap = 'round';
+  X.save(); X.translate(0, -8 * (1 - a)); X.rotate(Math.PI / 4 * a); X.beginPath(); X.moveTo(-12, 0); X.lineTo(12, 0); X.stroke(); X.restore();
+  X.globalAlpha = 1 - a; X.beginPath(); X.moveTo(-12, 0); X.lineTo(12, 0); X.stroke(); X.globalAlpha = 1;
+  X.save(); X.translate(0, 8 * (1 - a)); X.rotate(-Math.PI / 4 * a); X.beginPath(); X.moveTo(-12, 0); X.lineTo(12, 0); X.stroke(); X.restore();
+  X.restore();
+  pointer([[.3, w + 30, h + 30], [.95, w - 38, 26], [3.5, w - 38, 26], [4.2, w + 30, h + 30]], [1.0, 3.3], t);
+});

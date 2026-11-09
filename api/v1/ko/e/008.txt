@@ -1,0 +1,54 @@
+// Motion Prompt #008 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#008
+//
+// 키네틱 타이포그래피 / Kinetic typography
+// 팩: motion (모션 그래픽 동작) · element 08 · 카테고리: 등장·텍스트 연출
+// 무엇이 일어나는가: 단어가 뜻대로 움직인다. 하나는 늘어나고, 하나는 튀고, 하나는 돌고, 하나는 쾅 하고 떨어진다.
+// 동작 사양:
+//   - 단어 4개, 각 1.175초(굵게 88px). 각 단어는 마지막 0.2초 동안 위로 46px 움직이며 페이드아웃(3차 easeIn).
+//   - 늘어나기(파랑): 가로 스케일 0.3→1을 스프링 1 − e^(−4.2t)·cos(12t)로. 세로 스케일은 1/√(가로).
+//   - 튀기(노랑): 글자마다 0.1초씩 어긋나게. 높이 78px × |sin(πt/0.4)| × e^(−2.6t)로 튄다. 바닥에 닿을 때마다 세로로 최대 16% 찌그러진다.
+//   - 돌기(민트): 글자마다 0.12초씩 어긋나게. 0.62초 동안 회전 −360°→0°, backOut(s = 1.3). 스케일 0→1은 0.25초, 3차 easeOut.
+//   - 쾅!(코랄, 100px, 기울임): 0.02–0.2초에 스케일 3.4→1, 3차 easeIn으로 내리꽂는다.
+//   - 착지 후: 가로 흔들림 10px × e^(−9t) × sin(38t), 세로 찌그러짐 20% × e^(−11t), 방사형 선 8개가 0.4초 동안 나온다.
+// 쓰임새: 내레이션이나 가사의 핵심 단어를 움직임으로 기억에 남길 때.
+// 태그: kinetic-typography, text, typography, lyric, word, bounce, spin, slam
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#008
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 08
+// 08 キネティックタイポグラフィ（言葉の意味に合わせて文字が動く：のびる／はねる／まわる／ドン！）
+CELLS[7] = (k, w, h, u) => {
+  stage(k);
+  const T = CYC / 4, n = Math.min(3, Math.floor(u / T)), lu = u - n * T, X = w / 2, Y = h / 2 + 6;
+  const out = P(lu, T - 0.2, T - 0.02), oa = 1 - out, oy = -46 * eIn(out);
+  const f = `800 88px ${JP}`;
+  k.save(); k.translate(X, Y + oy); k.globalAlpha = oa;
+  if (n === 0) {
+    const sp = spring(lu - 0.05, 12, 4.2), sx = 0.3 + 0.7 * sp, sy = 1 / Math.sqrt(Math.max(0.75, sx));
+    k.globalAlpha = oa * P(lu, 0.03, 0.12); k.scale(sx, sy); txt(k, 'のびる', 0, 0, f, C.blue, 'center', 'middle', '4px');
+  } else if (n === 1) {
+    chars(k, 'はねる', f, 6).forEach((c, i) => {
+      const tt = lu - 0.06 - i * 0.1; if (tt < 0) return;
+      const y = -78 * Math.abs(Math.sin(Math.PI * tt / 0.4)) * Math.exp(-2.6 * tt), near = Math.abs(Math.sin(Math.PI * tt / 0.4)) < 0.25 ? 1 : 0;
+      const sq = 1 - 0.16 * near * Math.exp(-2.6 * tt), a = P(tt, 0, 0.08);
+      k.save(); k.globalAlpha = oa * a; k.translate(c.x, y + 44); k.scale(2 - sq, sq); txt(k, c.ch, 0, -44, f, C.yel, 'center', 'middle'); k.restore();
+    });
+  } else if (n === 2) {
+    chars(k, 'まわる', f, 6).forEach((c, i) => {
+      const tt = lu - 0.05 - i * 0.12; if (tt < 0) return;
+      const q = backOut(P(tt, 0, 0.62), 1.3), sc = eOut(P(tt, 0, 0.25));
+      k.save(); k.translate(c.x, 0); k.rotate((1 - q) * -Math.PI * 2); k.scale(sc, sc); txt(k, c.ch, 0, 0, f, C.mint, 'center', 'middle'); k.restore();
+    });
+  } else {
+    const hit = 0.2, tt = lu - hit, sc = tt < 0 ? lerp(3.4, 1, eIn(P(lu, 0.02, hit))) : 1;
+    const dx = tt > 0 ? 10 * Math.exp(-9 * tt) * Math.sin(38 * tt) : 0, sy = tt > 0 ? 1 - 0.2 * Math.exp(-11 * tt) : 1;
+    k.globalAlpha = oa * P(lu, 0.02, 0.1);
+    if (tt > 0 && tt < 0.4) { const q = eOut(tt / 0.4); k.strokeStyle = C.yel; k.lineWidth = 7 * (1 - q); k.lineCap = 'round'; for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2 + 0.2, r0 = 120 + 50 * q, r1 = r0 + 26; k.beginPath(); k.moveTo(Math.cos(a) * r0 * 1.35, Math.sin(a) * r0 * 0.5); k.lineTo(Math.cos(a) * r1 * 1.35, Math.sin(a) * r1 * 0.5); if (q < 0.97) k.stroke(); } }
+    k.translate(dx, 44); k.scale(sc * (2 - sy), sc * sy); k.transform(1, 0, -0.14, 1, 0, 0); txt(k, 'ドン!', 0, -44, `800 100px ${JP}`, C.coral, 'center', 'middle');
+  }
+  k.restore();
+};

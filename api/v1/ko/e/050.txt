@@ -1,0 +1,35 @@
+// Motion Prompt #050 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#050
+//
+// 드로어 / Drawer (Off-canvas)
+// 팩: ui (UI 컴포넌트 이름) · element 02 · 카테고리: 열리고 겹치는 컴포넌트
+// 무엇이 일어나는가: "메뉴"를 누르면 왼쪽에서 세로로 긴 패널이 밀려 나오고, 바깥을 누르면 다시 들어간다.
+// 동작 사양:
+//   - 4.5초 주기, 카드 542×191. 커서가 1.0초에 왼쪽 위 "메뉴" 버튼(110×34)을 클릭한다.
+//   - 열림 정도 a: 1.0–1.38초에 easeOutCubic으로 0→1. 카드 전체에 rgba(18,20,28) 스크림을 불투명도 0.36·a로 깐다.
+//   - 패널: 흰색, 너비 210, 카드 높이 전체. x = −210 + 210·a로 왼쪽 가장자리에서 들어온다. 그림자 blur 22, 알파 0.25.
+//   - 패널 안: 위에 아바타(반경 14)와 이름, 아래에 32px 간격의 메뉴 4줄. 첫 줄은 연한 파란 띠로 선택 상태.
+//   - 닫기: 커서가 3.3초에 패널 바깥 (420, 120)을 클릭한다. a에 (1 − easeInOutCubic(3.3–3.65초))를 곱해 패널을 왼쪽으로 되돌린다.
+// 쓰임새: 모바일 전체 메뉴나 필터처럼 자리를 차지하는 조작을 필요할 때까지 옆에 숨겨 둘 때.
+// 태그: drawer, off-canvas, offcanvas, side-menu, navigation-drawer, sheet, sidebar, slide-in
+// 크기: 542x191 px · 1주기: 4.5 s
+// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#050
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 02
+// 02 ドロワー（Drawer (Off-canvas)）
+CELLS[1] = ui((w, h, t) => {
+  strokeRR(24, 14, 110, 34, 8, C.line2, 1.5); text('メニュー', 79, 31, 15, '#555', 600, 'center');
+  bar(160, 26, 140, C.line2, 11); pageLines(24, 70, 494); fillRR(24, 138, 494, 42, 8, C.block);
+  const a = eo(seg(t, 1.0, 1.38)) * (1 - eio(seg(t, 3.3, 3.65)));
+  if (a > 0) {
+    X.fillStyle = `rgba(18,20,28,${.36 * a})`; X.fillRect(0, 0, w, h);
+    const pw = 210, px = -pw + pw * a;
+    shadowed(() => { X.fillStyle = '#fff'; X.fillRect(px, 0, pw, h); }, 22, 0, .25);
+    circle(px + 34, 32, 14, C.mb); bar(px + 58, 27, 100, C.line2, 10);
+    for (let i = 0; i < 4; i++) { const y = 62 + i * 32; if (i === 0) fillRR(px + 12, y - 2, pw - 24, 28, 6, C.lb); fillRR(px + 22, y + 5, 14, 14, 3, i === 0 ? C.blue : C.line2); bar(px + 46, y + 7, 90 + (i % 2) * 30, i === 0 ? C.sb : C.line); }
+  }
+  pointer([[.3, w + 30, h + 30], [.95, 70, 34], [1.6, 70, 34], [3.0, 420, 120], [3.6, 420, 120], [4.2, w + 30, h + 30]], [1.0, 3.3], t);
+});

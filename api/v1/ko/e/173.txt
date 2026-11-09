@@ -1,0 +1,30 @@
+// Motion Prompt #173 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#173
+//
+// 스테디캠 / Steadicam
+// 팩: camera2 (카메라 워크와 화면 전환 2) · element 05 · 카테고리: 카메라 무빙
+// 무엇이 일어나는가: 카메라가 걷는 인물을 따라 미끄러지듯 전진한다. 핸드헬드와 달리 잔떨림 없이 느리고 완만하게만 흔들린다.
+// 동작 사양:
+//   - 카메라: 1.7m/s 등속으로 전진(4.7초에 8m). 높이 1.45m, 피치 -0.02rad. 이징 없음
+//   - 흔들림: 높이 ±3.5cm(4.7초에 2주기), 좌우 ±5cm(1주기), 요 ±0.012rad, 롤 ±0.006rad. 모두 정수 주기의 사인파로 느리고 크다(#034 핸드헬드는 빠르고 불규칙하다)
+//   - 피사체: 인물이 카메라 5m 앞에서 같은 속도로 걷는다. 다리와 팔은 4.7초에 5걸음
+//   - 나무: x = -5m에 높이 3.6m, x = +5m에 높이 3.2m, 8m 간격(양쪽 줄은 4m 어긋남). 산과 해는 카메라와 함께 움직인다
+//   - 8m는 격자(2m)와 나무(8m) 간격의 배수이므로 4.7초마다 이음매 없이 반복된다. 오른쪽 위에 "STEADICAM" 표시
+// 쓰임새: 걸어가는 이동 장면을 매끄럽고 영화처럼 보여 줄 때.
+// 태그: steadicam, gimbal, stabilizer, smooth, glide, floating, camera move
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#173
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 05
+// 05 ステディカム: 低い周波数の小さなうねりだけで、なめらかに前進しながら人物を追う（#034 手持ちの細かい揺れとの違い）
+CELLS[4] = shot((k, w, h, u) => {
+  const v = 8 / CYC, z = u * v, T = u * 2 * Math.PI / CYC;   // 1周で8m進む＝格子（2m）と木（8m）の並びが継ぎ目なく戻る
+  const c = cam({ z, y: 1.45 + 0.035 * Math.sin(T * 2), x: 0.05 * Math.sin(T), yaw: 0.012 * Math.sin(T + 1), roll: 0.006 * Math.sin(T * 2 + 0.5), pitch: -0.02 });
+  const ex = [], L = 8, base = Math.floor(z / L) * L;
+  for (let i = 0; i < 10; i++) { const zz = base + i * L; ex.push([-5, 0, zz + 2, (kk, s) => tree(kk, s, 3.6)]); ex.push([5, 0, zz + 6, (kk, s) => tree(kk, s, 3.2, C.blueXL)]); }
+  world(k, w, h, c, { buildings: false, trees: false, extra: ex, mtnZ: z, sun: [30, 30, z + 170], gridX: 20, person: { z: z + 5, walk: T * 5 } });
+  return 'STEADICAM';
+});

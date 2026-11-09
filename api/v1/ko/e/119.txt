@@ -1,0 +1,30 @@
+// Motion Prompt #119 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#119
+//
+// 라이트 릭 / Light leak
+// 팩: photo (사진 표현·빛과 스타일) · element 23 · 카테고리: 톤·마무리 스타일
+// 무엇이 일어나는가: 같은 풍경의 오른쪽 끝에서 안쪽은 옅은 노랑, 가장자리는 빨강인 빛 번짐이 띠처럼 들어와 천천히 흔들린다.
+// 동작 사양:
+//   - 장면 3: 왼쪽에 흉상(머리 중심 x 140, y 82, 반지름 28px), 오른쪽에 언덕·집·나무·해(x 432, y 54, 반지름 15px).
+//   - 형태: 세로로 긴 타원 4개. 중심은 오른쪽 끝 바깥 30px(한 바퀴 동안 좌우 ±6px 흔들림), 세로 반지름은 화면 높이의 1.1배
+//   - 가로 반지름과 색: 250px #FFD089 35%, 170px #FF9A3D 40%, 95px #FF5A3A 45%, 45px #FF3B30 50%(각각 0에서 이 반지름까지 커진다)
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 추억이나 여름, 청춘처럼 아련하고 우연히 찍힌 듯한 분위기를 낼 때.
+// 태그: light leak, film leak, vintage, analog, lomo, warm glow
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#119
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 23
+// ライトリーク: 右端から、フィルムに光がもれたような赤と橙のにじみが帯になって入る
+CELLS[22] = cell((k, u) => {
+  const a = env(u), w = Math.sin(u / CYC * TAU);
+  stageLand(k, BASE);
+  k.save();
+  // 縦長の楕円を右端の外に中心を置いて重ねる（外ほど淡い黄、端ほど赤）
+  const band = (rx, col, al) => { k.globalAlpha = al * a; k.fillStyle = col; k.beginPath(); k.ellipse(CW + 30 + 6 * w, CH / 2, rx * a, CH * 1.1, 0, 0, TAU); k.fill(); };
+  band(250, '#FFD089', 0.35); band(170, '#FF9A3D', 0.4); band(95, '#FF5A3A', 0.45); band(45, '#FF3B30', 0.5);
+  k.restore();
+});

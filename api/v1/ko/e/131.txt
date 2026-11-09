@@ -1,0 +1,37 @@
+// Motion Prompt #131 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#131
+//
+// 텍스트 온 패스 / Text on a path
+// 팩: motion2 (모션 그래픽 연출 2탄) · element 11 · 카테고리: 텍스트·도형 연출
+// 무엇이 일어나는가: 글자열이 물결치는 선을 따라 방향을 바꾸며 흘러간다.
+// 동작 사양:
+//   - 경로: y = 118 + 42·sin(2πx ÷ 330 + 0.6), x = −70에서 609까지. 6px 아래에 남색 파선(14/10, 선 두께 5)으로 보여 준다.
+//   - "ALONG THE LINE • "(42px, 굵게, 자간 2px)를 반복해 늘어놓는다. 한 글자씩 경로 위 길이(호 길이) 위치에 놓고 경로 방향으로 돌린다.
+//   - 4.7초에 문자열 1개 길이만큼 경로를 따라 이동한다(루프가 이어진다).
+//   - 글자는 흰색, '•'는 노랑.
+// 쓰임새: 로고 둘레, 길이나 강, 파도 위처럼 형태를 따라 글자를 흘리고 싶을 때. 반복되는 띠 모양 글자에도.
+// 태그: text-on-path, path-text, curved-text, text, marquee, wave, scroll
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#131
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 11
+// 11 テキストオンパス（文字列が、波打つ線に沿って流れていく）
+const TOP = (() => { const pts = []; for (let x = -70; x <= CW + 70; x += 4) pts.push([x, 118 + 42 * Math.sin(x * 2 * Math.PI / 330 + 0.6)]); return { pts, cum: pathLen(pts) }; })();
+CELLS[10] = (k, w, h, u) => {
+  stage(k);
+  k.save(); k.setLineDash([14, 10]); k.strokeStyle = C.navy3; k.lineWidth = 5; k.lineCap = 'round'; k.beginPath(); TOP.pts.forEach((p, i) => i ? k.lineTo(p[0], p[1] + 6) : k.moveTo(p[0], p[1] + 6)); k.stroke(); k.restore();
+  const f = `800 42px ${DISP}`, S = 'ALONG THE LINE • '; k.font = f;
+  const ws = [...S].map(ch => k.measureText(ch).width + 2), run = ws.reduce((a, b) => a + b, 0), L = TOP.cum[TOP.cum.length - 1], shift = (u / CYC) * run;
+  for (let r = -2; r * run + shift < L; r++) {
+    let s = r * run + shift;
+    [...S].forEach((ch, j) => {
+      const c = s + ws[j] / 2; s += ws[j];
+      if (c < 0 || c > L || ch === ' ') return;
+      const p = ptAt(TOP.pts, TOP.cum, c / L);
+      k.save(); k.translate(p[0], p[1]); k.rotate(p[2]); txt(k, ch, 0, 0, f, ch === '•' ? C.yel : '#fff', 'center', 'alphabetic'); k.restore();
+    });
+  }
+};

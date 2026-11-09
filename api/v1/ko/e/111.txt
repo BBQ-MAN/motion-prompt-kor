@@ -1,0 +1,32 @@
+// Motion Prompt #111 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#111
+//
+// 색수차 / Chromatic aberration
+// 팩: photo (사진 표현·빛과 스타일) · element 15 · 카테고리: 렌즈·카메라 효과
+// 무엇이 일어나는가: 길모퉁이 그림을 빨강·초록·파랑으로 나눠 조금씩 다른 크기로 다시 겹치면, 인물·건물·가로등 테두리에 빨강과 청록의 색 어긋남이 생기고 화면 양옆으로 갈수록 커진다.
+// 동작 사양:
+//   - 장면 2: 길모퉁이. 안쪽에 건물 줄·나무·가로등(x 114, 292, 494), 도로는 y 132~162, 인물은 왼쪽 앞(발 위치 x 176, y 200, 키 124px).
+//   - 분리: 그림에 빨강 #FF0000, 초록 #00FF00, 파랑 #0000FF를 곱해 3장으로 만들고, 검정 위에 가산으로 다시 합친다
+//   - 중심 기준 크기: 빨강 1 + 2s, 초록 1 + s, 파랑 1, s = 0 → 0.02
+//   - 어긋남: 화면 좌우 끝에서 빨강과 파랑이 약 11px 벌어지고, 중심에서는 0
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 오래된 렌즈나 VHS, 글리치처럼 조금 흐트러진 질감을 더할 때.
+// 태그: chromatic aberration, color fringing, rgb split, lens aberration, fringe, glitch
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#111
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 15
+// 色収差: 赤・緑・青を少しずつ違う大きさで重ね、画面の端ほど縁に赤と青のずれが出る
+CELLS[14] = cell((k, u) => {
+  const a = env(u), s = 0.02 * a, cx = CW / 2, cy = CH / 2;
+  if (s < 0.0005) { stageStreet(k, BASE); return; }
+  const [S, ks] = layer('ca'); stageStreet(ks, BASE);
+  k.fillStyle = '#000000'; k.fillRect(0, 0, CW, CH);
+  for (const [col, sc] of [['#FF0000', 1 + 2 * s], ['#00FF00', 1 + s], ['#0000FF', 1]]) {
+    const [L, kl] = layer('ca-' + col); kl.drawImage(S, 0, 0); kl.globalCompositeOperation = 'multiply'; kl.fillStyle = col; kl.fillRect(0, 0, CW, CH); kl.globalCompositeOperation = 'source-over';
+    k.save(); k.globalCompositeOperation = 'lighter'; k.translate(cx, cy); k.scale(sc, sc); k.translate(-cx, -cy); k.drawImage(L, 0, 0); k.restore();
+  }
+});

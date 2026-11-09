@@ -1,0 +1,30 @@
+// Motion Prompt #034 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#034
+//
+// 핸드헬드 / Handheld
+// 팩: camera (카메라 무빙과 화면 전환) · element 10 · 카테고리: 촬영 기법과 시간 연출
+// 무엇이 일어나는가: 삼각대 대신 손으로 든 것처럼 작고 불규칙한 흔들림을 화면 전체에 더한다.
+// 동작 사양:
+//   - 카메라: 위치는 거의 고정. 요, 피치, 롤, 높이에 각각 주기가 다른 사인파를 합친 흔들림을 더한다(T = 2π×u/4.7)
+//   - 요(rad) = 0.016·sin(3T) + 0.008·sin(7T+1) + 0.004·sin(13T+2), 최대 약 ±1.6°
+//   - 피치(rad) = 0.012·sin(4T+2) + 0.006·sin(9T+0.5) + 0.003·sin(17T+1.2), 최대 약 ±1.2°
+//   - 롤(rad) = 0.02·sin(5T+1) + 0.008·sin(11T+3), 최대 약 ±1.6°. 높이 = 1.5 + 0.03·sin(6T) m
+//   - 피사체: 인물은 6.5m 앞에서 움직이지 않는다. 이징이나 정지 없이 계속 흔들린다
+//   - 계수가 모두 정수 배이므로 4.7초마다 이음매 없이 반복된다. 오른쪽 위에 “HANDHELD” 표시
+// 쓰임새: 다큐멘터리 같은 현장감이나 그 자리에 있는 느낌을 줄 때.
+// 태그: handheld, camera shake, shaky, documentary, wobble, noise, realism
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#034
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 10
+// 10 手持ち
+CELLS[9] = shot((k, w, h, u) => {
+  const T = u * 2 * Math.PI / CYC;   // 周期をサイクルに合わせて継ぎ目なし
+  const n = (a, b, c2) => Math.sin(T * a + b) * c2;
+  const yaw = n(3, 0, .016) + n(7, 1, .008) + n(13, 2, .004), pitch = n(4, 2, .012) + n(9, .5, .006) + n(17, 1.2, .003), roll = n(5, 1, .02) + n(11, 3, .008);
+  world(k, w, h, cam({ yaw, pitch, roll, y: 1.5 + n(6, 0, .03) }), { person: { z: 6.5 } });
+  return 'HANDHELD';
+});

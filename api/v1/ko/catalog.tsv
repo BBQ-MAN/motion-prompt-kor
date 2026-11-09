@@ -1,0 +1,193 @@
+# Motion Prompt catalog (ko) · 192 elements · https://showheyohtaki.github.io/motion-prompt/ · columns: id	pack	category	title	tags	summary
+001	motion	등장·텍스트 연출	팝인 (Pop-in)	pop,pop-in,spring,bounce,scale,icon,badge,entrance	앱 아이콘이 통통 튀며 나타나고, 조금 뒤 알림 배지가 팝인된다.
+002	motion	등장·텍스트 연출	스태거 (Stagger)	stagger,sequence,delay,cascade,bar-chart,list,entrance	그래프 막대가 왼쪽부터 조금씩 시간 차를 두고 차례로 올라온다.
+003	motion	등장·텍스트 연출	버스트 (Burst)	burst,explosion,radial,like,heart,celebrate,accent,sparkle	'좋아요' 하트가 채워지는 순간 주변으로 링, 선, 점이 터져 나간다.
+004	motion	등장·텍스트 연출	라인 드로잉 (Line draw)	line-draw,trim-path,stroke,draw-on,chart,path,write-on	그래프 선이 그려지듯 뻗어 나가고, 사라질 때는 시작점 쪽부터 지워진다.
+005	motion	등장·텍스트 연출	마스크 리빌 (Mask reveal)	mask,reveal,clip,wipe,title,text,slide-up,headline	선 하나를 경계로, 보이지 않는 틀 너머에서 제목이 밀려 올라온다.
+006	motion	등장·텍스트 연출	타이핑 효과 (Typewriter)	typewriter,typing,text,cursor,input,prompt,chat,type-on	입력창에 한 글자씩 입력되고, 다 치면 전송 버튼이 켜지며 눌린다.
+007	motion	등장·텍스트 연출	카운트업 (Count-up)	count-up,counter,number,odometer,stats,kpi,progress	숫자가 빠르게 올라가다가 최종값에서 딱 멈춘다.
+008	motion	등장·텍스트 연출	키네틱 타이포그래피 (Kinetic typography)	kinetic-typography,text,typography,lyric,word,bounce,spin,slam	단어가 뜻대로 움직인다. 하나는 늘어나고, 하나는 튀고, 하나는 돌고, 하나는 쾅 하고 떨어진다.
+009	motion	움직임 디테일	이징 (Easing)	easing,ease-in-out,cubic-bezier,linear,timing,curve,acceleration	같은 거리를 같은 시간에 움직이는 두 사각형. 위는 일정한 속도, 아래는 이징이 들어간다.
+010	motion	움직임 디테일	오버슈트 (Overshoot)	overshoot,spring,bounce,settle,elastic,gauge,meter,needle	게이지 바늘이 목표를 지나쳤다가 돌아와 자리 잡는다.
+011	motion	움직임 디테일	스쿼시 앤 스트레치 (Squash & stretch)	squash,stretch,squash-and-stretch,bounce,character,ball,animation-principle	튀는 캐릭터가 착지할 때 찌그러지고, 뛰어오를 때 늘어난다.
+012	motion	움직임 디테일	모핑 (Shape morph)	morph,morphing,shape,path,interpolate,transform,icon	원 → 사각형 → 별 → 하트로 모양과 색이 부드럽게 바뀐다.
+013	motion	움직임 디테일	리퀴드 모션 (Liquid motion)	liquid,blob,goo,gooey,metaball,fluid,organic,drip	덩어리가 늘어나고, 방울로 끊어졌다가, 다시 하나로 합쳐진다.
+014	motion	움직임 디테일	모션 트레일 (Motion trail)	trail,motion-trail,echo,afterimage,ghost,path,speed	8자를 그리며 움직이는 공 뒤로 잔상이 꼬리를 남긴다.
+015	motion	움직임 디테일	파티클 (Particles)	particles,confetti,emitter,fountain,gravity,celebration,sparks	아래쪽 발생원에서 입자가 계속 솟아올라 퍼지고 떨어진다.
+016	motion	움직임 디테일	패럴랙스 (Parallax)	parallax,depth,layers,pan,2.5d,background,landscape	옆으로 움직이는 풍경. 가까운 레이어는 많이, 먼 레이어는 적게 움직여 깊이감이 생긴다.
+017	motion	전환·강조 연출	마스크 트랜지션 (Mask transition)	mask,transition,iris,wipe,shape-wipe,reveal,scene-change	원이나 별 모양의 창이 커지고, 그 안에 다음 장면이 보인다.
+018	motion	전환·강조 연출	셰이프 트랜지션 (Shape transition)	shape-transition,transition,wipe,bands,stripes,cover,scene-change	색 띠가 화면을 가로질러 덮고, 띠가 빠지면 다음 장면이 나와 있다.
+019	motion	전환·강조 연출	리퀴드 트랜지션 (Liquid transition)	liquid,transition,drip,paint,goo,fluid,wipe,scene-change	페인트 같은 액체가 위에서 흘러내려 화면을 채우고 다음 장면이 된다.
+020	motion	전환·강조 연출	줌 스루 (Zoom through)	zoom,zoom-through,transition,push-in,scale,tunnel,scene-change	글자 O의 구멍으로 파고들어 그 너머 장면으로 빠져나온다.
+021	motion	전환·강조 연출	플립 (Flip)	flip,card,3d,rotate,turn,reveal,question-answer	카드가 세로축으로 돌며 뒤집혀 반대 면이 나온다.
+022	motion	전환·강조 연출	라이트 스윕 (Light sweep)	light-sweep,shine,sheen,glint,highlight,logo,badge,premium	로고 배지 표면을 빛의 띠가 비스듬히 가로지른다.
+023	motion	전환·강조 연출	글리치 (Glitch)	glitch,rgb-split,chromatic-aberration,distortion,digital,error,slice	글자가 가로로 어긋나고 색이 갈라지며 띠가 지나간다. 밝기 깜빡임은 없다.
+024	motion	전환·강조 연출	임팩트 셰이크 (Impact shake)	shake,impact,camera-shake,slam,drop,thud,headline,emphasis	무거운 제목 판이 쿵 떨어지고, 그 충격으로 화면 전체가 흔들린다.
+025	camera	카메라 움직임	팬 (Pan)	pan,panning,yaw,rotate,horizontal,camera move,reveal	카메라 위치는 그대로 두고 방향만 왼쪽에서 오른쪽으로 돌린다. 회전이므로 가까운 것과 먼 것이 같은 양만큼 옆으로 흐른다.
+026	camera	카메라 움직임	틸트 (Tilt)	tilt,tilt up,pitch,vertical,look up,camera move	카메라 위치는 그대로 두고 방향을 아래에서 위로 돌린다. 발치의 인물에서 탑 꼭대기까지 올려다본다.
+027	camera	카메라 움직임	돌리 인 (Dolly in)	dolly,dolly in,push in,track in,move forward,parallax,camera move	카메라 자체가 피사체 쪽으로 전진한다. 가까운 물체일수록 크고 빠르게 지나가고, 먼 산은 거의 변하지 않는다.
+028	camera	카메라 움직임	줌 인 (Zoom in)	zoom,zoom in,focal length,lens,magnify,telephoto,camera move	카메라는 움직이지 않고 렌즈의 초점 거리만 길어진다. 화면 전체가 같은 비율로 확대된다.
+029	camera	카메라 움직임	트래킹 숏 (Tracking shot)	tracking,tracking shot,follow,truck,lateral,sideways,parallax,walk	걷는 인물과 같은 속도로 카메라가 옆으로 나란히 이동한다. 인물은 화면 중앙에 머물고, 가까운 말뚝일수록 빠르게 뒤로 흐른다.
+030	camera	카메라 움직임	오빗(아크 숏) (Orbit (Arc shot))	orbit,arc shot,circle,360,rotate around,revolve,camera move	피사체를 중심으로 카메라가 원을 그리며 돈다. 인물은 중앙에 머물고, 뒤쪽 나무와 건물이 옆으로 크게 흐른다.
+031	camera	카메라 움직임	크레인 업 (Crane up)	crane,crane up,jib,boom up,rise,high angle,camera move	카메라가 위로 올라가면서 아래를 향해, 인물을 내려다보는 구도가 된다.
+032	camera	카메라 움직임	돌리 줌(버티고 효과) (Dolly zoom (Vertigo))	dolly zoom,vertigo,zolly,push pull,background stretch,unease,camera move	카메라를 뒤로 빼면서 같은 비율로 줌 인한다. 인물 크기는 변하지 않고 배경만 다가온다.
+033	camera	촬영 기법과 시간 연출	랙 포커스 (Rack focus)	rack focus,focus pull,pull focus,depth of field,blur,bokeh,foreground	카메라는 움직이지 않고 초점을 앞쪽 꽃에서 뒤쪽 인물로 옮긴다. 흐려지는 쪽이 서로 바뀐다.
+034	camera	촬영 기법과 시간 연출	핸드헬드 (Handheld)	handheld,camera shake,shaky,documentary,wobble,noise,realism	삼각대 대신 손으로 든 것처럼 작고 불규칙한 흔들림을 화면 전체에 더한다.
+035	camera	촬영 기법과 시간 연출	FPV 드론 숏 (FPV drone shot)	fpv,drone,fly through,first person,banking,speed,aerial	가로수 사이를 낮고 빠르게 비행하며 기체를 좌우로 기울여 지그재그로 나아가는 1인칭 시점.
+036	camera	촬영 기법과 시간 연출	더치 앵글 (Dutch angle)	dutch angle,dutch tilt,canted angle,oblique,roll,tension,tilted horizon	수평이던 카메라를 렌즈 축을 중심으로 기울여, 지평선이 비스듬한 상태로 멈춘다.
+037	camera	촬영 기법과 시간 연출	슬로모션 (Slow motion)	slow motion,slow-mo,slomo,high frame rate,120fps,time stretch,jump	고정 카메라 앞에서 인물이 천천히 뛰어올랐다 내려오고, 나뭇잎도 천천히 떨어진다. 동작 전체를 늘여서 보여 준다.
+038	camera	촬영 기법과 시간 연출	스피드 램핑 (Speed ramp)	speed ramp,time remap,ramping,fast to slow,variable speed,velocity	한 숏 안에서 재생 속도를 빠른 상태에서 느린 상태로 부드럽게 바꾼다. 왼쪽 아래 그래프가 속도를 보여 준다.
+039	camera	촬영 기법과 시간 연출	타임랩스 (Time-lapse)	time-lapse,timelapse,fast forward,time compression,sun,clouds,day to night	고정 카메라로 06:00부터 18:00까지를 몇 초로 압축한다. 해, 구름, 사람, 그림자가 빨리 감기처럼 움직인다.
+040	camera	촬영 기법과 시간 연출	프리즈 프레임 (Freeze frame)	freeze frame,still frame,pause,hold,stop motion,highlight	점프한 인물이 정점에 이른 순간 화면이 멈추고, 1.4초 뒤 같은 프레임에서 다시 이어진다.
+041	camera	화면 전환(트랜지션)	점프 컷 (Jump cut)	jump cut,cut,time skip,same framing,vlog,ellipsis,edit	카메라 위치와 화각은 그대로이고 인물의 위치와 시각만 튄다. 한 장면 안에서 시간을 생략하는 편집.
+042	camera	화면 전환(트랜지션)	매치 컷 (Match cut)	match cut,graphic match,shape match,cut,transition,edit	위로 던진 공이 다음 숏에서 같은 위치, 같은 크기의 해가 된다. 모양을 맞춰 다른 장면으로 잇는다.
+043	camera	화면 전환(트랜지션)	휩 팬 (Whip pan)	whip pan,swish pan,motion blur,fast pan,transition,energy	카메라를 아주 빠르게 옆으로 휘두르고, 블러로 번진 화면 속에서 다음 장면으로 바꾼다.
+044	camera	화면 전환(트랜지션)	크로스 디졸브 (Cross dissolve)	cross dissolve,dissolve,crossfade,fade,opacity,blend,transition	현재 화면 위에 다음 화면을 겹치고 불투명도를 올려 교체한다. 중간에는 두 화면이 겹쳐 비친다.
+045	camera	화면 전환(트랜지션)	와이프 (Wipe)	wipe,linear wipe,reveal,clip,edge,left to right,transition	세로 경계선이 왼쪽에서 오른쪽으로 이동하며, 지나간 쪽부터 다음 화면으로 바뀐다.
+046	camera	화면 전환(트랜지션)	스매시 컷 (Smash cut)	smash cut,hard cut,abrupt,contrast,quiet to loud,comedy,transition	인물이 자고 있는 조용한 장면에서 예고 없이 격렬한 장면으로 바로 바꾼다. 같은 순간에 볼륨 미터도 단숨에 올라간다.
+047	camera	화면 전환(트랜지션)	J컷 (J-cut)	j-cut,j cut,split edit,audio lead,sound first,audio transition,edit	화면이 바뀌기 전에 다음 장면의 소리가 먼저 들어온다. 위에는 영상, 아래에는 영상과 오디오 타임라인을 표시한다.
+048	camera	화면 전환(트랜지션)	L컷 (L-cut)	l-cut,l cut,split edit,audio lag,sound carries over,audio transition,edit	화면이 다음 장면으로 바뀐 뒤에도 앞 장면의 소리가 잠시 남는다. 위에는 영상, 아래에는 영상과 오디오 타임라인을 표시한다.
+049	ui	열리고 겹치는 컴포넌트	모달 (Modal dialog)	modal,modal-dialog,dialog,popup,overlay,backdrop,lightbox,confirm	"열기" 버튼을 누르면 화면 전체가 어두워지고 가운데에 작은 창이 살짝 커지며 나타난다. ×를 누르면 닫힌다.
+050	ui	열리고 겹치는 컴포넌트	드로어 (Drawer (Off-canvas))	drawer,off-canvas,offcanvas,side-menu,navigation-drawer,sheet,sidebar,slide-in	"메뉴"를 누르면 왼쪽에서 세로로 긴 패널이 밀려 나오고, 바깥을 누르면 다시 들어간다.
+051	ui	열리고 겹치는 컴포넌트	바텀 시트 (Bottom sheet)	bottom-sheet,sheet,modal-sheet,mobile,slide-up,drag-to-dismiss,panel	손가락으로 "상세 보기"를 누르면 아래에서 패널이 올라오고, 위쪽 핸들을 아래로 끌면 닫힌다.
+052	ui	열리고 겹치는 컴포넌트	아코디언 (Accordion)	accordion,collapsible,expand,collapse,disclosure,faq,details	제목 3줄 중 첫 줄을 누르면 아래로 본문이 펼쳐지며 아래 줄들이 밀려 내려간다. 다시 누르면 접힌다.
+053	ui	열리고 겹치는 컴포넌트	드롭다운 (Dropdown (select))	dropdown,dropdown-menu,select,picker,combobox,options,form	입력란을 누르면 아래로 선택지 4개가 펼쳐지고, "나고야"를 고르면 목록이 닫히며 입력란에 들어간다.
+054	ui	열리고 겹치는 컴포넌트	툴팁 (Tooltip)	tooltip,hint,hover,help,info,title	커서를 "?" 아이콘에 올리면 위에 어두운 말풍선으로 짧은 설명이 뜨고, 벗어나면 사라진다.
+055	ui	열리고 겹치는 컴포넌트	팝오버 (Popover)	popover,popup,callout,bubble,flyout,overlay	"상세"를 누르면 오른쪽에 삼각형으로 버튼을 가리키는 흰 작은 창이 뜬다. 창 안의 OK를 누르면 닫힌다.
+056	ui	열리고 겹치는 컴포넌트	토스트 (Toast notification)	toast,snackbar,notification,alert,message,auto-dismiss	"저장"을 누르면 오른쪽 아래로 어두운 알림이 미끄러져 들어오고, 남은 시간 막대가 다 줄면 오른쪽으로 빠져나간다.
+057	ui	선택·전환 컴포넌트	탭 (Tabs)	tabs,tab-bar,tabbed,navigation,switch-view,underline	"개요·요금·리뷰" 탭을 차례로 누르면 파란 밑줄이 미끄러져 옮겨 가고 아래 내용이 바뀐다.
+058	ui	선택·전환 컴포넌트	캐러셀 (Carousel)	carousel,slider,slideshow,gallery,swipe,paging-dots	오른쪽 화살표를 누를 때마다 가로로 늘어선 3종류의 그림이 한 장씩 왼쪽으로 넘어가고 아래 점이 옮겨 간다.
+059	ui	선택·전환 컴포넌트	토글 스위치 (Toggle switch)	toggle,switch,toggle-switch,on-off,boolean,settings	설정 3줄 중 위의 두 줄 스위치를 차례로 켰다가 다시 끈다.
+060	ui	선택·전환 컴포넌트	세그먼트 컨트롤 (Segmented control)	segmented-control,segmented-button,button-group,toggle-group,switcher,view-switch	일·주·월을 누르면 파란 선택 영역이 미끄러져 옮겨 가고 아래 막대그래프의 높이가 바뀐다.
+061	ui	선택·전환 컴포넌트	필터 칩 (Filter chips)	chips,filter-chips,tags,filter,facets,pills	"신규"와 "무료" 칩을 누르면 체크가 붙고 파랗게 바뀌며, 조건에 맞지 않는 카드는 흐려진다.
+062	ui	선택·전환 컴포넌트	레인지 슬라이더 (Range slider)	range-slider,slider,dual-thumb,min-max,price-filter,range	가격 슬라이더에서 왼쪽 핸들을 오른쪽으로, 오른쪽 핸들을 왼쪽으로 끌어 범위를 좁혔다가 원래대로 돌린다.
+063	ui	선택·전환 컴포넌트	스테퍼 (Stepper (+/−))	stepper,quantity,number-input,increment,decrement,plus-minus,spin-button	+를 세 번 눌러 숫자가 1에서 4로 늘고, −를 세 번 눌러 1로 돌아온다. 누를 때마다 숫자가 살짝 튄다.
+064	ui	선택·전환 컴포넌트	페이지네이션 (Pagination)	pagination,pager,page-numbers,paging,next-prev,navigation	아래 번호에서 2, 3을 차례로 누르면 파란 원이 옮겨 가고 위 목록이 바뀐다. 마지막에 1로 돌아간다.
+065	ui	내비게이션·상태 표시	햄버거 메뉴 (Hamburger menu)	hamburger-menu,hamburger,menu-icon,nav-toggle,mobile-menu,menu	헤더 오른쪽의 세 줄 아이콘을 누르면 ×로 바뀌고 헤더 아래에서 메뉴가 내려온다. 다시 누르면 닫힌다.
+066	ui	내비게이션·상태 표시	브레드크럼 (Breadcrumbs)	breadcrumbs,breadcrumb,trail,hierarchy,navigation,path	브레드크럼의 "강좌"를 누르면 한 단계 위 목록 페이지로 가고, 목록의 카드를 누르면 다시 상세 페이지로 돌아온다.
+067	ui	내비게이션·상태 표시	메가 메뉴 (Mega menu)	mega-menu,megamenu,dropdown-navigation,navigation,header-menu,multi-column	헤더의 "제품"에 커서를 올리면 전체 너비 패널이 내려와 링크 3열과 이미지가 놓인다. 커서가 벗어나면 닫힌다.
+068	ui	내비게이션·상태 표시	스텝 인디케이터 (Step indicator)	step-indicator,stepper,steps,progress-steps,wizard,multi-step,checkout	"다음"을 누를 때마다 4단계 원이 차례로 체크로 바뀌고 파란 선이 다음 단계로 늘어난다.
+069	ui	내비게이션·상태 표시	스켈레톤 UI (Skeleton screen)	skeleton,skeleton-screen,placeholder,shimmer,loading,ghost-content	새로 고침을 누르면 목록이 같은 모양의 회색 블록으로 바뀌고 빛이 가로로 지나간다. 로딩이 끝나면 내용이 돌아온다.
+070	ui	내비게이션·상태 표시	스피너 (Spinner)	spinner,loading,loader,activity-indicator,progress-circle,busy	"전송"을 누르면 카드가 하얗게 덮이고 가운데에서 파란 호가 돈다. 끝나면 체크로 바뀌고 사라진다.
+071	ui	내비게이션·상태 표시	배지 (Badge)	badge,notification-badge,counter,count,dot,unread	알림이 올 때마다 헤더 종 아이콘의 파란 원 숫자가 1, 2, 3으로 늘고, 종을 누르면 사라진다.
+072	ui	내비게이션·상태 표시	빈 상태 (Empty state)	empty-state,no-data,zero-state,blank-state,no-results,onboarding	목록 두 줄을 휴지통 아이콘으로 차례로 지우면 빈 상자 그림과 "아직 아무것도 없습니다", "추가" 버튼이 나타난다.
+073	lp	스크롤 연출	패럴랙스 스크롤 (Parallax scrolling)	parallax,parallax-scrolling,scroll,depth,layers,hero,background	페이지를 아래로 스크롤하면 헤드라인은 평소대로 올라가고, 하늘과 해, 먼 산, 가까운 산은 그보다 느리게 움직인다.
+074	lp	스크롤 연출	스크롤 페이드인 (Fade-in on scroll)	fade-in,scroll-reveal,reveal-on-scroll,intersection-observer,aos,entrance,scroll	스크롤로 화면에 들어온 제목, 카드, 본문이 각각 아래에서 떠오르며 나타난다.
+075	lp	스크롤 연출	스티키 헤더 (Sticky header)	sticky,sticky-header,fixed-header,position-sticky,navigation,header,scroll	맨 위의 공지 띠는 스크롤하면 사라지지만, 그 아래 헤더는 화면 위쪽 끝에 닿은 곳에서 멈추고 본문이 그 아래로 지나간다.
+076	lp	스크롤 연출	핀 고정 (Pinning)	pin,pinning,scrolltrigger,gsap,scroll-driven,steps,storytelling	남색 섹션이 화면을 가득 채우는 곳에서 멈추고, 계속 스크롤하면 번호와 사진이 1→2→3단계로 바뀐 뒤 다시 흘러간다.
+077	lp	스크롤 연출	가로 스크롤 (Horizontal scroll)	horizontal-scroll,sideways,scrolltrigger,pin,gallery,portfolio,scroll	아래로 스크롤하면 섹션은 멈춘 채로, 번호가 붙은 작품 카드 4장이 왼쪽으로 흘러간다.
+078	lp	스크롤 연출	스크롤 스냅 (Scroll snap)	scroll-snap,snap,full-page,sections,css,mandatory,scroll	조금만 스크롤하면 나머지는 자동으로 넘어가, 다음 섹션의 위쪽 끝이 화면 위에 딱 맞는다.
+079	lp	스크롤 연출	스크롤 프로그레스 바 (Scroll progress bar)	progress-bar,reading-progress,scroll-progress,indicator,scroll-driven,article	기사를 조금씩 읽어 내려갈 때마다 화면 위쪽 끝의 선이 왼쪽에서 늘어나고, 페이지 끝에 이르면 오른쪽 끝까지 닿는다.
+080	lp	스크롤 연출	형광펜 애니메이션 (Highlighter animation)	highlighter,marker,text-highlight,emphasis,scroll-reveal,copy,underline	스크롤로 문장이 화면에 들어오면, 중요한 말의 아래쪽 절반에 노란 형광펜 줄이 왼쪽부터 그어진다.
+081	lp	호버·클릭 인터랙션	호버 리프트 (Hover lift)	hover,lift,float,card,shadow,translatey,interaction	커서가 올라간 카드만 살짝 위로 들리고 아래 그림자가 넓어진다. 커서가 벗어나면 원래대로 돌아온다.
+082	lp	호버·클릭 인터랙션	호버 이미지 줌 (Image zoom on hover)	hover,zoom,image,scale,overflow-hidden,thumbnail,gallery	커서가 올라간 사진만 프레임 크기는 그대로 두고 안쪽이 천천히 확대되며, 벗어나면 돌아온다.
+083	lp	호버·클릭 인터랙션	커서 팔로워 (Cursor follower)	cursor,custom-cursor,cursor-follower,mouse-follow,lerp,trail,interaction	커서가 페이지 위를 돌아다니면 주황색 원이 조금 늦게 그 뒤를 따라간다.
+084	lp	호버·클릭 인터랙션	마그네틱 버튼 (Magnetic button)	magnetic,magnetic-button,hover,cursor,elastic,cta,interaction	커서가 다가오면 버튼이 커서 쪽으로 끌려가 따라붙고, 커서가 벗어나면 출렁이며 제자리로 돌아온다.
+085	lp	호버·클릭 인터랙션	리플 효과 (Ripple effect)	ripple,ink-ripple,material,click,tap,feedback,button	버튼을 누를 때마다 누른 지점을 중심으로 흰 원이 퍼져 버튼 안을 채운 뒤 옅어지며 사라진다.
+086	lp	호버·클릭 인터랙션	밑줄 애니메이션 (Underline animation)	underline,hover,link,navigation,menu,text-link,scalex	커서가 올라간 링크 아래에 주황색 선이 왼쪽부터 늘어나고, 커서가 벗어나면 선이 오른쪽으로 줄어들며 빠져나간다.
+087	lp	호버·클릭 인터랙션	비포 애프터 슬라이더 (Before/after slider)	before-after,image-comparison,slider,drag,compare,clip,photo	사진 가운데 선을 드래그해 좌우로 움직이면, 왼쪽의 색 없는 '전'과 오른쪽의 색 있는 '후'가 보이는 범위가 바뀐다.
+088	lp	호버·클릭 인터랙션	이탈 방지 팝업 (Exit-intent popup)	exit-intent,popup,mouseleave,coupon,conversion,retention,lp	커서가 페이지 위쪽(탭과 닫기 버튼이 있는 곳)으로 나가면 배경이 어두워지고 '잠깐만요!' 팝업이 열린다. ×로 닫는다.
+089	lp	로딩·페이지 이동·반복 연출	프리로더 (Preloader)	preloader,loading-screen,loader,percentage,intro,splash,curtain	남색 화면에서 로고 아래 숫자가 0%에서 100%까지 올라가고, 끝나면 화면이 위로 빠지며 아래 페이지가 부드럽게 나타난다.
+090	lp	로딩·페이지 이동·반복 연출	레이지 로딩 (Lazy loading)	lazy-loading,lazy-load,images,placeholder,performance,spinner,gallery	스크롤로 화면에 들어온 회색 플레이스홀더 안에서 스피너가 돌고, 이미지가 도착하는 대로 페이드인된다. 윗줄은 처음부터 불러온 상태다.
+091	lp	로딩·페이지 이동·반복 연출	무한 스크롤 (Infinite scroll)	infinite-scroll,endless-scroll,load-more,feed,pagination,spinner,list	목록을 아래로 스크롤해 끝에 이르면 스피너가 돌고, 새 항목 3개가 추가되어 계속 읽을 수 있다.
+092	lp	로딩·페이지 이동·반복 연출	페이지 전환 애니메이션 (Page transition)	page-transition,transition,view-transitions,navigation,wipe,barba,spa	작품 목록에서 카드를 누르면 주황색 패널이 왼쪽에서 화면을 덮고, URL이 바뀐 뒤 패널이 오른쪽으로 빠지면 상세 페이지가 나온다. '목록으로'를 누르면 같은 방식으로 돌아간다.
+093	lp	로딩·페이지 이동·반복 연출	스무스 스크롤 (Smooth scroll)	smooth-scroll,scroll-behavior,anchor-link,in-page-link,back-to-top,navigation	메뉴의 '요금'을 누르면 페이지가 요금 섹션까지 부드럽게 내려가고, 오른쪽 아래 위쪽 화살표 버튼을 누르면 같은 방식으로 맨 위로 돌아간다.
+094	lp	로딩·페이지 이동·반복 연출	마키 (Marquee)	marquee,ticker,infinite-loop,scrolling-text,logo-strip,band,loop	남색 띠 안에서 큼직한 영문 서비스 이름과 주황색 점이 끊김 없이 왼쪽으로 계속 흐른다.
+095	lp	로딩·페이지 이동·반복 연출	그라데이션 애니메이션 (Animated gradient)	gradient,animated-gradient,mesh-gradient,background,hero,ambient,loop	헤드라인 뒤에서 주황, 옅은 주황, 파랑, 옅은 파랑의 흐릿한 색 덩어리가 천천히 돌며 섞이는 모습이 계속 바뀐다.
+096	lp	로딩·페이지 이동·반복 연출	플로팅 애니메이션 (Floating animation)	floating,float,bob,hover-animation,keyframes,translatey,decoration,loop	헤드라인 옆에서 스마트폰, 하트 배지, 평점 칩이 조금씩 엇갈리며 천천히 위아래로 움직이고, 스마트폰 아래 그림자도 커졌다 작아진다.
+097	photo	조명·시간대	역광 (Backlighting)	backlighting,backlit,contre-jour,sun behind,haze,glow,halo	화면 밖에 있던 해가 인물의 머리 바로 뒤로 옮겨 온다. 인물 윤곽에 가는 빛 테두리가 생기고, 화면 전체에 옅고 따뜻한 빛이 깔리며, 카메라 쪽 몸은 어둡게 가라앉는다.
+098	photo	조명·시간대	림 라이트 (Rim light)	rim light,rim lighting,edge light,backlight,kicker,outline,studio	주변이 어두워지고, 좌우 뒤쪽 사선의 조명 2개가 어두운 인물의 머리와 어깨 양옆에만 가는 빛 테두리를 만든다. 오른쪽 아래 배치도에 조명 2개의 위치를 표시한다.
+099	photo	조명·시간대	실루엣 (Silhouette)	silhouette,backlit,sunset,contre-jour,black shape,underexposed	노출을 밝은 저녁 하늘에 맞춰 가면 인물·건물·가로등·나무가 디테일 없는 검은 형태가 되고 하늘만 밝게 남는다.
+100	photo	조명·시간대	스플릿 라이팅 (Split lighting)	split lighting,side light,portrait lighting,half face,dramatic,chiaroscuro	빛이 정면 쪽(20°)에서 정측면(90°)으로 돌아가면서 머리의 그림자가 초승달 모양에서 정확히 절반으로 커지고, 얼굴이 콧날을 따라 세로로 명암 둘로 나뉜다.
+101	photo	조명·시간대	렘브란트 라이팅 (Rembrandt lighting)	rembrandt lighting,portrait lighting,triangle,45 degree light,chiaroscuro,painterly	옆 45°, 위 45°의 빛이 들어오면 얼굴 오른쪽이 그림자에 잠기고, 그림자 쪽 뺨에만 작은 역삼각형 빛이 남는다.
+102	photo	조명·시간대	버터플라이 라이팅 (Butterfly lighting)	butterfly lighting,paramount lighting,beauty lighting,portrait lighting,overhead light,glamour	얼굴 정면 높은 곳에서 빛이 들어오면 얼굴이 좌우 고르게 밝아지고, 턱 아래에만 좌우 대칭의 작은 그림자가 진다.
+103	photo	조명·시간대	골든 아워 (Golden hour)	golden hour,magic hour,sunset light,warm light,long shadows,low sun	해가 지평선 바로 위까지 내려오면서 하늘과 땅이 주황으로 물들고, 인물의 왼쪽이 빛나며, 가로등과 나무의 그림자가 오른쪽으로 길게 늘어난다.
+104	photo	조명·시간대	블루 아워 (Blue hour)	blue hour,twilight,dusk,night city,cityscape,deep blue sky	해가 완전히 지면 하늘이 짙은 파랑 두 단으로 바뀌고, 건물 창과 가로등이 앰버로 켜지며, 인물은 어두운 파란 형태가 된다.
+105	photo	렌즈·카메라 효과	보케 (Bokeh)	bokeh,shallow depth of field,background blur,wide aperture,f/1.4,out of focus,lights	조리개를 열어 가면 초점이 맞은 인물은 그대로 선명하고, 뒤쪽 건물은 흐려지며, 가로등과 먼 불빛이 크고 옅은 빛 원으로 퍼진다.
+106	photo	렌즈·카메라 효과	틸트 시프트 (Tilt-shift)	tilt-shift,miniature,miniature effect,fake miniature,selective focus,toy town,focus band	거리의 위아래 띠가 흐려지고, 도로와 자동차와 작은 사람들이 늘어선 가운데 띠에만 초점이 남아 모형 거리처럼 보인다.
+107	photo	렌즈·카메라 효과	장노출 (Long exposure)	long exposure,light trails,slow shutter,night photography,car trails,motion	거리가 밤으로 바뀌고, 달리는 자동차 차체는 거의 보이지 않을 만큼 옅어지며, 뒤로 빨간 테일램프 선이 늘어나고 반대 차선에는 흰색과 앰버 빛의 선이 지나간다.
+108	photo	렌즈·카메라 효과	패닝 샷 (Panning shot)	panning,panning shot,motion blur,speed,sports photography,slow shutter	카메라가 달리는 자동차를 따라가, 차는 화면 가운데에서 선명하게 유지되고 뒤쪽 건물·나무·가로등만 옆으로 흐른다.
+109	photo	렌즈·카메라 효과	렌즈 플레어 (Lens flare)	lens flare,flare,ghosting,sun flare,starburst,cinematic	해가 건물 뒤에서 하늘로 나오면 해 주위에 빛줄기가 생기고, 해에서 화면 중심을 지나 반대편까지 빛망울·육각형·고리가 일렬로 늘어선다.
+110	photo	렌즈·카메라 효과	어안 렌즈 (Fisheye lens)	fisheye,fisheye lens,barrel distortion,ultra wide,8mm,distortion	길모퉁이 장면의 가운데가 부풀어 오르고, 건물의 세로선과 도로의 선이 바깥쪽으로 휘며, 네 모서리는 제자리에 남는다.
+111	photo	렌즈·카메라 효과	색수차 (Chromatic aberration)	chromatic aberration,color fringing,rgb split,lens aberration,fringe,glitch	길모퉁이 그림을 빨강·초록·파랑으로 나눠 조금씩 다른 크기로 다시 겹치면, 인물·건물·가로등 테두리에 빨강과 청록의 색 어긋남이 생기고 화면 양옆으로 갈수록 커진다.
+112	photo	렌즈·카메라 효과	비네팅 (Vignette)	vignette,vignetting,dark corners,edge darkening,lens falloff,focus	화면이 네 모서리부터 부드럽게 어두워지고, 가운데 인물과 도로 부근만 밝게 남는다.
+113	photo	톤·마무리 스타일	하이키 (High-key)	high-key,high key,bright,white background,airy,low contrast	풍경과 인물이 흰색에 가까운 밝은 색으로만 바뀌고 그림자가 아주 옅어지며, 오른쪽 아래 히스토그램의 봉우리가 오른쪽 끝으로 옮겨 간다.
+114	photo	톤·마무리 스타일	로우키 (Low-key)	low-key,low key,dark,black background,moody,dramatic,chiaroscuro	화면 대부분이 어둠에 잠기고 해도 사라지며, 옆에서 빛을 받는 흉상의 오른쪽 가장자리만 밝게 떠오른다. 히스토그램 봉우리는 왼쪽 끝으로 옮겨 간다.
+115	photo	톤·마무리 스타일	흑백 (Black and white)	black and white,monochrome,b&w,grayscale,desaturated,classic	같은 풍경에서 색이 빠지고 해와 인물 가장자리의 빛도 회색이 되어, 밝기 차이만으로 형태가 읽힌다.
+116	photo	톤·마무리 스타일	듀오톤 (Duotone)	duotone,two-tone,gradient map,color overlay,poster,graphic	같은 풍경의 색이 어두운 곳은 남색, 밝은 곳은 분홍인 두 색 사이의 범위로만 바뀐다.
+117	photo	톤·마무리 스타일	틸 앤 오렌지 (Teal and orange)	teal and orange,orange and teal,cinematic,color grading,blockbuster,film look	같은 풍경의 하늘·언덕·땅과 그림자 진 인물은 청록으로, 햇빛 받은 인물 가장자리와 해는 주황으로 옮겨 가 보색 대비가 된다.
+118	photo	톤·마무리 스타일	필름 그레인 (Film grain)	film grain,grain,noise,analog,35mm film,texture,warm tone	같은 풍경 전체에 고운 입자가 얹히고, 색이 살짝 따뜻한 크림색 쪽으로 기운다.
+119	photo	톤·마무리 스타일	라이트 릭 (Light leak)	light leak,film leak,vintage,analog,lomo,warm glow	같은 풍경의 오른쪽 끝에서 안쪽은 옅은 노랑, 가장자리는 빨강인 빛 번짐이 띠처럼 들어와 천천히 흔들린다.
+120	photo	톤·마무리 스타일	이중 노출 (Double exposure)	double exposure,multiple exposure,blend,silhouette,surreal,composite	배경이 하얗게 날아가고, 흉상 형태 안에만 축소된 언덕·집·나무·해 풍경이 비쳐 든다.
+121	motion2	모션 테크닉	예비 동작 (Anticipation)	anticipation,wind-up,squash,character,jump,dash,animation-principle	네모난 캐릭터가 진행 방향과 반대로 살짝 물러나며 찌그러져 힘을 모은 뒤 힘차게 튀어 나간다.
+122	motion2	모션 테크닉	팔로 스루 (Follow-through)	follow-through,overlapping-action,secondary-motion,spring,drag,character,animation-principle	미끄러져 온 동그란 캐릭터가 갑자기 멈추고, 머리 위 깃발과 꼬리만 늦게 흔들리다 멈춘다.
+123	motion2	모션 테크닉	바운스 (Bounce)	bounce,drop,gravity,ball,physics,landing,easing	공이 떨어져 점점 낮게 튀다가 멈춘다.
+124	motion2	모션 테크닉	위글 (Wiggle)	wiggle,jitter,shake,random,noise,bell,notification	벨이 잘게 불규칙하게 계속 흔들린다. 한 번의 충격이 아니라 멈추지 않는 작은 흔들림이다.
+125	motion2	모션 테크닉	펄스 (Pulse)	pulse,heartbeat,throb,scale,loop,like,attention	하트가 심장 박동처럼 두근두근 크기를 키웠다 줄이고, 고리가 퍼져 나간다.
+126	motion2	모션 테크닉	모션 패스 (Motion path)	motion-path,path,curve,trajectory,follow-path,orient-to-path,loop	점선 경로를 따라 종이비행기가 방향을 바꾸며 날아가다가 중간에 공중제비를 돈다.
+127	motion2	모션 테크닉	핑퐁 루프 (Ping-pong loop)	ping-pong,loop,boomerang,yoyo,reverse,back-and-forth,loader	사각형이 끝까지 갔다가 같은 길을 역재생하듯 되돌아온다. 왕복을 반복한다.
+128	motion2	모션 테크닉	스톱모션 스타일 (Stop-motion style)	stop-motion,choppy,frame-rate,on-twos,jitter,handmade,claymation	별이 초당 8프레임 정도로 뚝뚝 끊기며 튀어 가고, 프레임마다 위치가 조금씩 어긋난다.
+129	motion2	텍스트·도형 연출	텍스트 스크램블 (Text scramble)	text-scramble,scramble,decode,shuffle,random,text,hacker	무작위 문자가 계속 바뀌다가 왼쪽부터 차례로 올바른 단어로 확정된다.
+130	motion2	텍스트·도형 연출	웨이브 텍스트 (Wave text)	wave-text,wave,text,letters,stagger,bounce,kinetic-type	"WAVE TEXT"의 글자가 한 글자씩 파도처럼 차례로 오르내린다.
+131	motion2	텍스트·도형 연출	텍스트 온 패스 (Text on a path)	text-on-path,path-text,curved-text,text,marquee,wave,scroll	글자열이 물결치는 선을 따라 방향을 바꾸며 흘러간다.
+132	motion2	텍스트·도형 연출	가변 폰트 애니메이션 (Variable font animation)	variable-font,font-weight,typography,text,weight,kinetic-type	같은 단어의 굵기가 가늘게→아주 굵게→가늘게 부드럽게 바뀌고, 아래 슬라이더가 굵기를 보여 준다.
+133	motion2	텍스트·도형 연출	텍스트 마스크 (Text mask)	text-mask,mask,clipping-mask,knockout,text,typography,title	굵은 글자 모양으로 뚫린 곳 안에만 움직이는 바다 풍경이 보인다. 주기 끝 무렵에는 바깥까지 다 보인다.
+134	motion2	텍스트·도형 연출	리피터 (Repeater)	repeater,duplicate,radial,array,clone,pattern,loader	도형 하나가 복제되어 원형으로 늘어서고, 조금씩 어긋나며 돈다.
+135	motion2	텍스트·도형 연출	칼레이도스코프 (Kaleidoscope)	kaleidoscope,symmetry,mirror,mandala,pattern,radial,psychedelic	만화경처럼 8분할 대칭 무늬가 돌면서 중심에서 퍼져 나간다.
+136	motion2	텍스트·도형 연출	라인 보일 (Line boil)	line-boil,boil,hand-drawn,wobble,jitter,sketch,frame-by-frame	손그림 느낌의 선화가 몇 프레임마다 잘게 일렁인다. 그림 자체는 움직이지 않는다.
+137	motion2	화면 전환·강조 연출	푸시 트랜지션 (Push transition)	push,push-transition,slide,transition,scene-change,carousel	다음 화면이 옆에서 들어오며 이전 화면을 함께 밀어낸다.
+138	motion2	화면 전환·강조 연출	블라인드 트랜지션 (Blinds transition)	blinds,venetian-blinds,stripes,transition,wipe,scene-change	가는 띠마다 틈이 점점 넓어지며 다음 화면이 열린다.
+139	motion2	화면 전환·강조 연출	큐브 트랜지션 (Cube transition)	cube,cube-transition,3d,rotate,transition,perspective	정육면체가 돌듯이 앞면이 안쪽으로 넘어가고 다음 면이 나타난다.
+140	motion2	화면 전환·강조 연출	페이지 컬 (Page curl)	page-curl,page-turn,page-peel,paper,book,transition	모서리부터 종이가 말려 뒤집히고, 아래에서 다음 페이지가 나타난다.
+141	motion2	화면 전환·강조 연출	픽셀레이트 (Pixelate)	pixelate,mosaic,pixel,transition,retro,8-bit,scene-change	화면이 점점 거친 모자이크가 되고, 가장 거친 순간 바뀐 뒤 다시 선명해진다.
+142	motion2	화면 전환·강조 연출	유리 깨짐 (Shatter)	shatter,glass-break,broken-glass,shards,crack,transition,impact	화면이 유리처럼 금 가고, 파편이 흩어지며 다음 화면이 나타난다.
+143	motion2	화면 전환·강조 연출	분해도 (Exploded view)	exploded-view,explode,layers,isometric,product,breakdown,explainer	스마트폰 부품이 층별로 분리되어 내부 구조를 보여 준 뒤 다시 조립된다.
+144	motion2	화면 전환·강조 연출	스플릿 스크린 (Split screen)	split-screen,multi-screen,panels,side-by-side,comparison,layout	화면 하나가 둘, 셋으로 나뉘고 각기 다른 장면이 동시에 움직인다.
+145	lp2	스크롤 연출	타임라인 애니메이션 (Timeline on scroll)	timeline,scroll,history,milestones,scroll-driven,progress-line	페이지를 아래로 스크롤하면 주황색 선이 타임라인을 따라 아래로 자라고, 선이 닿은 점이 채워지며 해당 연도와 내용이 오른쪽에서 밀려 들어온다. 위로 되돌리면 역순으로 진행된다.
+146	lp2	스크롤 연출	스크롤 텍스트 리빌 (Scroll text reveal)	scroll,text-reveal,scroll-driven,typography,opacity,storytelling	연한 회색 헤드라인이 스크롤에 따라 왼쪽 위부터 한 글자씩 진해지고, 위로 스크롤하면 끝에서부터 다시 옅어진다.
+147	lp2	스크롤 연출	스태킹 카드 (Stacking cards)	stacking-cards,sticky,scroll,cards,position-sticky,steps	스크롤하면 다음 카드가 아래에서 올라와 이전 카드 위에 살짝 어긋나게 겹치고, 아래 깔린 카드는 조금 작아지며 어두워진다.
+148	lp2	스크롤 연출	스크롤 배경색 전환 (Background color change on scroll)	background-color,scroll,section,color-transition,scroll-driven,storytelling	스크롤이 새 섹션으로 넘어갈 때마다 페이지 전체 배경이 크림색에서 네이비, 하늘색으로 섞이며 바뀌고, 어두운 배경에서는 글자가 흰색이 된다.
+149	lp2	스크롤 연출	스크롤 숨김 헤더 (Hide-on-scroll header)	header,hide-on-scroll,headroom,navigation,sticky-header,scroll-direction	아래로 스크롤하면 헤더가 위로 밀려 사라져 화면이 넓어지고, 조금만 위로 올려도 곧바로 돌아온다.
+150	lp2	스크롤 연출	스크롤스파이 (Scrollspy)	scrollspy,table-of-contents,toc,navigation,active-state,scroll	글을 스크롤하면 지금 읽고 있는 섹션의 목차 항목이 강조되고, 다음 제목이 들어오면 강조가 그쪽으로 넘어간다.
+151	lp2	스크롤 연출	탑 버튼 (Back-to-top button)	back-to-top,scroll-to-top,button,navigation,floating-button,smooth-scroll	아래로 스크롤하면 오른쪽 아래에 동그란 화살표 버튼이 나타나고, 누르면 페이지가 곧장 맨 위로 돌아간다.
+152	lp2	스크롤 연출	스크롤 줌 (Zoom on scroll)	zoom,scroll,image,scale,scroll-driven,hero,fullscreen	페이지를 스크롤하면 가운데 작은 사진이 창 전체로 커지고, 주변 텍스트는 사라지며 사진 위에 헤드라인이 나타난다.
+153	lp2	마우스·입력 반응	3D 틸트 (3D tilt on hover)	tilt,3d,hover,perspective,card,glare,parallax	커서가 카드 위를 움직이면 카드가 커서 위치에 맞춰 입체적으로 기울고 표면의 반사광이 따라 움직인다. 커서가 벗어나면 평평하게 돌아온다.
+154	lp2	마우스·입력 반응	스포트라이트 호버 (Spotlight hover)	spotlight,hover,glow,cursor,radial-gradient,dark-mode,card	커서가 어두운 카드 위를 움직이면 커서 주변 원 안만 밝아지고, 가까운 카드의 테두리가 빛난다.
+155	lp2	마우스·입력 반응	호버 이미지 전환 (Image swap on hover)	image-swap,hover,crossfade,product-card,ecommerce,thumbnail	상품 카드에 커서를 올리면 티셔츠 앞면 사진이 뒷면 사진으로 크로스페이드되고, 커서가 벗어나면 앞면으로 돌아온다.
+156	lp2	마우스·입력 반응	텍스트 롤 (Text roll on hover)	text-roll,hover,menu,link,stagger,typography	메뉴 단어에 커서를 올리면 글자가 하나씩 위로 굴러 사라지고 같은 단어가 아래에서 주황색으로 굴러 들어온다. 커서가 벗어나면 다시 굴러 돌아간다.
+157	lp2	마우스·입력 반응	호버 이미지 프리뷰 (Hover image reveal)	hover,image-reveal,list,cursor-follow,preview,portfolio	텍스트만 있는 목록의 행에 커서를 올리면 그 행의 사진이 커서 옆에 페이드인되어 커서를 따라다닌다.
+158	lp2	마우스·입력 반응	플로팅 라벨 (Floating label)	floating-label,form,input,label,focus,material-design	입력란을 클릭하면 라벨이 작아지며 위쪽 테두리로 올라가 입력 공간이 비워지고, 비어 있는 채로 포커스가 빠지면 라벨이 다시 안으로 돌아온다.
+159	lp2	마우스·입력 반응	실시간 유효성 검사 (Inline validation)	validation,form,inline-validation,error-message,input,feedback	이메일 주소를 입력하는 중에는 입력란이 빨갛게 되며 형식 오류 메시지가 나오고, 다 입력되는 순간 초록 체크와 "OK"로 바뀐다.
+160	lp2	마우스·입력 반응	로딩 버튼 (Loading button)	loading-button,button,spinner,submit,success-state,microinteraction	전송 버튼을 누르면 원으로 줄어들며 안에서 스피너가 돌고, 끝나면 체크가 있는 초록색 "完了"(완료) 버튼으로 넓어진다.
+161	lp2	시선을 끄는 연출	뷰 트랜지션 (View transition (shared element))	view-transition,shared-element,page-transition,morph,gallery,navigation	목록의 사진을 누르면 그 사진이 그대로 상세 페이지 상단 이미지로 커지고 나머지는 상세 페이지로 바뀐다. 뒤로 가면 사진이 제자리로 줄어든다.
+162	lp2	시선을 끄는 연출	라이트박스 (Lightbox)	lightbox,modal,gallery,image,overlay,zoom	갤러리 썸네일을 누르면 페이지가 어두워지고 그 사진이 가운데에 크게 뜬다. ×를 누르면 원래 썸네일로 줄어든다.
+163	lp2	시선을 끄는 연출	핫스팟 (Hotspots)	hotspots,image,tooltip,pulse,product,interactive-image	상품 그림 위에서 흰 점이 맥박치고, 점을 누르면 그 부분을 설명하는 툴팁이 열린다. 다른 점을 누르면 툴팁이 바뀐다.
+164	lp2	시선을 끄는 연출	카운트다운 타이머 (Countdown timer)	countdown,timer,deadline,campaign,flip,urgency	"キャンペーン終了まで"(캠페인 종료까지) 아래의 시, 분, 초가 1초마다 줄어든다. 바뀌는 숫자만 위로 빠지고 새 숫자가 아래에서 들어온다.
+165	lp2	시선을 끄는 연출	셰이프 디바이더 (Animated shape divider)	shape-divider,wave,section-divider,svg,ambient,loop	파란 섹션과 흰 섹션이 만나는 곳에서 겹쳐진 물결 두 개가 천천히 계속 일렁인다.
+166	lp2	시선을 끄는 연출	좋아요 애니메이션 (Like button animation)	like-button,heart,microinteraction,burst,favorite,counter	하트를 누르면 빨갛게 채워지며 탄력 있게 튀고, 주변에 작은 입자가 터지며 옆 숫자가 1 올라간다. 다시 누르면 취소된다.
+167	lp2	시선을 끄는 연출	스크롤 다운 인디케이터 (Scroll-down cue)	scroll-cue,scroll-indicator,scroll-down,hero,arrow,loop	히어로 아래에서 "SCROLL" 문구, 마우스 윤곽 안의 점, 양옆 화살표가 아래 방향 움직임을 계속 반복한다.
+168	lp2	시선을 끄는 연출	배경 동영상 (Background video)	background-video,hero,video,autoplay,loop,first-view	히어로 배경에서 구름과 파도가 계속 움직이고, 그 위의 헤드라인과 버튼은 고정되어 있다.
+169	camera2	카메라 무빙	페데스탈 (Pedestal)	pedestal,boom,vertical move,rise,elevate,camera move,no tilt	카메라가 방향을 바꾸지 않고 수직으로 올라간다. 지평선은 화면 중앙에 머물고 인물과 건물이 아래로 흘러간다.
+170	camera2	카메라 무빙	배럴 롤 (Barrel roll)	barrel roll,roll,360,rotate,spin,aerial,camera move	카메라가 렌즈 축을 중심으로 한 바퀴 돈다. 지평선이 완전히 한 바퀴 돌고 다시 수평으로 돌아온다.
+171	camera2	카메라 무빙	하이퍼랩스 (Hyperlapse)	hyperlapse,time-lapse,moving timelapse,fast forward,travel,city,camera move	카메라가 거리를 따라 전진하는 동안 해, 구름, 행인이 빨리 감기로 움직인다. 이동하는 타임랩스.
+172	camera2	카메라 무빙	롱테이크 (Long take)	long take,oner,one shot,continuous,no cut,sequence shot,camera move	걷는 인물을 컷 없이 하나의 샷으로 계속 따라간다. 하단 바는 끊김 없는 한 줄로 유지된다.
+173	camera2	카메라 무빙	스테디캠 (Steadicam)	steadicam,gimbal,stabilizer,smooth,glide,floating,camera move	카메라가 걷는 인물을 따라 미끄러지듯 전진한다. 핸드헬드와 달리 잔떨림 없이 느리고 완만하게만 흔들린다.
+174	camera2	카메라 무빙	팔로우 샷 (Follow shot)	follow shot,follow,behind,third person,trail,walk,camera move	구불구불 걷는 인물을 같은 경로로 몇 미터 뒤에서 따라간다. 인물은 뒷모습으로 화면 중앙 부근에 머문다.
+175	camera2	카메라 무빙	고정 샷 (Locked-off shot)	locked-off,locked off,static shot,fixed camera,tripod,static,still camera	삼각대에 고정한 카메라 앞을 인물이 가로지르고 뒤로 차가 지나간다. 카메라는 1픽셀도 움직이지 않는다.
+176	camera2	카메라 무빙	플라이스루 (Fly-through)	fly-through,flythrough,through the window,pass through,drone,interior,camera move	카메라가 창이 난 벽을 향해 날아가 창을 통과하고 그 너머 공간으로 빠져나온다.
+177	camera2	앵글·구도	로우 앵글 (Low angle)	low angle,worm's eye,look up,from below,power,heroic,angle	카메라가 지면 가까이 내려가 위를 올려다본다. 인물은 크게, 건물은 우뚝 솟아 보인다.
+178	camera2	앵글·구도	하이 앵글 (High angle)	high angle,look down,from above,overhead,vulnerable,angle	카메라가 올라가 아래를 내려다본다. 인물은 작아 보이고 지면이 화면 대부분을 채운다.
+179	camera2	앵글·구도	POV 샷 (POV shot)	pov,point of view,first person,subjective,eyes,hands,angle	캐릭터의 눈으로 본 화면. 걸음의 흔들림과 화면 아래의 손이 1인칭임을 알려 주고, 앞의 인물이 이쪽을 향해 손을 흔든다.
+180	camera2	앵글·구도	오버 더 숄더 샷 (Over-the-shoulder)	over-the-shoulder,ots,dialogue,conversation,shoulder,two shot,angle	한 사람의 뒤통수와 어깨가 화면 가장자리에 걸리고 그 너머로 상대가 보인다. 전경은 흐리고 피사체는 선명하다.
+181	camera2	앵글·구도	버즈 아이 뷰 (Bird's-eye view)	bird's-eye,birds eye,top-down,overhead,straight down,aerial,angle	머리 위에서 수직으로 내려다본다. 도로, 사람, 차, 나무가 위에서 본 형태로 보이고, 카메라가 올라갈수록 보이는 범위가 넓어진다.
+182	camera2	앵글·구도	딥 포커스 (Deep focus)	deep focus,depth of field,everything sharp,f/16,small aperture,pan focus,focus	앞쪽의 꽃부터 뒤쪽의 인물과 건물까지 모든 것이 동시에 선명해진다.
+183	camera2	앵글·구도	설정 샷 (Establishing shot)	establishing shot,wide shot,location,opening,scene setting,aerial,framing	높은 곳에서 마을 전체를 넓게 보여 준다. 카메라가 천천히 다가가고 왼쪽 아래에 장소 자막이 나타난다.
+184	camera2	앵글·구도	익스트림 클로즈업 (Extreme close-up)	extreme close-up,ecu,close-up,eye,detail,macro,framing	얼굴 클로즈업에서 시작해 눈만으로 화면이 가득 찰 때까지 다가간다.
+185	camera2	화면 전환·편집	인서트 샷 (Insert shot)	insert shot,insert,detail,close-up,cut in,prop,edit	인물 손목의 시계를 크게 잡은 클로즈업이 1.3초 동안 끼어들고, 다시 같은 샷으로 돌아온다.
+186	camera2	화면 전환·편집	모프 컷 (Morph cut)	morph cut,morph,seamless,interview,talking head,edit,transition	같은 인물의 두 테이크를 위치와 자세를 부드럽게 보간해 잇는다. 점프 컷처럼 튀지 않는다.
+187	camera2	화면 전환·편집	페이드 아웃 (Fade to black)	fade to black,fade out,fade in,black,ending,transition	화면 전체가 검게 가라앉고, 다음 장면이 검은 화면에서 밝아진다.
+188	camera2	화면 전환·편집	아이리스 아웃 (Iris out)	iris out,iris in,iris wipe,circle,old film,cartoon,transition	원이 인물을 향해 좁아지며 화면이 검게 닫히고, 다음 장면에서 다시 열린다.
+189	camera2	화면 전환·편집	컷어웨이 (Cutaway)	cutaway,reaction shot,b-roll,cut away,audience,edit	연사에서 듣고 있는 청중으로 갔다가 돌아온다. 끼워 넣는 것은 다른 피사체다.
+190	camera2	화면 전환·편집	교차 편집 (Cross-cutting)	cross-cutting,parallel editing,intercut,parallel action,chase,edit	동시에 벌어지는 두 장면, 달리는 사람과 차가 점점 짧아지는 컷으로 번갈아 나온다.
+191	camera2	화면 전환·편집	불릿 타임 (Bullet time)	bullet time,time slice,frozen moment,orbit,slow motion,matrix,effect	점프의 정점에서 시간이 거의 멈추고, 그동안 카메라가 인물 주위를 돈다.
+192	camera2	화면 전환·편집	몽타주 (Montage)	montage,sequence,training montage,time passing,quick cuts,edit	짧은 샷 7개로 30일간의 훈련을 보여 준다. 스트레이트 컷으로 잇고, 오른쪽 위의 날짜가 건너뛴다.

@@ -1,0 +1,26 @@
+// Motion Prompt #115 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#115
+//
+// 흑백 / Black and white
+// 팩: photo (사진 표현·빛과 스타일) · element 19 · 카테고리: 톤·마무리 스타일
+// 무엇이 일어나는가: 같은 풍경에서 색이 빠지고 해와 인물 가장자리의 빛도 회색이 되어, 밝기 차이만으로 형태가 읽힌다.
+// 동작 사양:
+//   - 장면 3: 왼쪽에 흉상(머리 중심 x 140, y 82, 반지름 28px), 오른쪽에 언덕·집·나무·해(x 432, y 54, 반지름 15px).
+//   - 변환: 각 색을 휘도(0.2126R + 0.7152G + 0.0722B)의 회색으로 바꾸고, 140을 중심으로 대비 1.25배
+//   - 예: 인물 #4D5A75 → 약 #4D4D4D, 해 #F5A524 → 약 #B5B5B5
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 시대를 타지 않는 느낌을 원하거나, 색보다 형태·빛·표정을 보여 주고 싶을 때.
+// 태그: black and white, monochrome, b&w, grayscale, desaturated, classic
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#115
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 19
+// モノクロ: 色を抜き、明るさだけで見せる（コントラストを少し強める）
+CELLS[18] = cell((k, u) => {
+  const a = env(u);
+  const GRAY = mapPal(BASE, c => { const g = clamp((lum(c) - 140) * 1.25 + 140, 0, 255); return toHex([g, g, g]); });
+  stageLand(k, pal(BASE, GRAY, a));
+});

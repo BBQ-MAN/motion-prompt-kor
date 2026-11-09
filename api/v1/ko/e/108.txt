@@ -1,0 +1,37 @@
+// Motion Prompt #108 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#108
+//
+// 패닝 샷 / Panning shot
+// 팩: photo (사진 표현·빛과 스타일) · element 12 · 카테고리: 렌즈·카메라 효과
+// 무엇이 일어나는가: 카메라가 달리는 자동차를 따라가, 차는 화면 가운데에서 선명하게 유지되고 뒤쪽 건물·나무·가로등만 옆으로 흐른다.
+// 동작 사양:
+//   - 길모퉁이: 안쪽에 건물 줄·나무·가로등, 도로는 y 132~162(앞쪽 인물 없음)
+//   - 자동차: 효과가 없으면 5초 동안 x −80 → 620을 달리고, 효과가 있으면 x 270 ±10px에 머문다
+//   - 흐름: 배경을 옆으로 46px 폭에 걸쳐 12장 어긋나게 그린 뒤 평균을 낸다(폭 0 → 46px)
+//   - 바퀴: 바큇살 선이 5초에 12회전
+//   - 오른쪽 위 셔터 속도 1/1000 → 1/15
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 자동차·자전거·러너의 속도감을 사진 한 장으로 보여 줄 때.
+// 태그: panning, panning shot, motion blur, speed, sports photography, slow shutter
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#108
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 12
+// 流し撮り: 走る車を追ってカメラを振ると、車はくっきり、背景だけ横に流れる
+CELLS[11] = cell((k, u) => {
+  const a = env(u);
+  const drive = lerp(-80, 620, u / CYC), x = lerp(drive, 270 + 10 * Math.sin(u / CYC * TAU), a);
+  const S = 46 * a, n = S < 0.5 ? 1 : 12;
+  for (let i = 0; i < n; i++) {   // 背景を横にずらして重ね、平均をとる（流れ）
+    k.save(); k.globalAlpha = 1 / (i + 1); k.translate(n > 1 ? lerp(-S / 2, S / 2, i / (n - 1)) : 0, 0); stageStreet(k, BASE, { car: false, person: false }); k.restore();
+  }
+  const D = pen(k); car(D, x, BASE, { head: BASE.lit });
+  // 車輪の回転（1周に12回転＝継ぎ目なし）
+  k.save(); k.strokeStyle = BASE.tire; k.lineWidth = 1.6;
+  for (const wx of [x - 21, x + 21]) { const t = u / CYC * TAU * 12; k.beginPath(); k.moveTo(wx - Math.cos(t) * 5, 156 - Math.sin(t) * 5); k.lineTo(wx + Math.cos(t) * 5, 156 + Math.sin(t) * 5); k.stroke(); }
+  k.restore();
+  hud(k, a > 0.5 ? '1/15' : '1/1000');
+});

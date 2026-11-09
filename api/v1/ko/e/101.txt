@@ -1,0 +1,41 @@
+// Motion Prompt #101 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#101
+//
+// 렘브란트 라이팅 / Rembrandt lighting
+// 팩: photo (사진 표현·빛과 스타일) · element 05 · 카테고리: 조명·시간대
+// 무엇이 일어나는가: 옆 45°, 위 45°의 빛이 들어오면 얼굴 오른쪽이 그림자에 잠기고, 그림자 쪽 뺨에만 작은 역삼각형 빛이 남는다.
+// 동작 사양:
+//   - 장면 1: 지평선(y 150) 앞에 가슴 위까지 보이는 인물(머리 중심 x 270, y 78, 반지름 29px, 얼굴·머리카락 없음). 배경은 한 단계 어두운 장면(하늘 #E7E5E1)으로 바뀐다
+//   - 머리: x = 270 + 0.04·29보다 오른쪽은 그림자 #33405A, 왼쪽은 빛 #FFC75A
+//   - 빛 삼각형: (x 270+0.24R, y 78−0.12R), (x 270+0.7R, y 78−0.12R), (x 270+0.24R, y 78+0.5R), R = 29(폭 약 13px, 높이 약 18px). 빛을 받는 면과는 폭 약 6px의 그림자 띠로 떨어져 있다
+//   - 몸통: 중심에서 −0.45×56px보다 왼쪽은 빛, +0.3×56px보다 오른쪽은 그림자. 배치도에서 조명은 45°, 오른쪽 위 표시 "45° · ↑45°"
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 회화 같은 무게감과 입체감이 있는 클래식한 인물 사진을 만들 때.
+// 태그: rembrandt lighting, portrait lighting, triangle, 45 degree light, chiaroscuro, painterly
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#101
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 05
+// レンブラントライティング: 斜め45°・上からの光。影側の頬に三角形の光が残る
+CELLS[4] = cell((k, u) => {
+  const a = env(u), R = PR, W = torsoW(R);
+  stagePortrait(k, pal(BASE, DIM, a));
+  const lit = mixc(BASE.person, BASE.lit, a), sh = mixc(BASE.person, BASE.shade, a);
+  bust(k, PX, PY, R, BASE.person, kk => {
+    kk.fillStyle = lit; kk.beginPath(); kk.arc(PX, PY, R, 0, TAU); kk.fill();
+    kk.fillStyle = sh; kk.fillRect(PX + 0.04 * R, PY - R - 2, R * 2, R * 2 + 4);       // 鼻筋から右は影
+    kk.beginPath(); kk.arc(PX, PY, R, 0, TAU); kk.clip();
+    kk.fillStyle = lit; kk.beginPath();                                                   // 影側の頬に残る光の三角形
+    kk.moveTo(PX + 0.24 * R, PY - 0.12 * R); kk.lineTo(PX + 0.7 * R, PY - 0.12 * R); kk.lineTo(PX + 0.24 * R, PY + 0.5 * R); kk.closePath(); kk.fill();
+  });
+  bust(k, PX, PY, R, 'rgba(0,0,0,0)', kk => {
+    kk.fillStyle = 'rgba(0,0,0,0)';
+    torso(kk, PX, PY, R, PX - W, PX - 0.45 * W, lit);
+    torso(kk, PX, PY, R, PX + 0.3 * W, PX + W, sh);
+  });
+  plan(k, [[Math.PI / 4, a]]);
+  hud(k, '45° · ↑45°');
+});

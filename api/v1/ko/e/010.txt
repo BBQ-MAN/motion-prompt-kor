@@ -1,0 +1,42 @@
+// Motion Prompt #010 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#010
+//
+// 오버슈트 / Overshoot
+// 팩: motion (모션 그래픽 동작) · element 10 · 카테고리: 움직임 디테일
+// 무엇이 일어나는가: 게이지 바늘이 목표를 지나쳤다가 돌아와 자리 잡는다.
+// 동작 사양:
+//   - 4.7초에 1회. 반원 게이지(반지름 128, 선 굵기 26). 목표는 전체의 0.7(왼쪽 끝에서 126°).
+//   - 0.25초에 시작: 값 = 0.7 × (1 − e^(−4.6t)·cos(10.5t)). 약 0.3초 뒤 목표를 25% 정도 지나쳤다가, 흔들리며 목표에 자리 잡는다.
+//   - 목표를 넘어선 구간의 호는 코랄로 칠한다. 목표 위치에 노란 눈금.
+//   - 채워진 호는 파랑→민트 그라디언트. 바늘은 흰색, 굵기 9.
+//   - 복귀: 3.7초부터 값 = 0.7 × e^(−7.5t)·cos(8.5t)로 0까지(0보다 살짝 내려갔다가 멈춘다).
+// 쓰임새: 도착하는 요소에 힘과 탄력을 줄 때.
+// 태그: overshoot, spring, bounce, settle, elastic, gauge, meter, needle
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#010
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 10
+// 10 オーバーシュート（メーターの針が、目標を行き過ぎてから戻って止まる）
+CELLS[9] = (k, w, h, u) => {
+  stage(k);
+  const X = w / 2, Y = h - 26, R = 128, TG = 0.7;
+  let v;
+  if (u < 0.25) v = 0; else if (u < 3.7) { const t = u - 0.25; v = TG * (1 - Math.exp(-4.6 * t) * Math.cos(10.5 * t)); } else { const t = u - 3.7; v = TG * Math.exp(-7.5 * t) * Math.cos(8.5 * t); }
+  const ang = x => Math.PI + x * Math.PI;
+  k.lineCap = 'round';
+  k.strokeStyle = C.navy2; k.lineWidth = 26; k.beginPath(); k.arc(X, Y, R, ang(0), ang(1)); k.stroke();
+  if (v > 0.005) { const g = k.createLinearGradient(X - R, 0, X + R, 0); g.addColorStop(0, C.blue); g.addColorStop(1, C.mint); k.strokeStyle = g; k.beginPath(); k.arc(X, Y, R, ang(0), ang(v)); k.stroke(); }
+  // 行き過ぎた分（目標より先）はコーラルで見せる
+  if (v > TG + 0.004) { k.strokeStyle = C.coral; k.lineCap = 'butt'; k.beginPath(); k.arc(X, Y, R, ang(TG), ang(v)); k.stroke(); k.lineCap = 'round'; }
+  // 目標の印
+  const ta = ang(TG);
+  k.strokeStyle = C.yel; k.lineWidth = 7; k.beginPath(); k.moveTo(X + Math.cos(ta) * (R - 22), Y + Math.sin(ta) * (R - 22)); k.lineTo(X + Math.cos(ta) * (R + 30), Y + Math.sin(ta) * (R + 30)); k.stroke();
+  k.fillStyle = C.yel; k.beginPath(); k.arc(X + Math.cos(ta) * (R + 38), Y + Math.sin(ta) * (R + 38), 8, 0, 7); k.fill();
+  // 針
+  const a = ang(v);
+  k.strokeStyle = '#fff'; k.lineWidth = 9; k.beginPath(); k.moveTo(X, Y); k.lineTo(X + Math.cos(a) * (R - 26), Y + Math.sin(a) * (R - 26)); k.stroke();
+  k.fillStyle = '#fff'; k.beginPath(); k.arc(X, Y, 17, 0, 7); k.fill(); k.fillStyle = C.coral; k.beginPath(); k.arc(X, Y, 8, 0, 7); k.fill();
+};

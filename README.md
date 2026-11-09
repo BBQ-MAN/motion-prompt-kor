@@ -1,6 +1,6 @@
 # Motion Prompt
 
-**English** | [日本語](README.ja.md)
+**English** | [日本語](README.ja.md) | [한국어](README.ko.md)
 
 > 日本語の説明は [README.ja.md](README.ja.md) にあります。
 > 中文用户：所有名称一览都有简体中文和繁體中文版本，见 [`packs/`](packs/README.md)。

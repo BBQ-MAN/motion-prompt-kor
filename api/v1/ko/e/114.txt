@@ -1,0 +1,28 @@
+// Motion Prompt #114 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#114
+//
+// 로우키 / Low-key
+// 팩: photo (사진 표현·빛과 스타일) · element 18 · 카테고리: 톤·마무리 스타일
+// 무엇이 일어나는가: 화면 대부분이 어둠에 잠기고 해도 사라지며, 옆에서 빛을 받는 흉상의 오른쪽 가장자리만 밝게 떠오른다. 히스토그램 봉우리는 왼쪽 끝으로 옮겨 간다.
+// 동작 사양:
+//   - 장면 3: 왼쪽에 흉상(머리 중심 x 140, y 82, 반지름 28px), 오른쪽에 언덕·집·나무·해(x 432, y 54, 반지름 15px).
+//   - 색: 하늘 #FAF9F7 → #2B2D33, 언덕 → #313339·#36383E, 땅 → #24252A, 인물 → #25272E. 해와 빛 고리는 하늘과 같은 색이 되어 사라진다
+//   - 흉상 오른쪽의 빛 받은 가장자리는 남고 #FFC75A → #FFB547로 바뀐다
+//   - 히스토그램: 봉우리 중심 0.56 → 0.14, 폭 0.2 → 0.08
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 고급스럽거나 긴장감 있는, 미스터리한 분위기를 낼 때.
+// 태그: low-key, low key, dark, black background, moody, dramatic, chiaroscuro
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#114
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 18
+// ローキー: 画面の大半が暗く沈み、横からの光が当たる縁だけが浮かぶ
+CELLS[17] = cell((k, u) => {
+  const a = env(u);
+  const LOW = Object.assign({}, DARK, { sun: DARK.sky, glow: DARK.sky, person: '#25272E', lit: '#FFB547' });
+  stageLand(k, pal(BASE, LOW, a));
+  histo(k, lerp(0.56, 0.14, a), lerp(0.2, 0.08, a));
+});

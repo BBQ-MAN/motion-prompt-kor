@@ -1,0 +1,24 @@
+// Motion Prompt #048 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#048
+//
+// L컷 / L-cut
+// 팩: camera (카메라 무빙과 화면 전환) · element 24 · 카테고리: 화면 전환(트랜지션)
+// 무엇이 일어나는가: 화면이 다음 장면으로 바뀐 뒤에도 앞 장면의 소리가 잠시 남는다. 위에는 영상, 아래에는 영상과 오디오 타임라인을 표시한다.
+// 동작 사양:
+//   - 연결: 영상은 스트레이트 컷. 오디오만 영상보다 나중에 다음 장면(B)으로 바뀐다. 어긋남은 타임라인 전체의 20%(0.72초)
+//   - 재생 헤드: 0.4초부터 4.0초까지 3.6초 동안 왼쪽에서 오른쪽으로 등속 이동. 영상 전환은 55%(약 2.38초), 오디오 전환은 75%(약 3.10초)
+//   - 어긋난 구간(55~75%)에서는 영상은 이미 B인데 오디오는 아직 A. 이 구간을 연한 파란 띠와 파란 점선 2개로 표시
+//   - 화면 구성: 위 134px는 영상(고정 카메라, 피사체는 움직이지 않음), 아래 74px는 영상과 오디오 2줄 타임라인(A는 회색, B는 연한 파란색, 오디오 줄에 파형)
+//   - 표시: 영상 왼쪽 아래에 “映像A / 映像B”(영상 A / B), 오른쪽 아래에 지금 재생 중인 소리(“♪ Aの音” 회색 → “♪ Bの音” 파란색)
+//   - 복귀: 마지막 0.5초 동안 시작 상태로 크로스페이드(1회 4.7초)
+// 쓰임새: 말하는 사람의 목소리를 이어 가면서 듣는 사람의 반응이나 관련 영상을 보여 줄 때.
+// 태그: l-cut, l cut, split edit, audio lag, sound carries over, audio transition, edit
+// 크기: 539x208 px · 1주기: 9.4 s
+// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#048
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 24
+// 24 Lカット: 映像が先に次の場面（B）へ切り替わり、前の場面（A）の音が残る
+CELLS[23] = shot(splitCell(-0.2), 134);

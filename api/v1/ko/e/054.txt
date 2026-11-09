@@ -1,0 +1,36 @@
+// Motion Prompt #054 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#054
+//
+// 툴팁 / Tooltip
+// 팩: ui (UI 컴포넌트 이름) · element 06 · 카테고리: 열리고 겹치는 컴포넌트
+// 무엇이 일어나는가: 커서를 "?" 아이콘에 올리면 위에 어두운 말풍선으로 짧은 설명이 뜨고, 벗어나면 사라진다.
+// 동작 사양:
+//   - 4.5초 주기, 카드 542×191. 라벨 옆 (196, 121)에 "?" 아이콘(파란 원 테두리, 반경 13).
+//   - 커서는 클릭 없이 올리기만 한다: 1.05초에 "?"에 닿고 3.15초까지 머문 뒤 4.1초까지 카드 밖으로 나간다.
+//   - 표시 정도 a: 1.15–1.35초에 easeOutCubic으로 0→1. 불투명도 a로, 6px 아래에서 제자리로 올라온다.
+//   - 말풍선: #26282c, 184×36, 모서리 반경 8, 위 가장자리 y 64. 아래에 너비 16, 높이 8의 삼각형이 아이콘을 가리킨다. 흰색 15px 텍스트.
+//   - 숨김: 3.25–3.45초에 linear로 1→0.
+// 쓰임새: 아이콘이나 약어에 자리를 차지하지 않고 한 줄짜리 힌트를 덧붙일 때.
+// 태그: tooltip, hint, hover, help, info, title
+// 크기: 542x191 px · 1주기: 4.5 s
+// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#054
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 06
+// 06 ツールチップ（Tooltip）
+CELLS[5] = ui((w, h, t) => {
+  pageLines(24, 16, 494);
+  bar(24, 116, 150, C.line2, 11); ring(196, 121, 13, C.blue, 2.2); text('?', 196, 122, 16, C.blue, 700, 'center', NUMF);
+  fillRR(24, 146, 494, 34, 8, C.block);
+  const a = eo(seg(t, 1.15, 1.35)) * (1 - seg(t, 3.25, 3.45));
+  if (a > 0) {
+    X.save(); X.globalAlpha = a; const yy = 64 + 6 * (1 - a);
+    fillRR(196 - 92, yy, 184, 36, 8, C.dark);
+    X.beginPath(); X.moveTo(196 - 8, yy + 36); X.lineTo(196, yy + 44); X.lineTo(196 + 8, yy + 36); X.fillStyle = C.dark; X.fill();
+    text('小さな説明が出る', 196, yy + 18, 15, '#fff', 600, 'center'); X.restore();
+  }
+  // 乗せるだけ（クリックしない）
+  pointer([[.3, w + 30, h + 30], [1.05, 200, 126], [3.15, 200, 126], [4.1, w + 30, h + 30]], [], t);
+});

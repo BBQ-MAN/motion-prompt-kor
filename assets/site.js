@@ -130,6 +130,66 @@
       outDemo: 'Demo', outSpec: 'Spec and code', outNote: 'Note',
       outEnd: 'The get command of the motion-prompt skill returns the full spec (without the skill, read the "Spec and code" URL on each line).',
     },
+    ko: {
+      title: 'Motion Prompt — AI에게 요청할 때 쓰는 「이름」 라이브러리',
+      skip: '견본 목록으로 이동', navLabel: '사이트 내', navHow: '사용법', navFound: '사례', langLabel: '언어',
+      themeToDark: '다크 모드로 전환', themeToLight: '라이트 모드로 전환',
+      eyebrow: 'AI에게 요청할 때 쓰는 「이름」 라이브러리',
+      h1: 'AI를 <wbr>지휘하는 <wbr>크리에이티브 <wbr>디렉터에게',
+      lead: '모션 그래픽, 카메라 워크, UI 컴포넌트, 랜딩 페이지·웹 연출, 사진 표현의 이름 {n}개를 움직이는 견본과 함께 모았습니다. 프롬프트를 복사하면 동작 사양과 참고 구현까지 함께 전달됩니다.',
+      factMoves: '이름', factPacks: '팩', factLicense: '라이선스',
+      installSkillH: '스킬로 설치',
+      installSkillP: '터미널에서 실행합니다. 설치한 뒤 AI에게 「motion-prompt 라이브러리 열어 줘」라고 하면 이 갤러리가 열립니다. 고른 뒤 「AI에게 전달」을 누르면 AI에게 전달됩니다.',
+      installPromptH: '프롬프트로 설치',
+      installPromptP: '아래 문장을 Claude Code나 Codex에 붙여 넣으면 AI가 스킬을 설치하고 사용법을 알려 줍니다.',
+      installPrompt: 'https://github.com/showheyohtaki/motion-prompt 를 읽고 motion-prompt 스킬을 이 환경에 설치해 줘. 설치가 끝나면 사용법을 3줄로 알려 줘.',
+      copy: '복사', copied: '복사했습니다', copyFailed: '복사하지 못했습니다',
+      copyCmdLabel: '설치 명령 복사', copyInstallLabel: '설치용 프롬프트 복사',
+      galleryH: '견본 목록', packFilterLabel: '팩으로 거르기', catFilterLabel: '카테고리로 거르기',
+      all: '전체', allIn: '이 팩 전체',
+      searchLabel: '견본 찾기', searchPh: '이름·번호·태그로 찾기',
+      pause: '일시 정지', play: '재생', pauseLabel: '모든 견본 일시 정지', playLabel: '모든 견본 재생',
+      count: '{n}개', countOf: '{n}개 (전체 {total}개)',
+      empty: '찾지 못했습니다. 다른 단어나 번호로 찾아보세요.',
+      openLabel: '#{id} {name} 상세 열기', loadFailed: '불러오지 못했습니다',
+      howH: '사용법',
+      s1h: '라이브러리 열어 달라고 하기', s1p: 'motion-prompt 스킬을 설치한 AI에게 「motion-prompt 라이브러리 열어 줘」라고 요청합니다. 브라우저에서 이 갤러리가 열립니다.',
+      s2h: '보면서 고르기', s2p: '쓰고 싶은 견본의 「고르기」를 누릅니다. 몇 개든 고를 수 있습니다. 고른 항목은 화면 아래에 모이고, 「오프닝 타이틀에」 같은 짧은 메모도 적을 수 있습니다.',
+      s3h: 'AI에게 전달하고 요청하기', s3p: '「AI에게 전달」을 누르면 고른 항목이 AI에게 갑니다. 그다음 「이 영상 도입부를 이런 느낌으로 편집해 줘」라고 요청합니다. 이 버튼은 AI가 라이브러리를 열었을 때 나타납니다.',
+      skillH: '이렇게 말하면 됩니다',
+      skillP: '이름이나 번호를 외우지 않아도 됩니다. 모를 때는 사전을 찾듯이 라이브러리를 열어 달라고 하세요.',
+      say1: 'motion-prompt 라이브러리 열어 줘',
+      say2: '어떤 카메라 워크가 있어? 목록 보여 줘',
+      say3: '(고른 항목을 전달한 뒤) 이 영상 도입부를 이런 느낌으로 편집해 줘',
+      altH: '스킬이 없을 때·번호를 알 때',
+      altP1: '스킬이 없는 AI에게는 화면 아래 「고른 항목 복사」로 만든 문장을 붙여 넣으세요. 견본과 사양의 URL이 들어 있습니다. 하나뿐이라면 상세 화면의 「프롬프트 복사」도 쓸 수 있습니다.',
+      altP2: '번호를 안다면 「motion-prompt에서 #012와 #045를 써 줘」처럼 바로 요청할 수도 있습니다.',
+      implH: '참고 구현에 대해',
+      implP: '모든 견본은 Canvas 2D로 작성한, 시각만으로 그림이 정해지는 함수입니다. 외부 라이브러리는 쓰지 않습니다. 한 프레임씩 그릴 수 있어 영상 출력에도 쓸 수 있습니다.',
+      author: '만든 사람', authorName: '大滝昇平 (Shohei Ohtaki)',
+      thanks1: '움직이는 견본을 나열하고 프롬프트를 복사해 쓰는 형식은', thanks2: '에서 착안했습니다. 감사합니다.',
+      whyLink: '만든 이유', makeLink: '내 분야·내 언어로 만들기', addLink: '내 분야의 이름 추가하기', listLink: '이름 목록 (GitHub)',
+      removeP1: '게재 삭제·정정은 ', removeLink: 'GitHub Issue 양식', removeP2: '으로 요청할 수 있습니다. 확인 후 신속히 처리합니다.',
+      dAsk: 'AI에게 요청하는 예',
+      ownP: '여기 있는 것은 견본입니다. 같은 방식의 이름 견본을 내 분야·내 언어로도 만들 수 있습니다.', ownLink: '만드는 방법과 프롬프트 (make-your-own)',
+      langsP: '이름 목록은 일본어·영어·스페인어·중국어(간체·번체)로도 읽을 수 있습니다.', langsLink: '6개 언어 목록 (GitHub)',
+      dSpec: '동작 사양', dUse: '쓰임새', tagsLabel: '태그', promptLabel: '복사되는 프롬프트',
+      copyPrompt: '프롬프트 복사', copyCode: '코드 복사', showCode: '코드 보기',
+      prev: '이전 이름', next: '다음 이름', close: '닫기',
+      kitLink: '공통 보조 코드 (kit/{pack}.js)', txtLink: '사양 포함 코드 ({id}.txt)',
+      codeLoading: '불러오는 중…', codeFailed: '코드를 불러오지 못했습니다.',
+      size: '{w}×{h}px · 1주기 {c}초',
+      pick: '고르기', picked: '선택됨', pickLabel: '#{id} {name} 고르기', unpickLabel: '#{id} {name} 빼기',
+      trayCount: '고른 항목 {n}개', trayWait: 'AI가 기다리고 있습니다. 다 골랐으면 「AI에게 전달」을 누르세요.',
+      trayEmpty: '견본의 「고르기」를 누르면 여기에 모입니다.',
+      noteLabel: '메모 (선택)', notePh: '예: 오프닝 타이틀에',
+      send: 'AI에게 전달', sending: 'AI에게 전달하는 중…', copyPicked: '고른 항목 복사', shareUrl: '선택을 공유하는 URL', clearAll: '모두 빼기',
+      pickedLive: '#{id} {name}을(를) 골랐습니다. 고른 항목은 {n}개입니다.', unpickedLive: '#{id} {name}을(를) 뺐습니다. 고른 항목은 {n}개입니다.',
+      clearedLive: '선택을 모두 뺐습니다.',
+      outIntro: 'motion-prompt 갤러리에서 다음 {n}개를 골랐어. 이걸 써서 편집해 줘.',
+      outDemo: '견본', outSpec: '사양과 코드', outNote: '메모',
+      outEnd: '자세한 사양은 motion-prompt 스킬의 get으로 받을 수 있어 (스킬이 없으면 각 줄의 「사양과 코드」 URL을 읽어 줘).',
+    },
   };
 
   // ------------------------------------------------------------------ state
@@ -140,7 +200,7 @@
   var reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
   var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
   var state = {
-    lang: root.lang === 'en' ? 'en' : 'ja',
+    lang: root.lang === 'en' || root.lang === 'ko' ? root.lang : 'ja',
     pack: 'all', cat: 'all', q: '',
     playing: !reduceMotion.matches,
     open: null,           // id shown in the detail view
@@ -160,8 +220,8 @@
     return s;
   }
   function names(el) {
-    var ja = state.lang === 'ja';
-    return { main: ja ? el.name.ja : el.name.en, sub: ja ? el.name.en : el.name.ja };
+    var l = state.lang;
+    return { main: el.name[l] || el.name.en, sub: l === 'en' ? el.name.ja : el.name.en };
   }
   function h(tag, attrs, kids) {
     var n = document.createElement(tag);
@@ -313,8 +373,8 @@
   function haystack(el) {
     var p = packBy[el.pack];
     var c = p.categories.filter(function (x) { return x.slug === el.category; })[0] || {};
-    return ['#' + el.id, el.id, String(+el.id), el.slug, el.pack, el.name.ja, el.name.en, el.meaning ? el.meaning.ja + ' ' + el.meaning.en : '', el.summary.ja, el.summary.en,
-      el.tags.join(' '), p.title.ja, p.title.en, c.ja || '', c.en || ''].join(' ').toLowerCase();
+    return ['#' + el.id, el.id, String(+el.id), el.slug, el.pack, el.name.ja, el.name.en, el.name.ko, el.meaning ? el.meaning.ja + ' ' + el.meaning.en + ' ' + el.meaning.ko : '', el.summary.ja, el.summary.en, el.summary.ko,
+      el.tags.join(' '), p.title.ja, p.title.en, p.title.ko, c.ja || '', c.en || '', c.ko || ''].join(' ').toLowerCase();
   }
   function matches(el) {
     if (state.pack !== 'all' && state.pack.split(',').indexOf(el.pack) < 0) return false; // one pack, or several joined by commas (camera,camera2)

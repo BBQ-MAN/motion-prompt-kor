@@ -1,0 +1,32 @@
+// Motion Prompt #098 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#098
+//
+// 림 라이트 / Rim light
+// 팩: photo (사진 표현·빛과 스타일) · element 02 · 카테고리: 조명·시간대
+// 무엇이 일어나는가: 주변이 어두워지고, 좌우 뒤쪽 사선의 조명 2개가 어두운 인물의 머리와 어깨 양옆에만 가는 빛 테두리를 만든다. 오른쪽 아래 배치도에 조명 2개의 위치를 표시한다.
+// 동작 사양:
+//   - 장면 1: 지평선(y 150) 앞에 가슴 위까지 보이는 인물(머리 중심 x 270, y 78, 반지름 29px, 얼굴·머리카락 없음).
+//   - 배경: 밝은 장면 → 어두운 장면(하늘 #2B2D33, 땅 #24252A). 인물 #4D5A75 → #1F2128
+//   - 빛 테두리: 인물과 같은 형태를 앰버 #FFC75A로 좌우 3.5px, 위로 2.5px 어긋나게 2장 만들어 어두운 인물 뒤에 둔다(테두리 폭 3.5px)
+//   - 오른쪽 아래 배치도(66×66px): 위에서 볼 때 조명은 ±135°(좌우 뒤쪽 사선). 오른쪽 위 표시 "±135°"
+//   - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
+// 쓰임새: 어두운 배경에서 인물이나 제품을 분리해 형태를 또렷하게 보여 줄 때.
+// 태그: rim light, rim lighting, edge light, backlight, kicker, outline, studio
+// 크기: 539x208 px · 1주기: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#098
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 02
+// リムライト: 周りが暗くなり、斜め後ろ左右の2灯で頭と肩の輪郭だけが細く光る
+CELLS[1] = cell((k, u) => {
+  const a = env(u);
+  stagePortrait(k, pal(BASE, DARK, a));
+  k.save(); k.globalAlpha = a; k.fillStyle = BASE.lit;
+  for (const dx of [-3.5, 3.5]) { k.save(); k.translate(dx, -2.5); bustPath(k, PX, PY, PR); k.fill(); k.restore(); }
+  k.restore();
+  bust(k, PX, PY, PR, mixc(BASE.person, DARK.person, a));
+  plan(k, [[Math.PI * 0.75, a], [-Math.PI * 0.75, a]]);
+  hud(k, '±135°');
+});

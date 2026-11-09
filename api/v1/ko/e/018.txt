@@ -1,0 +1,35 @@
+// Motion Prompt #018 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#018
+//
+// 셰이프 트랜지션 / Shape transition
+// 팩: motion (모션 그래픽 동작) · element 18 · 카테고리: 전환·강조 연출
+// 무엇이 일어나는가: 색 띠가 화면을 가로질러 덮고, 띠가 빠지면 다음 장면이 나와 있다.
+// 동작 사양:
+//   - 낮 → 밤 → 낮, 각 2.35초. 가로 띠 4개(높이 52, 파랑·코랄·노랑·민트). 띠 양 끝은 80px 사선.
+//   - 덮기: 0.38–1.0초. 각 띠의 앞 끝이 화면 한쪽에서 반대쪽까지 이동한다. 띠마다 구간의 14%씩 늦게 시작하고, 각각 구간의 58% 길이로 3차 easeInOut.
+//   - 1.0초(전부 덮인 순간)에 아래 장면을 다음 장면으로 바꾼다.
+//   - 걷히기: 1.12–1.75초. 각 띠의 뒤 끝이 같은 지연과 곡선으로 따라가며 다음 장면이 드러난다.
+//   - 방향: 낮→밤은 왼쪽에서 오른쪽, 밤→낮은 좌우 반전.
+// 쓰임새: 브랜드 컬러 도형으로 장면을 바꿀 때. 챕터 구분이나 화제 전환에.
+// 태그: shape-transition, transition, wipe, bands, stripes, cover, scene-change
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#018
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 18
+// 18 シェイプトランジション（色のついた帯が画面を覆い隠し、抜けると次の画面になっている）
+CELLS[17] = abCell((k, w, h, u, a, b) => {
+  const p1 = P(u, TA - 0.12, TA + 0.5), p2 = P(u, TA + 0.62, TA + 1.25), N = 4, sk = 80;
+  SCR[p1 >= 1 ? b : a](k, w, h);
+  const cols = [C.blue, C.coral, C.yel, C.mint];
+  for (let i = 0; i < N; i++) {
+    const d = i * 0.14, e1 = eIO(clamp((p1 - d) / (1 - 0.42))), e2 = eIO(clamp((p2 - d) / (1 - 0.42)));
+    if (e1 <= 0 || e2 >= 1) continue;
+    const bh = h / N + 1, y = i * h / N, span = w + sk + 20, dir = a === 0 ? 1 : -1;
+    let xa = -sk - 10 + e2 * span, xb = -sk - 10 + e1 * span;
+    k.save(); if (dir < 0) { k.translate(w, 0); k.scale(-1, 1); }
+    k.fillStyle = cols[i]; k.beginPath(); k.moveTo(xa + sk, y); k.lineTo(xb + sk, y); k.lineTo(xb, y + bh); k.lineTo(xa, y + bh); k.closePath(); k.fill(); k.restore();
+  }
+});

@@ -1,0 +1,40 @@
+// Motion Prompt #011 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#011
+//
+// 스쿼시 앤 스트레치 / Squash & stretch
+// 팩: motion (모션 그래픽 동작) · element 11 · 카테고리: 움직임 디테일
+// 무엇이 일어나는가: 튀는 캐릭터가 착지할 때 찌그러지고, 뛰어오를 때 늘어난다.
+// 동작 사양:
+//   - 반지름 37의 둥근 캐릭터. 1.175초에 한 번 튄다(4.7초에 4회). 높이 92px 포물선. 한 주기 동안 사인파로 좌우 ±150px 이동.
+//   - 접지 중(각 바운스의 처음과 마지막 10%): 세로 스케일이 0.52(착지 순간)와 1.28(떠나는 순간) 사이를 2차 곡선으로 오간다.
+//   - 공중: 세로 스케일 = 1 + 0.28 × s^3. s는 정점으로부터의 시간 차(정점에서 0, 이륙·착지 순간에 1). 빠르게 움직이는 곳에서 늘어난다.
+//   - 가로 스케일은 항상 1 ÷ 세로(부피 유지). 변형 기준점은 발밑.
+//   - 그림자는 높을수록 작고 얇아진다. 착지할 때마다 노란 짧은 선이 좌우로 튄다(바운스 하나의 약 18% 동안).
+// 쓰임새: 캐릭터나 로고의 움직임에 무게감과 부드러움을 줄 때.
+// 태그: squash, stretch, squash-and-stretch, bounce, character, ball, animation-principle
+// 크기: 539x208 px · 1주기: 4.7 s
+// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#011
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
+// 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.
+
+// @element 11
+// 11 スクワッシュ＆ストレッチ（弾むキャラクターが、着地でつぶれ、飛ぶときに伸びる）
+CELLS[10] = (k, w, h, u) => {
+  stage(k);
+  const T = CYC / 4, q = mod(u, T) / T, c = 0.1, floor = h - 28, R = 37, Hgt = 92;
+  const X = w / 2 + 150 * Math.sin(u / CYC * Math.PI * 2);
+  let sy, yb, grounded = false;
+  if (q < c || q > 1 - c) { const d = (q < c ? q : 1 - q) / c; sy = lerp(0.52, 1.28, d * d); yb = floor; grounded = true; }
+  else { const qq = (q - c) / (1 - 2 * c), sp = Math.abs(2 * qq - 1); yb = floor - Hgt * (1 - sp * sp); sy = 1 + 0.28 * Math.pow(sp, 3); }
+  const sx = 1 / sy, hg = (floor - yb) / Hgt;
+  k.fillStyle = C.navy3; rr(k, 40, floor, w - 80, 5, 2.5); k.fill();
+  k.fillStyle = 'rgba(0,0,0,.32)'; k.beginPath(); k.ellipse(X, floor + 9, R * 1.2 * (1 - hg * 0.55) * Math.max(1, sx), 6 * (1 - hg * 0.5), 0, 0, 7); k.fill();
+  // 着地の小さなしぶき
+  const dq = q < 0.5 ? q : q - 1; if (Math.abs(dq) < 0.16 && dq > -0.02) { const t = (dq + 0.02) / 0.18; k.strokeStyle = C.yel; k.lineWidth = 5 * (1 - t); k.lineCap = 'round';[-1, 1].forEach(s => { k.beginPath(); k.moveTo(X + s * (50 + 28 * t), floor - 6 - 10 * t); k.lineTo(X + s * (62 + 40 * t), floor - 12 - 20 * t); if (t < 0.97) k.stroke(); }); }
+  k.save(); k.translate(X, yb); k.scale(sx, sy);
+  k.fillStyle = C.coral; k.beginPath(); k.arc(0, -R, R, 0, 7); k.fill();
+  k.fillStyle = '#fff'; k.beginPath(); k.ellipse(-12, -R - 4, 7, 9.5, 0, 0, 7); k.ellipse(12, -R - 4, 7, 9.5, 0, 0, 7); k.fill();
+  k.fillStyle = C.navy; k.beginPath(); k.arc(-10.5, -R - 3, 3.8, 0, 7); k.arc(13.5, -R - 3, 3.8, 0, 7); k.fill();
+  k.restore();
+};
