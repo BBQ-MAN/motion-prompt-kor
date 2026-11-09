@@ -11,6 +11,6 @@ Motion Prompt #128
 - 위아래에 검은 필름 띠(각 26px, 스프로킷 구멍 포함), 오른쪽 위에 '8프레임/초' 표시.
 쓰임새: 수작업 느낌, 클레이 애니메이션, 콜라주 느낌의 영상에. 너무 매끄러운 움직임을 소박하게 보이고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/128.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/128.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

@@ -10,6 +10,6 @@ Motion Prompt #060
 - 아래 차트: 너비 34, 58px 간격의 막대 7개(여섯 번째만 파랑). 높이는 데이터 3세트(약 30–85, 40–100, 60–115) 사이를 선택 영역과 함께 같은 이징으로 바뀐다.
 쓰임새: 같은 데이터를 일·주·월처럼 2–4가지 보기로 전환할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/060.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/060.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

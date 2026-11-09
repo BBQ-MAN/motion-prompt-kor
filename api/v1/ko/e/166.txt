@@ -1,4 +1,4 @@
-// Motion Prompt #166 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#166
+// Motion Prompt #166 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#166
 //
 // 좋아요 애니메이션 / Like button animation
 // 팩: lp2 (랜딩 페이지·웹사이트 연출 2탄) · element 22 · 카테고리: 시선을 끄는 연출
@@ -12,8 +12,8 @@
 // 쓰임새: 좋아요, 즐겨찾기, 저장 버튼에서 탭한 것을 분명하고 기분 좋게 알려 줄 때.
 // 태그: like-button, heart, microinteraction, burst, favorite, counter
 // 크기: 539x208 px · 1주기: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#166
+// Needs: kit lp2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#166
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

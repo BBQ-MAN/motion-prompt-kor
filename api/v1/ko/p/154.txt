@@ -11,6 +11,6 @@ Motion Prompt #154
 - 지연 없음: 빛은 정확히 커서 위치에 있다(보통 좌표를 CSS 변수에 넣어 radial-gradient의 중심으로 쓴다).
 쓰임새: 기능이나 요금제 카드가 나란히 있는 다크 테마 사이트에서 포인터 아래를 돋보이게 할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/154.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/154.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

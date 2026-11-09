@@ -12,6 +12,6 @@ Motion Prompt #048
 - 복귀: 마지막 0.5초 동안 시작 상태로 크로스페이드(1회 4.7초)
 쓰임새: 말하는 사람의 목소리를 이어 가면서 듣는 사람의 반응이나 관련 영상을 보여 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/048.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/048.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

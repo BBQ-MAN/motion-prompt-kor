@@ -10,6 +10,6 @@ Motion Prompt #156
 - 벗어나면 같은 시차와 타이밍으로 글자가 다시 아래로 굴러 돌아간다.
 쓰임새: 헤더 메뉴나 버튼에서 짧은 텍스트 링크에 손맛 있는 반응을 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/156.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/156.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

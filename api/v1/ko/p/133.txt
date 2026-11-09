@@ -10,6 +10,6 @@ Motion Prompt #133
 - 글자 바깥에서는 풍경을 불투명도 12%로 보여 주고, 3.45–3.85초에 100%까지 올렸다가 4.25–4.65초에 12%로 되돌린다(smoothstep).
 쓰임새: 제목이나 브랜드명 안에 사진이나 영상을 보여 주고 싶을 때. 단어와 이미지를 하나로 묶고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/133.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/133.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

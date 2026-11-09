@@ -11,6 +11,6 @@ Motion Prompt #017
 - 커지는 동안 도형 가장자리에 흰 외곽선(굵기 7).
 쓰임새: 화면 속 사물(해, 로고, 버튼)을 기점으로 다음 장면으로 넘어갈 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/017.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/017.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

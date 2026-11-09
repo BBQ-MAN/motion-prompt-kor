@@ -10,6 +10,6 @@ Motion Prompt #091
 - 한 주기에 항목 3개(156px)만큼 진행한다. 내용은 3개마다 반복되므로 주기의 끝과 시작이 같아 보인다
 쓰임새: SNS 피드나 공지 목록처럼 페이지를 넘기지 않고 계속 읽게 하고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/091.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/091.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

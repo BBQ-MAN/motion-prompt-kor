@@ -12,6 +12,6 @@ Motion Prompt #030
 - 복귀: 3.6~4.2초는 정지, 마지막 0.5초 동안 시작 상태로 크로스페이드. 오른쪽 위에 각도 표시(-54° → +54°)
 쓰임새: 인물이나 제품을 입체적으로 보여 주거나, 등장 장면이나 결정적인 순간을 강조할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/030.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/030.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

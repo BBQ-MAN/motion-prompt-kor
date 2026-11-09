@@ -1,4 +1,4 @@
-// Motion Prompt #124 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#124
+// Motion Prompt #124 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#124
 //
 // 위글 / Wiggle
 // 팩: motion2 (모션 그래픽 연출 2탄) · element 04 · 카테고리: 모션 테크닉
@@ -12,8 +12,8 @@
 // 쓰임새: 알림, 착신처럼 눈길을 끌어야 하는 것에. 계속되는 작은 흔들림으로 들뜬 느낌이나 핸드헬드 느낌을 내고 싶을 때.
 // 태그: wiggle, jitter, shake, random, noise, bell, notification
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#124
+// Needs: kit motion2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#124
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

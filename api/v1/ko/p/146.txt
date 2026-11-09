@@ -10,6 +10,6 @@ Motion Prompt #146
 - 되돌려 스크롤하면 같은 식으로 마지막 글자부터 옅어진다. 본문 막대와 스크롤바 썸은 페이지와 함께 움직인다.
 쓰임새: 콘셉트나 대표 메시지처럼 천천히 읽혀야 하는 짧은 문장에.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/146.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/146.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

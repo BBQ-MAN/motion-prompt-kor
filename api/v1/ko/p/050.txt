@@ -11,6 +11,6 @@ Motion Prompt #050
 - 닫기: 커서가 3.3초에 패널 바깥 (420, 120)을 클릭한다. a에 (1 − easeInOutCubic(3.3–3.65초))를 곱해 패널을 왼쪽으로 되돌린다.
 쓰임새: 모바일 전체 메뉴나 필터처럼 자리를 차지하는 조작을 필요할 때까지 옆에 숨겨 둘 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/050.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/050.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

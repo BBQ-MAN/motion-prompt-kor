@@ -11,6 +11,6 @@ Motion Prompt #011
 - 그림자는 높을수록 작고 얇아진다. 착지할 때마다 노란 짧은 선이 좌우로 튄다(바운스 하나의 약 18% 동안).
 쓰임새: 캐릭터나 로고의 움직임에 무게감과 부드러움을 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/011.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/011.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

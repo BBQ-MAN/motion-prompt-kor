@@ -11,6 +11,6 @@ Motion Prompt #068
 - 리셋: 3.75–4.05초에 인디케이터가 사라지고 4.05–4.3초에 1단계 상태로 다시 나타난다.
 쓰임새: 가입이나 결제처럼 여러 단계로 나뉜 절차에서 진행 상황과 남은 단계를 보여 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/068.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/068.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

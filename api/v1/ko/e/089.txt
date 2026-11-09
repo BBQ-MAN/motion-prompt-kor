@@ -1,4 +1,4 @@
-// Motion Prompt #089 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#089
+// Motion Prompt #089 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#089
 //
 // 프리로더 / Preloader
 // 팩: lp (랜딩 페이지·웹사이트 연출) · element 17 · 카테고리: 로딩·페이지 이동·반복 연출
@@ -12,8 +12,8 @@
 // 쓰임새: 사진이나 영상이 많은 사이트에서 로딩 대기 시간을 브랜드를 보여 주는 순간으로 바꾸고 싶을 때.
 // 태그: preloader, loading-screen, loader, percentage, intro, splash, curtain
 // 크기: 539x208 px · 1주기: 4.8 s
-// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#089
+// Needs: kit lp -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#089
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

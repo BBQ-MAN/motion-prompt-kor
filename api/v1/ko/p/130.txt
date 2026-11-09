@@ -10,6 +10,6 @@ Motion Prompt #130
 - 각 글자 아래에 그림자 타원. 글자가 올라갈수록 작아진다.
 쓰임새: 로고, 짧은 제목, 배경 음악에 맞춘 자막에. 즐거움이나 리듬감을 주고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/130.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/130.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

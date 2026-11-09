@@ -12,6 +12,6 @@ Motion Prompt #004
 - 지우기: 원 3.5–4.0초, 꺾은선 3.65–4.45초, 축 3.85–4.55초. 각각 시작점 쪽부터 줄어든다. 화살촉은 4.3–4.45초에 사라진다.
 쓰임새: 그래프, 경로, 밑줄, 손으로 그린 동그라미처럼 선 자체가 볼거리일 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/004.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/004.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

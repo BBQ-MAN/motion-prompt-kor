@@ -1,4 +1,4 @@
-// Motion Prompt #081 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#081
+// Motion Prompt #081 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#081
 //
 // 호버 리프트 / Hover lift
 // 팩: lp (랜딩 페이지·웹사이트 연출) · element 09 · 카테고리: 호버·클릭 인터랙션
@@ -11,8 +11,8 @@
 // 쓰임새: 카드나 버튼처럼 누를 수 있는 요소를 누를 수 있어 보이게 하고 싶을 때.
 // 태그: hover, lift, float, card, shadow, translatey, interaction
 // 크기: 539x208 px · 1주기: 4.8 s
-// Needs: kit lp -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#081
+// Needs: kit lp -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#081
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

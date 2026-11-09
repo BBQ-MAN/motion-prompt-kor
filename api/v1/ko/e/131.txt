@@ -1,4 +1,4 @@
-// Motion Prompt #131 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#131
+// Motion Prompt #131 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#131
 //
 // 텍스트 온 패스 / Text on a path
 // 팩: motion2 (모션 그래픽 연출 2탄) · element 11 · 카테고리: 텍스트·도형 연출
@@ -11,8 +11,8 @@
 // 쓰임새: 로고 둘레, 길이나 강, 파도 위처럼 형태를 따라 글자를 흘리고 싶을 때. 반복되는 띠 모양 글자에도.
 // 태그: text-on-path, path-text, curved-text, text, marquee, wave, scroll
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#131
+// Needs: kit motion2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#131
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

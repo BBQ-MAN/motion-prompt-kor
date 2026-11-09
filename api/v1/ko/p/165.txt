@@ -10,6 +10,6 @@ Motion Prompt #165
 - 위상 a = 2π·t/4.7일 때 뒤 물결은 a + 1과 −2a, 앞 물결은 −a와 2a + 0.5를 쓴다. 각 물결의 두 사인파가 반대 방향으로 흘러 모양이 계속 바뀌며, 4.7초마다 처음 모양으로 돌아온다.
 쓰임새: 바다, 여름, 어린이 관련 사이트처럼 섹션 경계를 직선보다 부드럽게 보이고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/165.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/165.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

@@ -10,6 +10,6 @@ Motion Prompt #163
 - 2.4초에 아래쪽 점이 클릭된다: 첫 툴팁은 0.25초 동안 사라지고 다음 툴팁이 아래 점 오른쪽에 열린다. 3.8초에 한 번 더 클릭하면 닫힌다.
 쓰임새: 상품, 평면도, 지도처럼 한 장의 그림 안에서 여러 위치를 설명할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/163.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/163.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

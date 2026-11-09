@@ -9,6 +9,6 @@ Motion Prompt #082
 - 프레임 밖으로 넘친 부분은 잘라 낸다(overflow: hidden). 프레임과 아래 캡션은 움직이지 않는다
 쓰임새: 작품, 상품, 기사 같은 사진 목록에서 지금 무엇을 고르려는지 보여 주고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/082.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/082.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

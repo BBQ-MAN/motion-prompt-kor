@@ -11,6 +11,6 @@ Motion Prompt #174
 - 복귀: 마지막 0.5초 동안 시작 상태로 크로스페이드(1회 4.7초). 오른쪽 위에 인물까지의 거리 표시(FOLLOW 3.6–3.9m)
 쓰임새: 캐릭터와 함께 장소에 들어갈 때, 게임 같은 3인칭 시점이 필요할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/174.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/174.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

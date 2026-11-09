@@ -11,6 +11,6 @@ Motion Prompt #066
 - 되돌아가기: 커서가 첫 카드에 올라가(2.45–2.8초 파란 테두리) 2.7초에 클릭하고, 2.7–2.95초에 상세 페이지가 돌아온다.
 쓰임새: 계층이 깊은 사이트에서 현재 위치와 상위로 돌아가는 길을 보여 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/066.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/066.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

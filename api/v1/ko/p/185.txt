@@ -11,6 +11,6 @@ Motion Prompt #185
 - 오른쪽 위에 "SHOT A" → "INSERT" → "SHOT A" 표시. 4.7초에 스트레이트 컷으로 처음으로 돌아간다
 쓰임새: 작은 물건이나 손동작을 보여 줄 때, 중요한 소품을 짚어 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/185.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/185.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

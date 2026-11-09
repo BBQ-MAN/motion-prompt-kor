@@ -12,6 +12,6 @@ Motion Prompt #008
 - 착지 후: 가로 흔들림 10px × e^(−9t) × sin(38t), 세로 찌그러짐 20% × e^(−11t), 방사형 선 8개가 0.4초 동안 나온다.
 쓰임새: 내레이션이나 가사의 핵심 단어를 움직임으로 기억에 남길 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/008.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/008.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

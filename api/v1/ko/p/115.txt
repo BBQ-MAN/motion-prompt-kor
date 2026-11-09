@@ -10,6 +10,6 @@ Motion Prompt #115
 - 시간: 0.4~1.4초에 효과가 들어오고 4.0초까지 유지된 뒤 4.8초까지 원래대로 돌아간다(1회 5초, 3차 이즈 인 아웃(cubic-bezier(0.65,0,0.35,1) 상당))
 쓰임새: 시대를 타지 않는 느낌을 원하거나, 색보다 형태·빛·표정을 보여 주고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/115.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/115.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/photo.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

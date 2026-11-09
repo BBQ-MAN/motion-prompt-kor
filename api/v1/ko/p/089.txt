@@ -11,6 +11,6 @@ Motion Prompt #089
 - 4.25~4.75초에 화면이 위에서 다시 내려와 0% 상태로 돌아간다(다음 로딩)
 쓰임새: 사진이나 영상이 많은 사이트에서 로딩 대기 시간을 브랜드를 보여 주는 순간으로 바꾸고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/089.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/089.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

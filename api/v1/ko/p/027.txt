@@ -12,6 +12,6 @@ Motion Prompt #027
 - 오른쪽 위 표시는 24mm에서 변하지 않는다(04 줌 인과의 차이)
 쓰임새: 공간의 깊이감을 살리면서 인물이나 한 지점으로 다가갈 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/027.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/027.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

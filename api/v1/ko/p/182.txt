@@ -11,6 +11,6 @@ Motion Prompt #182
 - 복귀: 3.4~4.2초 정지 후 마지막 0.5초 동안 시작 상태로 크로스페이드. 오른쪽 위에 조리개 표시(f/1.8 → f/16)
 쓰임새: 시청자가 화면 어디를 봐도 되게 할 때, 서로 다른 깊이에서 여러 일이 동시에 벌어지는 것을 보여 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/182.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/182.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

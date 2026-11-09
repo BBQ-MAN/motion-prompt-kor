@@ -10,6 +10,6 @@ Motion Prompt #002
 - 퇴장: 막대는 1.78 + 0.045·i초부터 0.26초 동안 3차 easeIn으로 줄어든다. 점은 그보다 먼저 1.70 + 0.045·i초부터 0.2초 동안 사라진다.
 쓰임새: 리스트·그래프·카드처럼 여러 요소를 순서대로 보여 주며 시선을 이끌 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/002.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/002.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

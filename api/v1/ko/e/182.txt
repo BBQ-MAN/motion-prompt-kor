@@ -1,4 +1,4 @@
-// Motion Prompt #182 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#182
+// Motion Prompt #182 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#182
 //
 // 딥 포커스 / Deep focus
 // 팩: camera2 (카메라 워크와 화면 전환 2) · element 14 · 카테고리: 앵글·구도
@@ -12,8 +12,8 @@
 // 쓰임새: 시청자가 화면 어디를 봐도 되게 할 때, 서로 다른 깊이에서 여러 일이 동시에 벌어지는 것을 보여 줄 때.
 // 태그: deep focus, depth of field, everything sharp, f/16, small aperture, pan focus, focus
 // 크기: 539x208 px · 1주기: 9.4 s
-// Needs: kit camera2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#182
+// Needs: kit camera2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#182
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

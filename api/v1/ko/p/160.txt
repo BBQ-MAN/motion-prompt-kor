@@ -11,6 +11,6 @@ Motion Prompt #160
 - 3.9–4.1초에 페이드아웃되고, 4.1–4.4초(cubic ease-out)에 원래 "送信する" 버튼이 6 px 떠오르며 돌아온다.
 쓰임새: 전송, 구매, 저장처럼 결과를 잠시 기다려야 하는 버튼에.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/160.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/160.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

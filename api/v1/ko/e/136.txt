@@ -1,4 +1,4 @@
-// Motion Prompt #136 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#136
+// Motion Prompt #136 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#136
 //
 // 라인 보일 / Line boil
 // 팩: motion2 (모션 그래픽 연출 2탄) · element 16 · 카테고리: 텍스트·도형 연출
@@ -11,8 +11,8 @@
 // 쓰임새: 손그림 일러스트, 아이콘, 레터링에. 멈춰 있는 그림에도 손으로 그린 듯한 생동감을 주고 싶을 때.
 // 태그: line-boil, boil, hand-drawn, wobble, jitter, sketch, frame-by-frame
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#136
+// Needs: kit motion2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#136
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

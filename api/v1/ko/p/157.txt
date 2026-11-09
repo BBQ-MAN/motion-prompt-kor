@@ -10,6 +10,6 @@ Motion Prompt #157
 - 같은 0.25초 동안 사진은 opacity 0→1, 0.85×→1×로 변한다. 지연 없이 커서를 따라가며, 다음 행으로 옮기면 이전 사진이 사라지면서 새 사진이 들어온다.
 쓰임새: 작업물, 프로젝트, 시설 목록을 텍스트로 가볍게 유지하면서 관심 있는 행만 사진으로 확인하게 할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/157.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/157.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

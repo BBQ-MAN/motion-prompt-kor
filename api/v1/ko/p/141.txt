@@ -9,6 +9,6 @@ Motion Prompt #141
 - 만드는 법: 화면을 폭 ÷ 칸 크기로 축소하고(부드러운 보간 켬), 보간을 끈 채 원래 크기로 늘린다.
 쓰임새: 게임풍, 레트로, 디지털 느낌의 장면 전환에. 가리고 싶은 것을 흐리며 바꾸고 싶을 때도.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/141.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/141.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

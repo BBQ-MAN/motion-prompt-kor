@@ -10,6 +10,6 @@ Motion Prompt #139
 - 안쪽으로 넘어가는 면은 최대 55%까지 어둡게(0.55·sinφ), 나오는 면은 55% 어두운 상태에서 밝게 한다(0.55·cosφ). 바닥 그림자 폭은 보이는 폭에 맞춘다.
 쓰임새: 상품, 요금제, 화면을 차례로 보여 줄 때. 옆으로 늘어선 것을 입체감 있게 하나씩 보여 주고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/139.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/139.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

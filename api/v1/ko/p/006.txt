@@ -12,6 +12,6 @@ Motion Prompt #006
 - 텍스트가 반쯤 사라진 시점(약 3.27초)에 커서는 맨 앞으로 돌아가고, 3.51–3.81초에 버튼의 파랑이 사라진다.
 쓰임새: 프롬프트, 검색어, 채팅 메시지처럼 글자를 입력하는 장면을 보여 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/006.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/006.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

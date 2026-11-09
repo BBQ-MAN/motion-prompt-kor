@@ -1,4 +1,4 @@
-// Motion Prompt #031 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#031
+// Motion Prompt #031 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#031
 //
 // 크레인 업 / Crane up
 // 팩: camera (카메라 무빙과 화면 전환) · element 07 · 카테고리: 카메라 움직임
@@ -13,8 +13,8 @@
 // 쓰임새: 장면 끝에서 인물로부터 멀어지거나, 장소의 규모를 드러낼 때.
 // 태그: crane, crane up, jib, boom up, rise, high angle, camera move
 // 크기: 539x208 px · 1주기: 9.4 s
-// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#031
+// Needs: kit camera -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#031
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

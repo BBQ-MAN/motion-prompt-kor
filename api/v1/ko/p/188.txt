@@ -12,6 +12,6 @@ Motion Prompt #188
 - 4.7초마다 A→B, B→A를 번갈아 반복(왕복 9.4초). 오른쪽 위에 "IRIS OUT" / "IRIS IN" 표시
 쓰임새: 무성 영화나 만화풍 엔딩, 장난스러운 장면 구분에.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/188.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/188.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

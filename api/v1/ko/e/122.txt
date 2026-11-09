@@ -1,4 +1,4 @@
-// Motion Prompt #122 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#122
+// Motion Prompt #122 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#122
 //
 // 팔로 스루 / Follow-through
 // 팩: motion2 (모션 그래픽 연출 2탄) · element 02 · 카테고리: 모션 테크닉
@@ -12,8 +12,8 @@
 // 쓰임새: 캐릭터의 머리카락, 옷, 액세서리나 로고 장식처럼 본체에 달린 부분에 자연스러운 무게감을 주고 싶을 때.
 // 태그: follow-through, overlapping-action, secondary-motion, spring, drag, character, animation-principle
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#122
+// Needs: kit motion2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#122
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

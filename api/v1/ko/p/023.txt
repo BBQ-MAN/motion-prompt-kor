@@ -12,6 +12,6 @@ Motion Prompt #023
 - 배경 밝기는 바꾸지 않는다(화면 전체 깜빡임 없음). 난수는 시드 고정.
 쓰임새: 디지털 느낌이나 오류, 불안한 분위기를 낼 때. 타이틀이나 장면 전환의 포인트로.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/023.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/023.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

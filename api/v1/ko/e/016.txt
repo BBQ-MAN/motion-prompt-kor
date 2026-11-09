@@ -1,4 +1,4 @@
-// Motion Prompt #016 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#016
+// Motion Prompt #016 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#016
 //
 // 패럴랙스 / Parallax
 // 팩: motion (모션 그래픽 동작) · element 16 · 카테고리: 움직임 디테일
@@ -11,8 +11,8 @@
 // 쓰임새: 평면 일러스트나 사진에 깊이감을 줄 때. 배경, 풍경, 스크롤 장면에.
 // 태그: parallax, depth, layers, pan, 2.5d, background, landscape
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#016
+// Needs: kit motion -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#016
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

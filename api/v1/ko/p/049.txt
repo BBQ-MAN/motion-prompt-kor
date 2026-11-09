@@ -11,6 +11,6 @@ Motion Prompt #049
 - 닫기: 커서가 3.0초까지 ×로 이동해 3.3초에 클릭한다. a에 (1 − easeInOutCubic(3.3–3.58초))를 곱해 사라지게 한다.
 쓰임새: 확인이나 짧은 입력처럼 하던 작업을 멈추고 한 가지에 집중시켜야 할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/049.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/049.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

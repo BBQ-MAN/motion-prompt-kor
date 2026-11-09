@@ -1,4 +1,4 @@
-// Motion Prompt #065 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#065
+// Motion Prompt #065 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#065
 //
 // 햄버거 메뉴 / Hamburger menu
 // 팩: ui (UI 컴포넌트 이름) · element 17 · 카테고리: 내비게이션·상태 표시
@@ -11,8 +11,8 @@
 // 쓰임새: 모바일처럼 폭이 좁은 화면에서 전체 메뉴를 버튼 하나에 넣어 둘 때.
 // 태그: hamburger-menu, hamburger, menu-icon, nav-toggle, mobile-menu, menu
 // 크기: 542x191 px · 1주기: 4.5 s
-// Needs: kit ui -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#065
+// Needs: kit ui -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#065
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

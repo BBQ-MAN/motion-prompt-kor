@@ -11,6 +11,6 @@ Motion Prompt #153
 - 반사광: 커서 위치에 반지름 130 px의 흰색 원형 빛(중심 opacity 0.42). 바닥 그림자는 기울기 반대 방향으로 최대 10 px 이동한다.
 쓰임새: 회원 카드, 제품 패키지, 요금제 카드를 손에 쥘 수 있는 물건처럼 느끼게 할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/153.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/153.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

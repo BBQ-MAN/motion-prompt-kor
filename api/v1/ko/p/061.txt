@@ -10,6 +10,6 @@ Motion Prompt #061
 - 아래 목록: 카드 4장(242×54, 2열 2행). 조건에 맞지 않는 카드는 불투명도가 1에서 0.12로 내려간다.
 쓰임새: 목록이나 검색 결과를 조건 몇 개를 조합해 빠르게 좁히게 할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/061.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/061.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

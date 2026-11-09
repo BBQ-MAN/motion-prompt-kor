@@ -11,6 +11,6 @@ Motion Prompt #051
 - 닫기: 손가락이 2.75초에 핸들 (271, 68)에 닿고 3.0–3.6초에 아래로 끈다. a에 (1 − easeInOutCubic(3.0–3.6초))를 곱해 시트가 손가락을 따라 아래로 사라진다.
 쓰임새: 모바일에서 지금 화면을 그대로 둔 채 상세 정보나 선택지를 보여 줄 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/051.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/051.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

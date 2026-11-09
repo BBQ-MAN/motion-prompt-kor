@@ -1,4 +1,4 @@
-// Motion Prompt #034 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#034
+// Motion Prompt #034 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#034
 //
 // 핸드헬드 / Handheld
 // 팩: camera (카메라 무빙과 화면 전환) · element 10 · 카테고리: 촬영 기법과 시간 연출
@@ -13,8 +13,8 @@
 // 쓰임새: 다큐멘터리 같은 현장감이나 그 자리에 있는 느낌을 줄 때.
 // 태그: handheld, camera shake, shaky, documentary, wobble, noise, realism
 // 크기: 539x208 px · 1주기: 9.4 s
-// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#034
+// Needs: kit camera -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#034
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

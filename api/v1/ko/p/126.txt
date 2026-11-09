@@ -10,6 +10,6 @@ Motion Prompt #126
 - 경로는 미리 점선(선 두께 6, 간격 2/15)으로 보여 준다. 지나간 자리에 민트색 선을 24구간(θ로 0.03씩) 남기고, 뒤로 갈수록 가늘고 옅게 한다.
 쓰임새: 날아가는 물체, 달리는 차, 지도 위 이동처럼 정해진 길을 따라가게 하고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/126.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/126.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

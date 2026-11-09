@@ -1,4 +1,4 @@
-// Motion Prompt #115 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#115
+// Motion Prompt #115 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#115
 //
 // 흑백 / Black and white
 // 팩: photo (사진 표현·빛과 스타일) · element 19 · 카테고리: 톤·마무리 스타일
@@ -11,8 +11,8 @@
 // 쓰임새: 시대를 타지 않는 느낌을 원하거나, 색보다 형태·빛·표정을 보여 주고 싶을 때.
 // 태그: black and white, monochrome, b&w, grayscale, desaturated, classic
 // 크기: 539x208 px · 1주기: 5 s
-// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#115
+// Needs: kit photo -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/photo.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#115
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

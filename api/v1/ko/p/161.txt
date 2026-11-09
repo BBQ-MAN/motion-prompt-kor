@@ -11,6 +11,6 @@ Motion Prompt #161
 - 목록 사진과 상세 사진이 같은 view-transition-name을 공유할 때 View Transitions API가 보여 주는 모습이다.
 쓰임새: 목록과 상세를 오가는 갤러리나 상품 페이지에서 무엇을 열었는지 놓치지 않게 할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/161.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/161.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

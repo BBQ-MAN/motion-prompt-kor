@@ -12,6 +12,6 @@ Motion Prompt #003
 - 점 10개(코랄·파랑 번갈아, 반지름 8→4.8): 타원 위에서 반지름 58→150(가로 ×1.45, 세로 ×0.78). 발동 후 0.3–0.72초에 페이드아웃. 하트 채움은 1.92–2.2초에 사라진다.
 쓰임새: 좋아요, 달성, 정답처럼 누르거나 결정된 순간을 강조할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/003.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/003.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

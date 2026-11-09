@@ -10,6 +10,6 @@ Motion Prompt #143
 - 조립: 3.25초부터 층마다 0.7초, 가장 위층부터 0.07초씩 늦춘다. 3차 ease-in-out.
 쓰임새: 제품의 속, 원리, 구성 요소를 설명할 때. 무엇으로 이루어졌는지 한눈에 보여 주고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/143.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/143.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

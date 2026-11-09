@@ -1,4 +1,4 @@
-// Motion Prompt #011 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#011
+// Motion Prompt #011 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#011
 //
 // 스쿼시 앤 스트레치 / Squash & stretch
 // 팩: motion (모션 그래픽 동작) · element 11 · 카테고리: 움직임 디테일
@@ -12,8 +12,8 @@
 // 쓰임새: 캐릭터나 로고의 움직임에 무게감과 부드러움을 줄 때.
 // 태그: squash, stretch, squash-and-stretch, bounce, character, ball, animation-principle
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#011
+// Needs: kit motion -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#011
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

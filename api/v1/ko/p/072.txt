@@ -10,6 +10,6 @@ Motion Prompt #072
 - 커서가 3.3초에 "추가"를 클릭한다. 빈 상태는 3.25–3.45초에 사라지고, 두 줄이 3.35–3.7초에 easeOutCubic으로 왼쪽에서 돌아온다.
 쓰임새: 처음 쓰는 화면이나 검색 결과가 없는 화면에서 다음에 할 일을 안내할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/072.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/ui.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/072.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/ui.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

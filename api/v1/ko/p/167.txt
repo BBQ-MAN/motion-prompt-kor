@@ -9,6 +9,6 @@ Motion Prompt #167
 - 좌우로 40 px 떨어진 곳에 아래 방향 셰브론(선 두께 2.5)이 한쪽에 2개씩, 반 비트 차이로 24 px 아래로 흘러간다. opacity는 사인 곡선으로 0 → 0.8 → 0.
 쓰임새: 히어로가 화면을 꽉 채워서 아래에 내용이 더 있다는 힌트가 필요할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/167.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/167.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

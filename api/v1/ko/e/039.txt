@@ -1,4 +1,4 @@
-// Motion Prompt #039 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#039
+// Motion Prompt #039 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#039
 //
 // 타임랩스 / Time-lapse
 // 팩: camera (카메라 무빙과 화면 전환) · element 15 · 카테고리: 촬영 기법과 시간 연출
@@ -13,8 +13,8 @@
 // 쓰임새: 긴 시간의 흐름이나 도시, 하늘, 작업의 변화를 짧게 보여 줄 때.
 // 태그: time-lapse, timelapse, fast forward, time compression, sun, clouds, day to night
 // 크기: 539x208 px · 1주기: 9.4 s
-// Needs: kit camera -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#039
+// Needs: kit camera -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#039
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

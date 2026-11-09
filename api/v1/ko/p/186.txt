@@ -11,6 +11,6 @@ Motion Prompt #186
 - 복귀: 마지막 0.5초 동안 테이크 1의 시작으로 크로스페이드. 오른쪽 위에 "TAKE 1" → "MORPH" → "TAKE 2" 표시
 쓰임새: 인터뷰나 내레이션을 다듬을 때, 말실수를 티 나지 않게 들어낼 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/186.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/186.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

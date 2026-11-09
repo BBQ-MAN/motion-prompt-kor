@@ -1,4 +1,4 @@
-// Motion Prompt #187 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#187
+// Motion Prompt #187 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#187
 //
 // 페이드 아웃 / Fade to black
 // 팩: camera2 (카메라 워크와 화면 전환 2) · element 19 · 카테고리: 화면 전환·편집
@@ -12,8 +12,8 @@
 // 쓰임새: 챕터 구분, 긴 시간 경과, 이야기의 끝에.
 // 태그: fade to black, fade out, fade in, black, ending, transition
 // 크기: 539x208 px · 1주기: 9.4 s
-// Needs: kit camera2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#187
+// Needs: kit camera2 -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#187
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

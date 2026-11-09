@@ -10,9 +10,9 @@ AI에게 무언가를 만들어 달라고 할 때 쓰는 '이름'의 라이브�
 |---|---|
 | ![모션 그래픽 이름 01–08](assets/preview-motion.gif) | ![카메라 워크 이름 01–08](assets/preview-camera.gif) |
 
-- 갤러리(모든 예시가 움직입니다): https://showheyohtaki.github.io/motion-prompt/
+- 갤러리(모든 예시가 움직입니다): https://bbq-man.github.io/motion-prompt-kor/
 - GitHub에서 바로 읽을 수 있는 이름 목록: [`packs/`](packs/README.md)
-- 이름과 예시를 공유하는 다른 사람들의 사례(X 게시물 임베드와 링크): https://showheyohtaki.github.io/motion-prompt/found.html
+- 이름과 예시를 공유하는 다른 사람들의 사례(X 게시물 임베드와 링크): https://bbq-man.github.io/motion-prompt-kor/found.html
 
 ## 만든 이유
 
@@ -39,7 +39,7 @@ AI에게 무언가를 만들어 달라고 할 때 쓰는 '이름'의 라이브�
 | 145–168 | `lp2`: 랜딩 페이지·웹 연출 2편 | 24 | [한국어](packs/lp2/README.ko.md) · [English](packs/lp2/README.md) · [日本語](packs/lp2/README.ja.md) · [Español](packs/lp2/README.es.md) · [简体中文](packs/lp2/README.zh-Hans.md) · [繁體中文](packs/lp2/README.zh-Hant.md) |
 | 169–192 | `camera2`: 카메라 워크와 화면 전환 2편 | 24 | [한국어](packs/camera2/README.ko.md) · [English](packs/camera2/README.md) · [日本語](packs/camera2/README.ja.md) · [Español](packs/camera2/README.es.md) · [简体中文](packs/camera2/README.zh-Hans.md) · [繁體中文](packs/camera2/README.zh-Hant.md) |
 
-목록마다 번호, 이름, 뜻, AI에게 요청하는 문장 예시가 한국어, 영어, 일본어, 스페인어, 중국어 간체, 중국어 번체로 정리되어 있습니다. 같은 이름이 [갤러리](https://showheyohtaki.github.io/motion-prompt/)에서 움직입니다.
+목록마다 번호, 이름, 뜻, AI에게 요청하는 문장 예시가 한국어, 영어, 일본어, 스페인어, 중국어 간체, 중국어 번체로 정리되어 있습니다. 같은 이름이 [갤러리](https://bbq-man.github.io/motion-prompt-kor/)에서 움직입니다.
 
 팩마다 스타일이 다릅니다. motion과 motion2 팩은 짙은 남색 바탕에 4가지 색을 씁니다. camera와 camera2 팩은 밝은 회색 바탕에 파란색 하나입니다. ui 팩은 따뜻한 오프화이트 바탕에 검정과 파란색 하나를 쓰고, 커서가 닿으면 각 컴포넌트가 움직입니다. lp와 lp2 팩은 옅은 회색 책상 위에 흰 브라우저 창을 그리고, 포인트 컬러는 주홍색, 페이지 안의 이미지는 파란색입니다. photo 팩에는 공통 팔레트가 없습니다. 카드마다 그 장면의 색으로 그리고, 효과가 들어갔다가 다시 빠지므로 전후를 비교할 수 있습니다. 일부러 이렇게 했습니다. 팩이 맞춰야 하는 것은 이름이지, 정해진 스타일이 아닙니다.
 
@@ -213,7 +213,7 @@ npx skills add showheyohtaki/motion-prompt
 
 스크립트는 아래의 텍스트 파일을 GET 요청으로 가져오기만 합니다. 프로젝트의 내용은 어디에도 업로드하지 않습니다. `pick`은 사용자 컴퓨터(127.0.0.1)에 임시 수신 창구를 열고, 갤러리의 'AI에게 전달'가 보내는 번호와 메모만 받습니다.
 
-1. `https://showheyohtaki.github.io/motion-prompt/api/v1/`
+1. `https://bbq-man.github.io/motion-prompt-kor/api/v1/`
 2. 1에 접속할 수 없을 때: `https://raw.githubusercontent.com/showheyohtaki/motion-prompt/main/api/v1/`
 
 | 파일 | 내용 |

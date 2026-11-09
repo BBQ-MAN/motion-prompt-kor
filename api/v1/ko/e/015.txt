@@ -1,4 +1,4 @@
-// Motion Prompt #015 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#015
+// Motion Prompt #015 · MIT License (c) 2026 Shohei Ohtaki · https://bbq-man.github.io/motion-prompt-kor/#015
 //
 // 파티클 / Particles
 // 팩: motion (모션 그래픽 동작) · element 15 · 카테고리: 움직임 디테일
@@ -12,8 +12,8 @@
 // 쓰임새: 축하나 달성 장면에 활기를 더할 때. 컨페티나 불꽃 대신.
 // 태그: particles, confetti, emitter, fountain, gravity, celebration, sparks
 // 크기: 539x208 px · 1주기: 4.7 s
-// Needs: kit motion -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion.js
-// 움직이는 견본: https://showheyohtaki.github.io/motion-prompt/#015
+// Needs: kit motion -> https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion.js
+// 움직이는 견본: https://bbq-man.github.io/motion-prompt-kor/#015
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D(호출하는 쪽에서 지우기와 save/restore 완료), w·h = 크기, u = 초(0 이상 1주기 미만). u만으로 그림이 정해진다.
 // 여기부터 요소의 코드. CELLS와 상수·보조 함수는 kit에 있다.

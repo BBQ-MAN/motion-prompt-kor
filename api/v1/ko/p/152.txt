@@ -10,6 +10,6 @@ Motion Prompt #152
 - p가 0.7→1인 동안 사진 중앙에 흰색 헤드라인(26 px, 자간 2 px)이 페이드인된다. 스크롤바 썸은 스크롤을 따라간다.
 쓰임새: 여행, 부동산, 브랜드 사이트에서 방문자를 사진 속으로 끌어들일 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/152.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/152.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

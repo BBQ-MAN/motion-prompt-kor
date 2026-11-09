@@ -9,6 +9,6 @@ Motion Prompt #132
 - 아래에 슬라이더(x = 112→427, y = 180). 왼쪽에 '가늘게', 오른쪽에 '굵게'. 손잡이(노랑, 반지름 14)가 v에 맞춰 움직이고, 위에 현재 굵기 숫자를 띄운다.
 쓰임새: 제목, 로고, 강조할 한 단어에. 글자 모양 자체를 움직여 소리나 감정의 세기를 보여 주고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/132.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/132.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

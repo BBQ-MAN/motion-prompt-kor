@@ -10,6 +10,6 @@ Motion Prompt #078
 - 뒤의 2.4초는 같은 동작을 위쪽으로 해서 첫 번째 섹션으로 돌아간다(scroll-snap-type: y mandatory의 동작)
 쓰임새: 한 화면씩 끊어 보여 주는 랜딩 페이지나 슬라이드 같은 페이지를 만들고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/078.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/078.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/lp.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

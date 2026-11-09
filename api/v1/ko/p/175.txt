@@ -11,6 +11,6 @@ Motion Prompt #175
 - 왼쪽 아래에 회색 삼각대 마크, 오른쪽 위에 "LOCKED" 표시(#040 프리즈 프레임은 영상의 시간을 멈춘다. 여기서는 시간이 흐르고 카메라만 멈춰 있다)
 쓰임새: 대비로 피사체를 돋보이게 할 때, 정점 관찰, 타임랩스나 합성의 바탕 화면이 필요할 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/175.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/camera2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/175.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/camera2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.

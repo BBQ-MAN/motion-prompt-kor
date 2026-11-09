@@ -11,6 +11,6 @@ Motion Prompt #123
 - 그림자는 높을수록 작고 옅어진다. 퇴장: 1.95–2.25초에 크기에 (1 − backIn(s = 2))를 곱해 사라지게 한다.
 쓰임새: 물건이 떨어져 착지하는 장면에. 아이콘, 글자, 상품을 무게감과 탄력이 느껴지게 놓고 싶을 때.
 
-참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://showheyohtaki.github.io/motion-prompt/api/v1/ko/e/123.txt
-공통 보조 코드: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+참고 구현 (Canvas 2D, 시각만으로 그림이 정해지는 함수): https://bbq-man.github.io/motion-prompt-kor/api/v1/ko/e/123.txt
+공통 보조 코드: https://bbq-man.github.io/motion-prompt-kor/api/v1/kit/motion2.js
 참고 구현의 형태·타이밍·이징 수치는 그대로 쓰고, 안의 글자·색·소재만 지금 만들고 있는 것에 맞춰 바꿔 주세요.
