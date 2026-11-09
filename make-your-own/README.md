@@ -1,6 +1,6 @@
 # Make your own
 
-**English** | [日本語](README.ja.md)
+**English** | [日本語](README.ja.md) | [한국어](README.ko.md)
 
 Prompts, a render script and two finished examples for making a "names" set of your own: 3 looping videos of 8 cards each, where every card is a small animation that shows what one name means, plus a one-page cheat-sheet image.
 
@@ -9,7 +9,7 @@ You can make it for your own field, in your own language, with your own look.
 | | Camera moves (`examples/camera-moves/`) | Motion graphics (`examples/motion-graphics/`) |
 |---|---|---|
 | Look | light gray, one blue, pictogram style | dark navy cards, four colors |
-| Languages | English, Japanese | Japanese |
+| Languages | English, Japanese, Korean | Japanese |
 | | ![Camera moves 01–08](../assets/preview-camera.gif) | ![Motion graphics 01–08](../assets/preview-motion.gif) |
 
 The bundled videos and cheat sheets are the ones that were posted, so they keep the wording used at the time (for example, the Japanese name of 10 is 手持ち風). The name lists in [`packs/`](../packs/README.md) now say 手持ち.
@@ -19,11 +19,12 @@ The two examples look different on purpose. This is not a template for one style
 ## What is in here
 
 ```
-prompts/en, prompts/ja      copy-and-paste prompts for a coding AI / an image AI
+prompts/en, prompts/ja, prompts/ko   copy-and-paste prompts for a coding AI / an image AI
 render.mjs                  HTML -> mp4 (Playwright + ffmpeg)
 examples/camera-moves/
   en/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4  cheatsheet.png
   ja/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4  cheatsheet.png
+  ko/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4   (no cheatsheet.png)
 examples/motion-graphics/
   ja/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4  cheatsheet.png  cheatsheet-prompt.md
 ```

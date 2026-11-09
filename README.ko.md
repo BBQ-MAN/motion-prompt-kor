@@ -103,9 +103,9 @@ Slow dolly in toward her face; move the camera, do not zoom.
 
 | 목표 | 프롬프트 |
 |---|---|
-| 같은 영상을 다른 언어로 만들기 | [`01-translate.md`](make-your-own/prompts/en/01-translate.md) |
-| 자기 분야의 이름을 원하는 스타일로 만들기 | [`02-your-own-field.md`](make-your-own/prompts/en/02-your-own-field.md) |
-| 한 장짜리 치트시트 이미지 만들기 | [`03-cheatsheet-image.md`](make-your-own/prompts/en/03-cheatsheet-image.md) |
+| 같은 영상을 다른 언어로 만들기 | [`01-translate.md`](make-your-own/prompts/ko/01-translate.md) |
+| 자기 분야의 이름을 원하는 스타일로 만들기 | [`02-your-own-field.md`](make-your-own/prompts/ko/02-your-own-field.md) |
+| 한 장짜리 치트시트 이미지 만들기 | [`03-cheatsheet-image.md`](make-your-own/prompts/ko/03-cheatsheet-image.md) |
 
 영상 분야가 아니어도 됩니다. 조명, 사운드, UI, 사진, 요리, 건축 등 이름을 알아야 원하는 것을 요청할 수 있는 분야라면 어디든 만들 수 있습니다.
 

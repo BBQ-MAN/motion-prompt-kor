@@ -1,6 +1,6 @@
 # 自分の版を作る
 
-[English](README.md) | **日本語**
+[English](README.md) | **日本語** | [한국어](README.ko.md)
 
 自分の「名前の見本」を作るための、プロンプト・書き出しスクリプト・完成した見本2つです。できあがるのは、8枚のカードが動く動画3本（カード1枚が、名前1つの意味を見せる小さなアニメーション）と、1枚の早見表の画像です。
 
@@ -9,7 +9,7 @@
 | | カメラワーク（`examples/camera-moves/`） | モーショングラフィックス（`examples/motion-graphics/`） |
 |---|---|---|
 | 見た目 | 薄いグレーに青1色、ピクトグラム風 | 濃紺のカードに4色 |
-| 言語 | 英語、日本語 | 日本語 |
+| 言語 | 英語、日本語、韓国語 | 日本語 |
 | | ![カメラワーク 01–08](../assets/preview-camera.gif) | ![モーショングラフィックス 01–08](../assets/preview-motion.gif) |
 
 同梱の動画と早見表は投稿した物なので、表記は投稿時のままです（例: 10 手持ち風）。[`packs/`](../packs/README.md) の名前の一覧では「手持ち」にしています。
@@ -19,11 +19,12 @@
 ## 入っているもの
 
 ```
-prompts/en, prompts/ja      コーディングAI・画像生成AIに貼るプロンプト
+prompts/en, prompts/ja, prompts/ko   コーディングAI・画像生成AIに貼るプロンプト
 render.mjs                  HTML → mp4（Playwright + ffmpeg）
 examples/camera-moves/
   en/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4  cheatsheet.png
   ja/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4  cheatsheet.png
+  ko/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4   (cheatsheet.png なし)
 examples/motion-graphics/
   ja/  index.html  video-1of3.mp4  video-2of3.mp4  video-3of3.mp4  cheatsheet.png  cheatsheet-prompt.md
 ```
